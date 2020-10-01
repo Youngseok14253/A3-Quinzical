@@ -27,20 +27,34 @@ public class Main extends Application implements EventHandler<ActionEvent>{
 	public void start(Stage primaryStage) {	
 		primaryStage.setTitle("Quinzical");
 		        
-        btnPractice = new Button();
-        btnPractice.setText("               Practice");
+        //btnPractice = new Button();
+        //btnPractice.setText("               Practice");
         
-        btnGame = new Button();
-        btnGame.setText("Game");
+        //btnGame = new Button();
+        //btnGame.setText("Game");
         
-        btnGame.setOnAction(this);
-        btnPractice.setOnAction(this);
+        //btnGame.setOnAction(this);
+        //btnPractice.setOnAction(this);
+            HBox hbox = new HBox();
+            hbox.setPadding(new Insets(15, 12, 15, 12));
+            hbox.setSpacing(10);
+            hbox.setStyle("-fx-background-color: #336699;");
+
+            Button btnGame = new Button("Game");
+            btnGame.setPrefSize(100, 20);
+
+            Button btnPractice = new Button("Practice");
+            btnPractice.setPrefSize(100, 20);
+            hbox.getChildren().addAll(btnGame, btnPractice);
+            btnGame.setOnAction(this);
+            btnPractice.setOnAction(this);
+
         
-        StackPane layout = new StackPane();
-        layout.getChildren().add(btnPractice);
-        layout.getChildren().add(btnGame);
+        //StackPane layout = new StackPane();
+        //layout.getChildren().add(btnPractice);
+        //layout.getChildren().add(btnGame);
         
-		Scene scene = new Scene(layout,500,400);
+		Scene scene = new Scene(hbox,500,400);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
