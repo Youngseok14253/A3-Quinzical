@@ -85,24 +85,45 @@ public class Main extends Application{
 		gameGrid.setPadding(new Insets(10,10,10,10));
 		gameGrid.setVgap(8);
 		gameGrid.setHgap(10);
+
 		Label nameLabel= new Label("Please enter a nickname:");
 		GridPane.setConstraints(nameLabel,0,0);
 
-		Label passLabel= new Label("Password: ");
-		GridPane.setConstraints(passLabel,0,1);
+		//Label passLabel= new Label("Password: ");
+		//GridPane.setConstraints(passLabel,0,1);
 
 		TextField nameInput= new TextField("Daniel Lee");
 		GridPane.setConstraints(nameInput, 1, 0);
 
-		TextField passInput = new TextField();
-		passInput.setPromptText("password");
-		GridPane.setConstraints(passInput, 1,1);
+		//TextField passInput = new TextField();
+		//passInput.setPromptText("password");
+		//GridPane.setConstraints(passInput, 1,1);
 
-		Button loginButton= new Button("Log In");
-		GridPane.setConstraints(loginButton, 1, 2);
+		//Button loginButton= new Button("Log In");
+		//GridPane.setConstraints(loginButton, 1, 2);
+		
+		Button Category1 = new Button("Category 1");
+		GridPane.setConstraints(Category1, 1, 1);
+		Category1.setPrefSize(200, 40);
+		
+		Button Category2 = new Button("Category 2");
+		GridPane.setConstraints(Category2, 1, 2);
+		Category2.setPrefSize(200, 40);
+		
+		Button Category3 = new Button("Category 3");
+		GridPane.setConstraints(Category3, 1, 3);
+		Category3.setPrefSize(200, 40);
+		
+		Button Category4 = new Button("Category 4");
+		GridPane.setConstraints(Category4, 1, 4);
+		Category4.setPrefSize(200, 40);
+		
+		Button Category5 = new Button("Category 5");
+		GridPane.setConstraints(Category5, 1, 5);
+		Category5.setPrefSize(200, 40);
 
-		gameGrid.getChildren().addAll(nameLabel, nameInput, passLabel, passInput, loginButton);
-		gameScene= new Scene(gameGrid, 500,200);
+		gameGrid.getChildren().addAll(nameLabel, nameInput, Category1, Category2, Category3, Category4, Category5);
+		gameScene= new Scene(gameGrid, 400,300);
 		program.setScene(gameScene);
 
 
@@ -191,6 +212,6 @@ public class Main extends Application{
         
 
 
-	    //launch(args);
+	    launch(args);
 	}
 }
