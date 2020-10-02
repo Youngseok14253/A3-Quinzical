@@ -15,43 +15,53 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-
+import javafx.stage.WindowEvent;
 import javafx.event.EventHandler;
 import javafx.event.ActionEvent;
 
 public class Main extends Application{
 
 	Scene mainScene, gameScene, practiceScene;
+	Stage program;
 
 	@Override
 	public void start(Stage primaryStage) {	
-		
+		program= primaryStage;
 		Label label1= new Label("Welcome to Quinzical! Please select one of the three options to continue.");
 
-		Button btnMainToGame= new Button("main menu button to game scene");
+		Button btnMainToGame= new Button("Play");
 		btnMainToGame.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				primaryStage.setScene(gameScene);
+				program.setScene(gameScene);
 			}
 		});
-		Button btnMainToPractice= new Button("main menu button to practice scene");
+		Button btnMainToPractice= new Button("Practice Mode");
 		btnMainToPractice.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				primaryStage.setScene(practiceScene);
+				program.setScene(practiceScene);
 			}
 		});
-		Button btnMainToExit= new Button("main menu button to exit scene");
+		Button btnMainToExit= new Button("Quit");
 		btnMainToExit.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				Platform.exit();
+				closeProgram();
+			}
+		});
+		program.setOnCloseRequest(new EventHandler<WindowEvent>() {
+			
+			@Override
+			public void handle(WindowEvent event) {
+				event.consume();
+				closeProgram();
+				
 			}
 		});
 		//mainScene layout with VBox
 		VBox mainLayout= new VBox(20);
-		mainLayout.getChildren().addAll(label1, btnMainToPractice, btnMainToGame, btnMainToExit);
+		mainLayout.getChildren().addAll(label1, btnMainToGame, btnMainToPractice, btnMainToExit);
 		mainScene= new Scene(mainLayout, 500,400);
 		
 		//Making btnGame
@@ -59,7 +69,7 @@ public class Main extends Application{
 		btnGame.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				primaryStage.setScene(mainScene);
+				program.setScene(mainScene);
 			}
 		});
 		//gameScene layout with StackPane
@@ -72,7 +82,7 @@ public class Main extends Application{
 		btnPractice.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				primaryStage.setScene(mainScene);
+				program.setScene(mainScene);
 			}
 		});
 		//practiceScene layout with StackPane
@@ -80,11 +90,16 @@ public class Main extends Application{
 		layout3.getChildren().add(btnPractice);
 		practiceScene= new Scene(layout3, 600,300);
 
-		primaryStage.setScene(mainScene);
-		primaryStage.setTitle("Quinzical");
-		primaryStage.show();
+		program.setScene(mainScene);
+		program.setTitle("Quinzical");
+		program.show();
 	}
-
+	private void closeProgram() {
+		Boolean answer= ConfirmBox.display("Quit", "Are you sure you want to exit?");
+		if(answer) {
+			program.close();
+		}
+	}
 
 
 	public static void main(String[] args) {
