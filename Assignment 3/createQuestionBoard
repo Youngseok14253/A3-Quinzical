@@ -1,10 +1,10 @@
 #! /bin/bash
 
 echo "Hello"
-if [[ $(find . -name FormattedQuestions) ]]
+if [[ $(find . -name FormattedQuestions.txt) ]]
 then
     echo "Found"
 else
-    cat QuestionBank >> FormattedQuestions
+    cat QuestionBank.txt >> FormattedQuestions.txt
     echo "Created copy of Questions."
 fi
