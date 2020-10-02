@@ -87,10 +87,10 @@ public class Main extends Application{
 		
 		
 		//gameScene layout with GridPane
-		GridPane grid= new GridPane();
-		grid.setPadding(new Insets(10,10,10,10));
-		grid.setVgap(8);
-		grid.setHgap(10);
+		GridPane gameGrid= new GridPane();
+		gameGrid.setPadding(new Insets(10,10,10,10));
+		gameGrid.setVgap(8);
+		gameGrid.setHgap(10);
 		Label nameLabel= new Label("Username:");
 		GridPane.setConstraints(nameLabel,0,0);
 		
@@ -107,8 +107,8 @@ public class Main extends Application{
 		Button loginButton= new Button("Log In");
 		GridPane.setConstraints(loginButton, 1, 2);
 		
-		grid.getChildren().addAll(nameLabel, nameInput, passLabel, passInput, loginButton);
-		gameScene= new Scene(grid, 300,200);
+		gameGrid.getChildren().addAll(nameLabel, nameInput, passLabel, passInput, loginButton);
+		gameScene= new Scene(gameGrid, 300,200);
 		program.setScene(gameScene);
 		
 		
@@ -122,13 +122,33 @@ public class Main extends Application{
 		});
 		
 		
-		//practiceScene layout with StackPane
-		StackPane layout3= new StackPane();
-		layout3.getChildren().add(btnPractice);
-		practiceScene= new Scene(layout3, 600,300);
+		//practiceScene layout with GridPane
+		GridPane practiceGrid= new GridPane();
+		practiceGrid.setPadding(new Insets(10,10,10,10));
+		practiceGrid.setVgap(8);
+		practiceGrid.setHgap(10);
+		Label answerLabel= new Label("Answer:");
+		GridPane.setConstraints(answerLabel,0,0);
+		
+		TextField answerField= new TextField();
+		answerField.setPromptText("answer here");
+		
+		Button submitButton= new Button("Submit");
+		GridPane.setConstraints(submitButton, 1, 1);
+		
+		submitButton.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				isInt(answerField, answerField.getText());
+			}
+		});
+		
+		GridPane.setConstraints(answerField,1,0);
+		practiceGrid.getChildren().addAll(answerLabel, answerField, submitButton);
+		practiceScene= new Scene(practiceGrid, 300,200);
+		program.setScene(practiceScene);
+		
 		program.setScene(mainScene);
-		
-		
 		program.setTitle("Quinzical");
 		program.show();
 	}
@@ -137,6 +157,17 @@ public class Main extends Application{
 		Boolean answer= ConfirmBox.display("Quit", "Are you sure you want to exit?");
 		if(answer) {
 			program.close();
+		}
+	}
+	
+	private boolean isInt(TextField input, String message) {
+		try {
+			int age = Integer.parseInt(input.getText());
+			System.out.println("User is " +age);
+			return true;
+		}catch (NumberFormatException e) {
+			System.out.println(message+ "is not a number");
+			return false;
 		}
 	}
 
