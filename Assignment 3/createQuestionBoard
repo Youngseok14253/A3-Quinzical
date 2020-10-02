@@ -1,0 +1,10 @@
+#! /bin/bash
+
+echo "Hello"
+if [[ $(find . -name copyOfQuestionBoard) ]]
+then
+    echo "Found"
+else
+    cat QuestionBank >> FormattedQuestions
+    echo "Created copy of Questions."
+fi

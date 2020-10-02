@@ -21,6 +21,7 @@ import javafx.event.EventHandler;
 import javafx.event.ActionEvent;
 
 import java.io.*;
+import java.lang.reflect.Field;
 
 public class Main extends Application{
 
@@ -159,25 +160,37 @@ public class Main extends Application{
 	public static void main(String[] args) {
 
 		System.out.println(System.getProperty("user.dir"));
+        
+		try {
+			String command = "bash createQuestionBoard";
+			ProcessBuilder pb = new ProcessBuilder("bash", "-c", command);
 
-		File file = new File("QuestionBank.txt");
-		
-	    try {
-	        String path = file.getAbsolutePath();
-	        System.out.println(path);
-	        BufferedReader reader = new BufferedReader(new FileReader(path));
-	        String line = reader.readLine();
-	        while(line != null) {
-	            System.out.println(line);
-	            line = reader.readLine();
-	            }
-	        reader.close();
-	    }catch(FileNotFoundException e) {
-	    System.out.println("File not found");
-	    }catch(IOException e) {
-	    System.out.println("SOmething went wrong");
-	    }
+			Process process = pb.start();
+
+			BufferedReader stdout = new BufferedReader(new InputStreamReader(process.getInputStream()));
+			BufferedReader stderr = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+			
+			int exitStatus = process.waitFor();
+			
+			if (exitStatus == 0) {
+				String line;
+				while ((line = stdout.readLine()) != null) {
+					System.out.println(line);
+				}
+			} else {
+				String line;
+				while ((line = stderr.readLine()) != null) {
+					System.err.println(line);
+				}
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+        
+        
 
 
-}
+	    //launch(args);
+	}
 }
