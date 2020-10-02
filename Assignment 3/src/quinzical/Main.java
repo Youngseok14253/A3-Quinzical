@@ -76,17 +76,8 @@ public class Main extends Application{
 		mainScene= new Scene(mainLayout, 500,400);
 		
 		
-		//Making btnGame
-		Button btnGame= new Button("game button to main scene");
-		btnGame.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				program.setScene(mainScene);
-			}
-		});
 		
-		
-		//gameScene layout with GridPane
+		//gameScene layout with GridPane WE NEED TO CHANGE THIS TO FORMAT THE QUESTION BANK AND MONEY 
 		GridPane gameGrid= new GridPane();
 		gameGrid.setPadding(new Insets(10,10,10,10));
 		gameGrid.setVgap(8);
@@ -111,15 +102,6 @@ public class Main extends Application{
 		gameScene= new Scene(gameGrid, 300,200);
 		program.setScene(gameScene);
 		
-		
-		//Making btnPractice
-		Button btnPractice= new Button("practice button to main scene");
-		btnPractice.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				program.setScene(mainScene);
-			}
-		});
 		
 		
 		//practiceScene layout with GridPane
@@ -160,7 +142,7 @@ public class Main extends Application{
 		}
 	}
 	
-	private boolean isInt(TextField input, String message) {
+	private boolean isInt(TextField input, String message) { //WE NEED TO CHANGE THIS TO MAKE IT VALIDATE THE INPUT AND THE CORRECT ANSWER
 		try {
 			int age = Integer.parseInt(input.getText());
 			System.out.println("User is " +age);
