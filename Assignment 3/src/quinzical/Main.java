@@ -8,7 +8,11 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -22,6 +26,8 @@ import javafx.event.ActionEvent;
 
 import java.io.*;
 import java.lang.reflect.Field;
+
+import javafx.scene.*;
 
 public class Main extends Application{
 
@@ -125,8 +131,26 @@ public class Main extends Application{
 		gameGrid.getChildren().addAll(nameLabel, nameInput, Category1, Category2, Category3, Category4, Category5);
 		gameScene= new Scene(gameGrid, 400,300);
 		program.setScene(gameScene);
-
-
+		
+		//Adjusting speed of Text-to-Speech
+		Menu playbackMenu = new Menu("Playback Speed");
+		ToggleGroup playbackSpeed = new ToggleGroup();
+		
+		RadioMenuItem halfSpeed = new RadioMenuItem("x0.50");
+		RadioMenuItem slowSpeed = new RadioMenuItem("x0.75");
+		RadioMenuItem normalSpeed = new RadioMenuItem("x1.00");
+		RadioMenuItem quickSpeed = new RadioMenuItem("x1.50");
+		RadioMenuItem fastSpeed = new RadioMenuItem("x1.75");
+		RadioMenuItem doubleSpeed = new RadioMenuItem("x2.00");
+		
+		halfSpeed.setToggleGroup(playbackSpeed);
+		slowSpeed.setToggleGroup(playbackSpeed);
+		normalSpeed.setToggleGroup(playbackSpeed);
+		quickSpeed.setToggleGroup(playbackSpeed);
+		fastSpeed.setToggleGroup(playbackSpeed);
+		doubleSpeed.setToggleGroup(playbackSpeed);
+		
+		playbackMenu.getItems().addAll(halfSpeed, slowSpeed, normalSpeed, quickSpeed, fastSpeed, doubleSpeed);
 
 		//practiceScene layout with GridPane
 		GridPane practiceGrid= new GridPane();
