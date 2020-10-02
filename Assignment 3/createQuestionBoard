@@ -1,7 +1,7 @@
 #! /bin/bash
 
 echo "Hello"
-if [[ $(find . -name copyOfQuestionBoard) ]]
+if [[ $(find . -name FormattedQuestions) ]]
 then
     echo "Found"
 else
