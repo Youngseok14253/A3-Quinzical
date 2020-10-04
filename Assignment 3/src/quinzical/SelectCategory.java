@@ -43,9 +43,19 @@ public class SelectCategory {
 		
 		
 		Label label = new Label();
-		String question = new String();
-		question= getQuestion.displayQuestion(categoryName);
+		String qAndA = new String();
+		qAndA= getQuestion.displayQuestion(categoryName);
+		
+		String[] arrQAndA= qAndA.split("@",3);
+		String question = arrQAndA[0];
+		String answer= arrQAndA[2];
+		String what= arrQAndA[1];
 		label.setText(question);
+		
+		TextField answerField= new TextField();
+		Button submitButton = new Button("Submit");
+		
+		
 
 		MenuBar menuBar = new MenuBar();
 		menuBar.getMenus().addAll(playbackMenu);
@@ -55,7 +65,7 @@ public class SelectCategory {
 		
 		VBox layout = new VBox(menuBar);
 		
-		layout.getChildren().addAll(label, closeButton);
+		layout.getChildren().addAll(label,answerField,submitButton, closeButton);
 		
 		
 		//need to position individual nodes in VBox

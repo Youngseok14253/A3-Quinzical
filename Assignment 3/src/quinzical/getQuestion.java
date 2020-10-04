@@ -76,11 +76,7 @@ public class getQuestion {
 				while ((line = stderr.readLine()) != null) {
 					System.err.println(line);
 				}
-			}
-			System.out.println("should be called");
-			System.out.println(global);
-			System.out.println("called");
-			
+			}			
 			
 			
 		} catch (Exception e) {
