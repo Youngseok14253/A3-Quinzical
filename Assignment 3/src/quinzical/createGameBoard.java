@@ -75,7 +75,7 @@ public class createGameBoard{
 		gameGrid.getChildren().addAll(nameLabel, nameInput, Category1, Category2, Category3, Category4, Category5);
 		Scene scene= new Scene(gameGrid, 400,300);
 		window.setScene(scene);
-		window.setTitle("Testtt");
+		window.setTitle("Game Mode");
 		window.initModality(Modality.APPLICATION_MODAL);
 		window.showAndWait();
 	}

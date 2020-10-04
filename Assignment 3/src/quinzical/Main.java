@@ -53,7 +53,7 @@ public class Main extends Application{
 		btnMainToPractice.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				program.setScene(practiceScene);
+				createPracticeBoard.displayPracticeBoard();
 			}
 		});
 
@@ -82,13 +82,7 @@ public class Main extends Application{
 		//mainScene layout with VBox
 		VBox mainLayout= new VBox(20);
 		mainLayout.getChildren().addAll(label1, btnMainToGame, btnMainToPractice, btnMainToExit);
-		mainScene= new Scene(mainLayout, 500,400);
-
-
-
-		//gameScene layout with GridPane WE NEED TO CHANGE THIS TO FORMAT THE QUESTION BANK AND MONEY 
-		
-		
+		mainScene= new Scene(mainLayout, 500,400);		
 		
 		
 		//Adjusting speed of Text-to-Speech
@@ -111,32 +105,6 @@ public class Main extends Application{
 		
 		playbackMenu.getItems().addAll(halfSpeed, slowSpeed, normalSpeed, quickSpeed, fastSpeed, doubleSpeed);
 
-		//practiceScene layout with GridPane
-		GridPane practiceGrid= new GridPane();
-		practiceGrid.setPadding(new Insets(10,10,10,10));
-		practiceGrid.setVgap(8);
-		practiceGrid.setHgap(10);
-		Label answerLabel= new Label("Answer:");
-		GridPane.setConstraints(answerLabel,0,0);
-
-		TextField answerField= new TextField();
-		answerField.setPromptText("answer here");
-
-		Button submitButton= new Button("Submit");
-		GridPane.setConstraints(submitButton, 1, 1);
-
-		submitButton.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				isInt(answerField, answerField.getText());
-			}
-		});
-
-		GridPane.setConstraints(answerField,1,0);
-		practiceGrid.getChildren().addAll(answerLabel, answerField, submitButton);
-		practiceScene= new Scene(practiceGrid, 300,200);
-		program.setScene(practiceScene);
-
 		program.setScene(mainScene);
 		program.setTitle("Quinzical");
 		program.show();
@@ -148,18 +116,6 @@ public class Main extends Application{
 			program.close();
 		}
 	}
-
-	private boolean isInt(TextField input, String message) { //WE NEED TO CHANGE THIS TO MAKE IT VALIDATE THE INPUT AND THE CORRECT ANSWER
-		try {
-			int age = Integer.parseInt(input.getText());
-			System.out.println("User is " +age);
-			return true;
-		}catch (NumberFormatException e) {
-			System.out.println(message+ "is not a number");
-			return false;
-		}
-	}
-
 
 	public static void main(String[] args) {
 

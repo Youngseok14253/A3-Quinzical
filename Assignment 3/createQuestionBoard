@@ -1,6 +1,7 @@
 #! /bin/bash
 
 echo "Hello"
+grep 'Places' FormattedQuestions.txt |cut -d'|' -f1
 if [[ $(find . -name FormattedQuestions.txt) ]]
 then
     echo "Found"
