@@ -43,7 +43,7 @@ public class SelectCategory {
 		MenuBar menuBar = new MenuBar();
 		menuBar.getMenus().addAll(playbackMenu);
 		
-		Button closeButton = new Button("close the window");
+		Button closeButton = new Button("Return");
 		closeButton.setOnAction(e -> window.close());
 		
 		VBox layout = new VBox(menuBar);

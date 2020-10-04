@@ -10,7 +10,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class createPracticeBoard {
-		
+
 	public static void displayPracticeBoard() {
 		GridPane gameGrid= new GridPane();
 		gameGrid.setPadding(new Insets(10,10,10,10));
@@ -27,7 +27,10 @@ public class createPracticeBoard {
 		String catName1 = Category1.getText();
 		System.out.println(catName1);
 
-		Category1.setOnAction(e -> System.out.println("selected places"));
+		Category1.setOnAction(e -> {
+			SelectCategory.displayQuestion(catName1);
+		}
+				);
 
 		Button Category2 = new Button("Symbols");
 		GridPane.setConstraints(Category2, 1, 2);
@@ -36,7 +39,6 @@ public class createPracticeBoard {
 		System.out.println(catName2);
 
 		Category2.setOnAction(e -> {
-			System.out.println("selected symbols");
 			SelectCategory.displayQuestion(catName2);
 		}
 				);
@@ -47,7 +49,10 @@ public class createPracticeBoard {
 		String catName3 = Category3.getText();
 		System.out.println(catName3);
 
-		Category3.setOnAction(e -> System.out.println("selected gepography"));
+		Category3.setOnAction(e -> {
+			SelectCategory.displayQuestion(catName3);
+		}
+				);
 
 		Button Category4 = new Button("History");
 		GridPane.setConstraints(Category4, 1, 4);
@@ -55,7 +60,10 @@ public class createPracticeBoard {
 		String catName4 = Category4.getText();
 		System.out.println(catName4);
 
-		Category4.setOnAction(e -> System.out.println("selected histroy"));
+		Category4.setOnAction(e -> {
+			SelectCategory.displayQuestion(catName4);
+		}
+				);
 
 		Button Category5 = new Button("Famous People");
 		GridPane.setConstraints(Category5, 0, 1);
@@ -63,40 +71,56 @@ public class createPracticeBoard {
 		String catName5 = Category5.getText();
 		System.out.println(catName5);
 
-		Category5.setOnAction(e -> System.out.println("selected famouys peple"));
-		
+		Category5.setOnAction(e -> {
+			SelectCategory.displayQuestion(catName5);
+		}
+				);
+
 		Button Category6 = new Button("NZ Life");
 		GridPane.setConstraints(Category6, 0, 2);
 		Category6.setPrefSize(200, 40);
 		String catName6 = Category6.getText();
 		System.out.println(catName6);
 
-		Category6.setOnAction(e -> System.out.println("selected nz lfie"));
-		
+		Category6.setOnAction(e -> {
+			SelectCategory.displayQuestion(catName6);
+		}
+				);
+
 		Button Category7 = new Button("Flora");
 		GridPane.setConstraints(Category7, 0, 3);
 		Category7.setPrefSize(200, 40);
 		String catName7 = Category7.getText();
 		System.out.println(catName7);
 
-		Category7.setOnAction(e -> System.out.println("selected flora"));
 		
+		Category7.setOnAction(e -> {
+			SelectCategory.displayQuestion(catName7);
+		}
+				);
+
 		Button Category8 = new Button("Fauna");
 		GridPane.setConstraints(Category8, 0, 4);
 		Category8.setPrefSize(200, 40);
 		String catName8 = Category8.getText();
 		System.out.println(catName8);
 
-		Category8.setOnAction(e -> System.out.println("selected fauna"));
-		
+		Category8.setOnAction(e -> {
+			SelectCategory.displayQuestion(catName8);
+		}
+				);
+
 		Button Category9 = new Button("Oddities");
 		GridPane.setConstraints(Category9, 0, 5);
 		Category9.setPrefSize(200, 40);
 		String catName9 = Category9.getText();
 		System.out.println(catName9);
 
-		Category9.setOnAction(e -> System.out.println("selected oddities"));
-		
+		Category9.setOnAction(e -> {
+			SelectCategory.displayQuestion(catName9);
+		}
+				);
+
 		Stage window = new Stage();
 
 		gameGrid.getChildren().addAll(Category, Category1, Category2, Category3, Category4, Category5, Category6, Category7, Category8, Category9);
@@ -105,5 +129,5 @@ public class createPracticeBoard {
 		window.setTitle("Practice Mode");
 		window.initModality(Modality.APPLICATION_MODAL);
 		window.showAndWait();
-	}
+}
 }

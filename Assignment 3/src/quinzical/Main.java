@@ -5,6 +5,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -37,10 +38,13 @@ public class Main extends Application{
 	@Override
 	public void start(Stage primaryStage) {	
 		program= primaryStage;
-		Label label1= new Label("Welcome to Quinzical! Please select one of the three options to continue.");
+		Label label1= new Label("Welcome to Quinzical!");
+		GridPane.setConstraints(label1, 1, 0);
 
 		//Play button on main menu
 		Button btnMainToGame= new Button("Play");
+		GridPane.setConstraints(btnMainToGame, 1, 1);
+		btnMainToGame.setMinSize(300,100);
 		btnMainToGame.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -50,6 +54,8 @@ public class Main extends Application{
 
 		//Practice button on main menu
 		Button btnMainToPractice= new Button("Practice Mode");
+		GridPane.setConstraints(btnMainToPractice, 1, 2);
+		btnMainToPractice.setMinSize(300, 100);
 		btnMainToPractice.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -59,6 +65,8 @@ public class Main extends Application{
 
 		//Exit button on main menu
 		Button btnMainToExit= new Button("Quit");
+		GridPane.setConstraints(btnMainToExit, 1, 3);
+		btnMainToExit.setMinSize(300, 100);
 		btnMainToExit.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -79,8 +87,12 @@ public class Main extends Application{
 		});
 
 
-		//mainScene layout with VBox
-		VBox mainLayout= new VBox(20);
+		//mainScene layout with GridPane
+		//VBox mainLayout= new VBox(20);
+		GridPane mainLayout= new GridPane();
+		mainLayout.setPadding(new Insets(10,10,10,10));
+		mainLayout.setVgap(8);
+		mainLayout.setHgap(10);
 		mainLayout.getChildren().addAll(label1, btnMainToGame, btnMainToPractice, btnMainToExit);
 		mainScene= new Scene(mainLayout, 500,400);		
 		
@@ -106,6 +118,7 @@ public class Main extends Application{
 		playbackMenu.getItems().addAll(halfSpeed, slowSpeed, normalSpeed, quickSpeed, fastSpeed, doubleSpeed);
 
 		program.setScene(mainScene);
+		mainScene.getStylesheets().add(getClass().getResource("mainMenu.css").toExternalForm());
 		program.setTitle("Quinzical");
 		program.show();
 	}
