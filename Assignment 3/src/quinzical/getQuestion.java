@@ -11,42 +11,45 @@ import java.util.List;
 public class getQuestion {
 	public static String displayQuestion(String category) {
 		
+		System.out.println("in displayQuestions" + category);
+		
 		int categoryNum = 0;
 		int lineNum = 0;
 		
-		if (category== "Places") {
+		if (category.equals("Places")) {
+			System.out.println("yes it matches places");
 			categoryNum = 1;
 			lineNum = 13;
 		}
-		else if (category== "Symbols") {
+		else if (category.equals("Symbols")) {
 			categoryNum = 2;
 			lineNum = 8;
 		}
-		else if (category== "Geography") {
+		else if (category.equals("Geography")) {
 			categoryNum = 3;
 			lineNum = 12;
 		}
-		else if (category== "History") {
+		else if (category.equals("History")) {
 			categoryNum = 4;
 			lineNum = 9;
 		}
-		else if (category== "Famous People") {
+		else if (category.equals("Famous People")) {
 			categoryNum = 5;
 			lineNum = 9;
 		}
-		else if (category== "NZ Life") {
+		else if (category.equals("NZ Life")) {
 			categoryNum = 6;
 			lineNum = 7;
 		}
-		else if (category== "Flora") {
+		else if (category.equals("Flora")) {
 			categoryNum = 7;
 			lineNum = 10;
 		}
-		else if (category== "Fauna") {
+		else if (category.equals("Fauna")) {
 			categoryNum = 8;
 			lineNum = 18;
 		}
-		else if (category== "Oddities") {
+		else if (category.equals("Oddities")) {
 			categoryNum = 9;
 			lineNum = 8;
 		}
