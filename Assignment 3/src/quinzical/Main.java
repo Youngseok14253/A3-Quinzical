@@ -135,7 +135,34 @@ public class Main extends Application{
 		System.out.println(System.getProperty("user.dir"));
         
 		try {
-			String command = "bash createQuestionBoard";
+			String command = "bash CreateCategories";
+			ProcessBuilder pb = new ProcessBuilder("bash", "-c", command);
+
+			Process process = pb.start();
+
+			BufferedReader stdout = new BufferedReader(new InputStreamReader(process.getInputStream()));
+			BufferedReader stderr = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+			
+			int exitStatus = process.waitFor();
+			
+			if (exitStatus == 0) {
+				String line;
+				while ((line = stdout.readLine()) != null) {
+					System.out.println(line);
+				}
+			} else {
+				String line;
+				while ((line = stderr.readLine()) != null) {
+					System.err.println(line);
+				}
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			String command = "ls";
 			ProcessBuilder pb = new ProcessBuilder("bash", "-c", command);
 
 			Process process = pb.start();

@@ -1,3 +1,4 @@
++
 Places
 This is the capital of New Zealand|what is|Wellington
 This is the Māori name for New Zealand|what is|Aotearoa
@@ -11,7 +12,8 @@ This is the most northern tip on the North Island|what is|Cape Reinga
 This is the most southern port in the South Island|what is|Bluff
 This city is nicknamed the Edinburgh of the South|what is|Dunedin
 The number of river systems that flow through either the North or South Island|what is|70/seventy
-*
++
++
 Symbols
 These are the colours on the New Zealand Flag in alphabetical order|what are|blue, red, white
 This is the number of stars on the New Zealand flag|what is|4/four
@@ -20,7 +22,8 @@ This plant is the national symbol of New Zealand|what is|silver fern
 These are the birds that New Zealanders are named after|who are|kiwi
 This is the flightless bird that features in the Royal New Zealand Air Force logo|what is|kiwi
 This is what the stars on the New Zealand flag represent|what is|Southern Cross
-*
++
++
 Geography
 This is the largest lake in New Zealand|what is|Taupo
 This is the highest mountain in New Zealand|what is|Mount Cook/Mount Aorangi/Mount Aoraki
@@ -33,7 +36,8 @@ This volcano in Auckland last erupted 20,000 years ago, and was the site of a ma
 This volcano emerged unexpectedly in the Hauraki gulf about 600 years ago|what is|Rangitoto/Rangitoto Island
 This is the largest active volcano in New Zealand|what is|Ruapehu/Mount Ruapehu
 This is the third largest island of New Zealand|what is|Stewart Island/Rakiura
-*
++
++
 History
 This is the name of the ship Captain Cook sailed on to New Zealand|what is|Endeavour
 This is the year the treaty of Waitangi was signed|what is|1840
@@ -43,7 +47,8 @@ This is the first person to step foot on New Zealand|who is|Kupe
 This city was the capital of New Zealand before it moved to Wellington|what is|Auckland
 The eruption from this volcano happened in 1886 and destroyed several villages|what is|Mount Tarawera
 On the 22 February 2011 a magnitude 6.3 earthquake hit this city|what is|Christchurch
-*
++
++
 Famous People
 This New Zealander was the first person to climb Mount Everest|who is|Edmund Hillary/Sir Edmund Hillary
 This New Zealander was the first person to split the atom|who is|Ernest Rutherford
@@ -53,7 +58,8 @@ This is what  Dame Kiri Te Kanawa was famous for|what is|opera/opera singing
 This New Zealander sung at the wedding of Prince Charles and Lady Diana|what is|Kiri Te Kanawa
 This New Zealand  had a worldwide hit with the song "Royal"|who is|Lorde
 This New Zealander led the 1975 land march from Te Hapua to Parliament|who is|Whina Cooper/Dame Whina Cooper
-*
++
++
 NZ Life
 This is the name for a traditional fenced Māori village|what is|pā
 This is the Māori word for stomach|what is|puku
@@ -61,7 +67,8 @@ This is the Māori word for sweet potato|what is|kumara
 This is the name of the underground method of cooking used in New Zealand|what is|hangi
 The New Zealand term for swimwear|what is|togs
 These shoes are called flip flops or thongs in other countries|what are|jandals
-*
++
++
 Flora
 This is the largest native tree in New Zealand|what is|kauri
 This well known fruit use to be called the Chinese Gooseberry|what is|kiwifruit
@@ -72,7 +79,8 @@ This is known as the New Zealand Christmas tree|what is|pōhutukawa
 This green vegetable is a traditional staple food of the Māori|what is|pūhā
 This is the plant that the Māori weaved into baskets|what is|flax/harakeke
 This introduced alga is a threat to New Zealand rivers and is known as rock snot|what is|didymo
-*
++
++
 Fauna
 This is New Zealand's mountain Parrot|what is|kea
 This is called a living dinosaur|what is|tuatara
@@ -91,7 +99,8 @@ This large flightless nocturnal parrot is one of New Zealand's most endangered b
 This common forest bird is known for its beautiful song, and distinctive white tuft under their throat|what is|tui
 This is the only poisonous Native spider in New Zealand|what is|katipō
 This grub chews up wood, and is edible|what is|huhu grub/huhu
-*
++
++
 Oddities
 What is the year the Government pledged New Zealand would be predator free|what is|2050
 This is the name of New Zealand Male Rugby Team|what is|All Blacks
@@ -100,3 +109,4 @@ This is the nationality of the inventors of the bobby pin, wide toothed shearing
 In 1990 New Zealand became the first country in the modern world to make this appointment|what is|Official National Wizard/National Wizard
 With more that 400, New Zealand has more of these per capita than any other country in the world|what are|golf courses
 The first record wholly produced in New Zealand from composition to pressing|what is|Blue Smoke
++

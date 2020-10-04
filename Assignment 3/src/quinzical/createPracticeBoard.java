@@ -16,6 +16,8 @@ public class createPracticeBoard {
 		gameGrid.setPadding(new Insets(10,10,10,10));
 		gameGrid.setVgap(8);
 		gameGrid.setHgap(10);
+		
+		//Use a for loop and ProcessBuilder to crate buttons depending on category number by Friday, but hard code for now
 
 		Label Category= new Label("Please select a category");
 		GridPane.setConstraints(Category,0,0);
