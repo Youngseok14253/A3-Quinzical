@@ -43,6 +43,7 @@ public class SelectCategory {
 		
 		
 		Label label = new Label();
+		Label warning= new Label("Do not include prefixes in your answer");
 		String qAndA = new String();
 		qAndA= getQuestion.displayQuestion(categoryName);
 		
@@ -54,6 +55,7 @@ public class SelectCategory {
 		
 		TextField answerField= new TextField();
 		Button submitButton = new Button("Submit");
+		submitButton.setOnAction(e -> compareAnswer.isAnswerPractice(answerField, answer));
 		
 		
 
@@ -65,7 +67,7 @@ public class SelectCategory {
 		
 		VBox layout = new VBox(menuBar);
 		
-		layout.getChildren().addAll(label,answerField,submitButton, closeButton);
+		layout.getChildren().addAll(label,warning,answerField,submitButton, closeButton);
 		
 		
 		//need to position individual nodes in VBox
@@ -79,5 +81,4 @@ public class SelectCategory {
 		window.showAndWait();
 		
 	}
-
 }
