@@ -41,8 +41,11 @@ public class SelectCategory {
 		window.setTitle(categoryName);
 		window.setMinWidth(400);
 		
+		
 		Label label = new Label();
-		label.setText("hewwo uwu");
+		String question = new String();
+		question= getQuestion.displayQuestion(categoryName);
+		label.setText(question);
 
 		MenuBar menuBar = new MenuBar();
 		menuBar.getMenus().addAll(playbackMenu);
