@@ -33,6 +33,7 @@ public class Main extends Application{
 		GridPane.setConstraints(label1, 1, 0);
 
 		//Play button on main menu
+		//check
 		Button btnMainToGame= new Button("Play");
 		GridPane.setConstraints(btnMainToGame, 1, 1);
 		btnMainToGame.setMinSize(300,100);
