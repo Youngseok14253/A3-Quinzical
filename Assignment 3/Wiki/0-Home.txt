@@ -1,0 +1,10 @@
+### Welcome to Team 39's Wiki Page!
+
+This is a journal containing entries that Daniel and Eugene thought to be important during our collaboration of Quinzical. 
+
+The title and number which follows the naming of markdown files are in terms of the commits, and can find them in our GitHub repository:
+[Quinzical-Team-39](https://github.com/Youngseok14253/A3-Quinzical.git)
+
+Note that the code is not completed.
+
+Enjoy!

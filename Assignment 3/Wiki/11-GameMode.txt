@@ -1,0 +1,5 @@
+### getQuestion for Game mode implemented (commit no. 40)
+
+Implemented a way so that _getQuestion_ can not only be used for Practice mode, but also for Game mode by creating a for loop 
+and assigning 5 buttons to random categories. There is a chance that two buttons could have the same category, so that should 
+be fixed with a simple _String[]_.

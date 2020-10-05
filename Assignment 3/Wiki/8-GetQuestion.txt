@@ -1,0 +1,5 @@
+### getquestion (commit no. 36)
+
+The method _getQuestion_ should have an input of the correct category, and if we are able to match it to the _category-*_ txt 
+file, then we can extract the relevant question/answer formats. Just hard coding for now, will implement another way to assign 
+integers later - right now all we're worried about are the _Strings_ matching the input.

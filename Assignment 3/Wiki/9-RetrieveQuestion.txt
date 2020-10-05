@@ -1,0 +1,5 @@
+### Retrieve Question from Category-* files (commit no. 37)
+
+_ProcessBuilder_ called again to call bash script _readQuestion_ - this takes an input of the category integer (assigned), 
+and with a random number reads out a random value which matches the line number of the category file. The question/answer 
+format is then returned. Finally, we can now access the txt files to grab the questions!

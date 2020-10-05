@@ -1,0 +1,5 @@
+### Created RadioMenu for adjusting TTS speed (commit no. 24)
+
+RadioMenu was the first MenuBar object that would have to be used in our _text-to-speech_ adjusting implementation, and part of 4/5 different 
+children for SelectCategory class - RadioMenu to adjust the _TTS_, the Question to be shown, where the answer is typed, 
+and a submit button. 

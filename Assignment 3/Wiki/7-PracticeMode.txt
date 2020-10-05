@@ -1,0 +1,5 @@
+### CreateCategories bash script formats categories properly (commit no. 34)
+
+A bash script that separates the QuestionBoard.txt into new txt files - the first Category (i.e **Places**) will be copied under 
+_Category-1_, second _Category-2_, etc. This will be useful as we can assign numbers to each category, and when we call the 
+questions/answers we can use _int_ instead of _String_ to save coding error.

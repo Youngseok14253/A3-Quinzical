@@ -1,0 +1,5 @@
+### trying out HBox instead of StackPane, can change back if needed (commit no. 9)
+
+While my repository was screwed, Daniel used his screen-share and we implemented a bunch of windows (up to commit no. 16) to 
+implement GridPane, StackPane, HBox, etc. for boxes which would should come up when the user presses a button. We're really 
+only interested in the barebones of the UI, so as long as a window pops up when we click a button, we're happy!

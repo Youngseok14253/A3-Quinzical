@@ -1,0 +1,4 @@
+### GameScene layout now has 5 formatted buttons (commit no. 22)
+
+From here, we're just trying to make some of the windows pretty and easily accessible for a test - we're looking into _.css_ files
+ and seeing how we could implement that, but for now just changing the size of the buttons and windows is enough.

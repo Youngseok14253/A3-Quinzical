@@ -1,0 +1,5 @@
+### Adding JavaFX (commit no. 6)
+
+There was a slight problem on my (Eugene's) Eclipse repository where my project could not detect the JavaFX library which was weird, 
+considering Daniel's pull from the repository seemed to work fine for him. We managed to fix it in the end by deleting the GitHub 
+repo from Eclipse, and re-cloning it back.

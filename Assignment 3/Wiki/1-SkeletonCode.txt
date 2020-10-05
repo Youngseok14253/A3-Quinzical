@@ -1,0 +1,6 @@
+### Skeleton Code (commit no. 5)
+
+So far, all of the commits we had done was to test Eclipse's inbuilt Commit/Push and Pull features on Daniel and my computers and make 
+sure it worked. 
+However, this is where the project really got started - this was my implementation of main using the **Scene Class**, which beat 
+Daniel's **FXML** version - effectively making the rest of the project implement Scene to create the **User Interface**. 

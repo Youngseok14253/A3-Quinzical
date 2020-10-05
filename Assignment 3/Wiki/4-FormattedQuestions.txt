@@ -1,0 +1,5 @@
+### Fixed issue where FormattedQuestions was not being copied properly (commit no. 21)
+
+This was our first attempt at using a ProcessBuilder to execute a bash file... After lots of fixes we finally managed to get the 
+script to clone a copy of the QuestionBank.txt! Now that we know the script works, instead of cloning it 
+(_which by itself is useless_) we can edit it and hopefully separate it into its respective categories.

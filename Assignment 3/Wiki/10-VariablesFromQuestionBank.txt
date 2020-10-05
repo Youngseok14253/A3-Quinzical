@@ -1,0 +1,4 @@
+### got 3 variables from QuestionBank, created class CompareAnswer (commit no. 39)
+
+We have now accessed the lines of the _txt_ file, and can separate each bit into its respective **question**, **what**, 
+and **answer**. We've put them into variables where we can use them to display and compare with user input.
