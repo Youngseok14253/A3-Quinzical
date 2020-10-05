@@ -16,7 +16,7 @@ public class createGameBoard{
 
 	public static void displayGameBoard() {
 		
-		//randonmly select 5 categories, and display them
+		//randomly select 5 categories, and display them
 		//
 
 		
@@ -39,7 +39,7 @@ public class createGameBoard{
 			
 			String global = "";
 			
-			String[] chosenCategories;
+			//String[] chosenCategories;
 			
 			int randNum = (int) (1 + (Math.random() * 8));			
 			

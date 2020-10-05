@@ -1,23 +1,15 @@
 package quinzical;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.List;
 
 public class getQuestion {
 	public static String displayQuestion(String category) {
-		
-		System.out.println("in displayQuestions" + category);
 		
 		int categoryNum = 0;
 		int lineNum = 0;
 		
 		if (category.equals("Places")) {
-			System.out.println("yes it matches places");
 			categoryNum = 1;
 			lineNum = 13;
 		}

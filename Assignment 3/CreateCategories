@@ -2,11 +2,10 @@
 
 if [[ $(find . -name Category-1) ]]
 then 
-	echo "Categories already created!"
+	:
 else
 	awk 'NR%2==0{ print > "Category-"++i }' RS='+' QuestionBank.txt
 
 	sed -i '/^$/d' Category-*
 
-	echo "Categories created!"
 fi

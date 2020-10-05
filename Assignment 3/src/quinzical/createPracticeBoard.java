@@ -4,7 +4,6 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -27,7 +26,6 @@ public class createPracticeBoard {
 		GridPane.setConstraints(Category1, 1, 1);
 		Category1.setPrefSize(200, 40);
 		String catName1 = Category1.getText();
-		System.out.println(catName1);
 
 		Category1.setOnAction(e -> {
 			SelectCategory.displayQuestion(catName1);
@@ -38,7 +36,6 @@ public class createPracticeBoard {
 		GridPane.setConstraints(Category2, 1, 2);
 		Category2.setPrefSize(200, 40);
 		String catName2 = Category2.getText();
-		System.out.println(catName2);
 
 		Category2.setOnAction(e -> {
 			SelectCategory.displayQuestion(catName2);
@@ -49,7 +46,6 @@ public class createPracticeBoard {
 		GridPane.setConstraints(Category3, 1, 3);
 		Category3.setPrefSize(200, 40);
 		String catName3 = Category3.getText();
-		System.out.println(catName3);
 
 		Category3.setOnAction(e -> {
 			SelectCategory.displayQuestion(catName3);
@@ -60,7 +56,6 @@ public class createPracticeBoard {
 		GridPane.setConstraints(Category4, 1, 4);
 		Category4.setPrefSize(200, 40);
 		String catName4 = Category4.getText();
-		System.out.println(catName4);
 
 		Category4.setOnAction(e -> {
 			SelectCategory.displayQuestion(catName4);
@@ -71,7 +66,6 @@ public class createPracticeBoard {
 		GridPane.setConstraints(Category5, 0, 1);
 		Category5.setPrefSize(200, 40);
 		String catName5 = Category5.getText();
-		System.out.println(catName5);
 
 		Category5.setOnAction(e -> {
 			SelectCategory.displayQuestion(catName5);
@@ -82,7 +76,6 @@ public class createPracticeBoard {
 		GridPane.setConstraints(Category6, 0, 2);
 		Category6.setPrefSize(200, 40);
 		String catName6 = Category6.getText();
-		System.out.println(catName6);
 
 		Category6.setOnAction(e -> {
 			SelectCategory.displayQuestion(catName6);
@@ -93,7 +86,6 @@ public class createPracticeBoard {
 		GridPane.setConstraints(Category7, 0, 3);
 		Category7.setPrefSize(200, 40);
 		String catName7 = Category7.getText();
-		System.out.println(catName7);
 
 		
 		Category7.setOnAction(e -> {
@@ -105,7 +97,6 @@ public class createPracticeBoard {
 		GridPane.setConstraints(Category8, 0, 4);
 		Category8.setPrefSize(200, 40);
 		String catName8 = Category8.getText();
-		System.out.println(catName8);
 
 		Category8.setOnAction(e -> {
 			SelectCategory.displayQuestion(catName8);
@@ -116,7 +107,6 @@ public class createPracticeBoard {
 		GridPane.setConstraints(Category9, 0, 5);
 		Category9.setPrefSize(200, 40);
 		String catName9 = Category9.getText();
-		System.out.println(catName9);
 
 		Category9.setOnAction(e -> {
 			SelectCategory.displayQuestion(catName9);

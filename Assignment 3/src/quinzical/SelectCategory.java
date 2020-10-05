@@ -5,11 +5,6 @@ import javafx.scene.*;
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-
-import javafx.geometry.*;
-
 public class SelectCategory {
 
 
@@ -74,9 +69,6 @@ public class SelectCategory {
 
 		//need to position individual nodes in VBox
 		//setting up a new repository due to network changes
-
-
-
 
 		Scene scene = new Scene(layout, 400, 400);
 		window.setScene(scene);

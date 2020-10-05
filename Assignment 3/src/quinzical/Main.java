@@ -1,34 +1,20 @@
 package quinzical;
 
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
 import javafx.scene.control.RadioMenuItem;
-import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import javafx.event.EventHandler;
-import javafx.event.ActionEvent;
 
 import java.io.*;
-import java.lang.reflect.Field;
-
-import javafx.scene.*;
 
 public class Main extends Application{
 
@@ -131,8 +117,6 @@ public class Main extends Application{
 	}
 
 	public static void main(String[] args) {
-
-		System.out.println(System.getProperty("user.dir"));
         
 		try {
 			String command = "bash CreateCategories";
@@ -161,36 +145,6 @@ public class Main extends Application{
 			e.printStackTrace();
 		}
 		
-		try {
-			String command = "ls";
-			ProcessBuilder pb = new ProcessBuilder("bash", "-c", command);
-
-			Process process = pb.start();
-
-			BufferedReader stdout = new BufferedReader(new InputStreamReader(process.getInputStream()));
-			BufferedReader stderr = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-			
-			int exitStatus = process.waitFor();
-			
-			if (exitStatus == 0) {
-				String line;
-				while ((line = stdout.readLine()) != null) {
-					System.out.println(line);
-				}
-			} else {
-				String line;
-				while ((line = stderr.readLine()) != null) {
-					System.err.println(line);
-				}
-			}
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-        
-        
-
-
 	    launch(args);
 	}
 }
