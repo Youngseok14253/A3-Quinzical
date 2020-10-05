@@ -21,11 +21,9 @@ public class CompareAnswer{
 	public static void isAnswerPractice(TextField input, String answer, int tries) {
 		String title= "Confirmation";
 		String text= input.getText();
-		text.toLowerCase();
-		System.out.println(text);
-		answer.toLowerCase();
-		System.out.println(answer);
-		if (text.equals(answer)) {
+		String lowerText= text.toLowerCase();
+		String lowerAnswer=  answer.toLowerCase();
+		if (lowerText.equals(lowerAnswer)) {
 			display(title, "Correct!");
 		}
 		else {
