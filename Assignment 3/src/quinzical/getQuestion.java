@@ -9,6 +9,7 @@ public class getQuestion {
 		int categoryNum = 0;
 		int lineNum = 0;
 		
+		//Depending on the category name, a certain file is opened
 		if (category.equals("Places")) {
 			categoryNum = 1;
 			lineNum = 13;
@@ -48,8 +49,10 @@ public class getQuestion {
 		
 		String global = "";
 		
+		//Picking a random question by choosing a line number between 2 and max line number
 		int randNum = (int) (2 + (Math.random() * (lineNum - 2)));
 		
+		//Using ProcessBuilder to access the files and get a question line
 		try {
 			String command = ("bash readQuestion Category-" + categoryNum + " " + randNum);
 			ProcessBuilder pb = new ProcessBuilder("bash", "-c", command);

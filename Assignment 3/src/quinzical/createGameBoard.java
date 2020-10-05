@@ -14,11 +14,7 @@ import javafx.stage.Stage;
 
 public class createGameBoard{
 
-	public static void displayGameBoard() {
-		
-		//randomly select 5 categories, and display them
-		//
-
+	public static void displayGameBoard() { //This method sets up a new window and selects 5 categories to choose at random.
 		
 		GridPane gameGrid= new GridPane();
 		gameGrid.setPadding(new Insets(10,10,10,10));
@@ -35,11 +31,10 @@ public class createGameBoard{
 		
 		gameGrid.getChildren().addAll(nameLabel, nameInput);
 		
+		//Setting up the randon number generator to randomly pick 5 categories for the user to choose from.
 		for (int i = 0; i < 5; i++) {
 			
 			String global = "";
-			
-			//String[] chosenCategories;
 			
 			int randNum = (int) (1 + (Math.random() * 8));			
 			
