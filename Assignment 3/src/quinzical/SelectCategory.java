@@ -50,21 +50,15 @@ public class SelectCategory {
 		String[] arrQAndA= qAndA.split("@",3);
 		String question = arrQAndA[0];
 		String answer= arrQAndA[2];
-		String what= arrQAndA[1];
+		//String what= arrQAndA[1];
 		label.setText(question);
 
 		TextField answerField= new TextField();
 		Button submitButton = new Button("Submit");
 		
 		submitButton.setOnAction(e -> {
-			if (CompareAnswer.isAnswerPractice(answerField, answer, 0)) {
-				//show winning window
+				CompareAnswer.isAnswerPractice(answerField, answer, 0);
 				window.close();
-			}else {
-				//show that ure dumb
-				window.close();
-			}
-			
 		});
 		
 		MenuBar menuBar = new MenuBar();
