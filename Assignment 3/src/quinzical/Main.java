@@ -20,7 +20,12 @@ public class Main extends Application{
 
 	Scene mainScene, gameScene, practiceScene;
 	Stage program;
-
+	
+	/**
+	* This is the first GUI the user is greeted with - the face of Quinzical. 
+	* Here the user can select 3 options - Game mode, Practice mode, or Quit.
+	*
+	*/
 	@Override
 	public void start(Stage primaryStage) {	
 		program= primaryStage;
