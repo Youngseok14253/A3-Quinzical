@@ -8,7 +8,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class createPracticeBoard {
+public class CreatePracticeBoard {
 
 	public static void displayPracticeBoard() { //This method sets up a new window and gives access to all 9 categories to the user.
 		GridPane gameGrid= new GridPane();

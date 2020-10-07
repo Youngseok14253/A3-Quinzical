@@ -40,7 +40,7 @@ public class SelectCategory {
 		Label label = new Label();
 		Label warning= new Label("Do not include prefixes in your answer");
 		String qAndA = new String();
-		qAndA= getQuestion.displayQuestion(categoryName);
+		qAndA= GetQuestion.displayQuestion(categoryName);
 
 		String[] arrQAndA= qAndA.split("@",3);
 		String question = arrQAndA[0];

@@ -60,7 +60,7 @@ public class Main extends Application{
 		btnMainToPractice.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				createPracticeBoard.displayPracticeBoard();
+				CreatePracticeBoard.displayPracticeBoard();
 			}
 		});
 

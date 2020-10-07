@@ -3,7 +3,7 @@ package quinzical;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class getQuestion {
+public class GetQuestion {
 	public static String displayQuestion(String category) {
 		
 		int categoryNum = 0;
