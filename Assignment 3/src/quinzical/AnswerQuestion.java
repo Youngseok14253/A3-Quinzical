@@ -43,6 +43,7 @@ public class AnswerQuestion {
 		Label warning= new Label("Do not include prefixes in your answer");
 		String qAndA = new String();
 		Label whatIsAre= new Label();
+		Label blank= new Label(" ");
 		
 		qAndA= GetQuestion.returnQuestionFormat(categoryName);
 
@@ -62,6 +63,7 @@ public class AnswerQuestion {
 				boolean ans= CompareAnswer.compareAnswerToInput(answerField, answer);
 				if (ans== true) {
 					CompareAnswer.display("Correct!");
+					CompareAnswer.resetCount();
 					window.close();
 				}
 				else {
@@ -78,13 +80,13 @@ public class AnswerQuestion {
 				int val = CompareAnswer.getCount();
 				
 				if (val == 2) {
-					System.out.println("displaying hint");
+					char hint= answer.charAt(0);
+					ConfirmBox.displayHint(hint);
 				} else if (val == 3) {
-					System.out.println("correct answer was ...");
+					ConfirmBox.showAnswer(answer);
 					CompareAnswer.resetCount();
 					window.close();
 				}
-				System.out.println(val);
 				CompareAnswer.incrementCount();
 				
 		});
@@ -107,7 +109,7 @@ public class AnswerQuestion {
 
 		VBox layout = new VBox(menuBar);
 
-		layout.getChildren().addAll(label,warning,whatIsAre,answerField,submitButton);
+		layout.getChildren().addAll(label,warning,blank,whatIsAre,answerField,submitButton);
 
 		Scene scene = new Scene(layout, 600, 400);
 		window.setScene(scene);

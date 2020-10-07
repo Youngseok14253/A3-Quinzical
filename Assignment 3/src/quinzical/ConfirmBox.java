@@ -71,4 +71,52 @@ public class ConfirmBox {
 		return answer;
 		
 	}
+	public static void displayHint(char hint) {
+		Stage window= new Stage();
+		window.initModality(Modality.APPLICATION_MODAL);
+		window.setTitle("Hint");
+		window.setMinWidth(250);
+		Label label= new Label();
+		label.setText("The first letter of the answer is\n\t\t\t"+ Character.toUpperCase(hint));
+		
+		Button button= new Button("Confirm");
+		
+		button.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				window.close();
+			}
+		});
+		VBox layout= new VBox(10);
+		layout.getChildren().addAll(label, button);
+		layout.setAlignment(Pos.CENTER);
+		Scene scene= new Scene(layout);
+		window.setScene(scene);
+		window.showAndWait();
+		
+	}
+	public static void showAnswer(String answer) {
+		Stage window= new Stage();
+		window.initModality(Modality.APPLICATION_MODAL);
+		window.setTitle("Answer");
+		window.setMinWidth(250);
+		Label label= new Label();
+		label.setText("The answer of the clue was: "+ answer );
+		
+		Button button= new Button("Confirm");
+		
+		button.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				window.close();
+			}
+		});
+		VBox layout= new VBox(10);
+		layout.getChildren().addAll(label, button);
+		layout.setAlignment(Pos.CENTER);
+		Scene scene= new Scene(layout);
+		window.setScene(scene);
+		window.showAndWait();
+		
+	}
 }

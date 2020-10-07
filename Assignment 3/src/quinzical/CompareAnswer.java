@@ -1,8 +1,6 @@
 package quinzical;
 
 
-import java.util.Arrays;
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -51,7 +49,6 @@ public class CompareAnswer{
 
 		String[] answerArr= new String[ansNum];
 		answerArr= lowerAnswer.split("/");
-		System.out.println(Arrays.toString(answerArr));
 		for(int i=0; i< ansNum;i++) {
 			if(lowerText.length()== answerArr[i].length()) {
 				if (lowerAnswer.contains(lowerText)) {
