@@ -89,7 +89,7 @@ public class CreateGameBoard{
 			GridPane.setConstraints(Category, 1, i+1);
 			Category.setPrefSize(200, 40);
 			String catName = Category.getText();
-			Category.setOnAction(e -> AnswerQuestion.displayQuestion(catName));
+			Category.setOnAction(e -> AnswerQuestion.displayQuestion(catName, "Game"));
 
 			gameGrid.getChildren().add(Category);
 			

@@ -10,8 +10,7 @@ public class AnswerQuestion {
 
 
 
-	//string practice
-	public static void displayQuestion(String categoryName) {
+	public static void displayQuestion(String categoryName, String mode) {
 
 		Menu playbackMenu = new Menu("Playback Speed");
 		ToggleGroup playbackSpeed = new ToggleGroup();
@@ -68,14 +67,12 @@ public class AnswerQuestion {
 				}
 				else {
 					CompareAnswer.display("Incorrect!");
-					//if statement to check whether it's game mode or not
-					//if game mode, then it exits here
+					if (mode.equals("Game")) {
+						ConfirmBox.showAnswer(answer);
+						window.close();
+						//Show current winnings
+					}
 				}
-				//checks whether or not the user has displayed incorrect twice, if so 
-				//(new window) display the hint
-				//on third try, if incorrect, then 
-				//(new window) display the answer, and 
-				//close window (below)
 				
 				int val = CompareAnswer.getCount();
 				
