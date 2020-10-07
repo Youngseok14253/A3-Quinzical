@@ -30,10 +30,7 @@ public class ConfirmBox {
 	 * @return A boolean value (true for Yes, false for No)
 	 * 
 	 */
-	public static boolean display() {
-		
-		String title = "Quit";
-		String message = "Are you sure you want to exit?";
+	public static boolean display(String title, String message) {
 		
 		Stage window= new Stage();
 		window.initModality(Modality.APPLICATION_MODAL);

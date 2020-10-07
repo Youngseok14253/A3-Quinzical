@@ -1,6 +1,7 @@
 package quinzical;
 
 import javafx.stage.*;
+import javafx.event.EventHandler;
 import javafx.scene.*;
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
@@ -40,12 +41,16 @@ public class SelectCategory {
 		Label label = new Label();
 		Label warning= new Label("Do not include prefixes in your answer");
 		String qAndA = new String();
-		qAndA= GetQuestion.displayQuestion(categoryName);
+		Label whatIsAre= new Label();
+		
+		qAndA= GetQuestion.returnQuestionFormat(categoryName);
 
 		String[] arrQAndA= qAndA.split("@",3);
 		String question = arrQAndA[0];
 		String answer= arrQAndA[2];
-		//String what= arrQAndA[1];
+		String whatVal= arrQAndA[1];
+		
+		whatIsAre.setText(whatVal);
 		label.setText(question);
 
 		TextField answerField= new TextField();
@@ -61,18 +66,27 @@ public class SelectCategory {
 				}
 				window.close();
 		});
+		window.setOnCloseRequest(new EventHandler<WindowEvent>() {
+
+			@Override
+			public void handle(WindowEvent event) {
+				event.consume();
+				Boolean answer= ConfirmBox.display("Give Up Question?", "This will count as an incorrect answer if you are in Game Mode");
+				if(answer) {
+				window.close();
+				}
+			}
+		});
 		
 		MenuBar menuBar = new MenuBar();
 		menuBar.getMenus().addAll(playbackMenu);
 
-		Button closeButton = new Button("Return");
-		closeButton.setOnAction(e -> window.close());
 
 		VBox layout = new VBox(menuBar);
 
-		layout.getChildren().addAll(label,warning,answerField,submitButton, closeButton);
+		layout.getChildren().addAll(label,warning,whatIsAre,answerField,submitButton);
 
-		Scene scene = new Scene(layout, 400, 400);
+		Scene scene = new Scene(layout, 600, 400);
 		window.setScene(scene);
 		window.showAndWait();
 

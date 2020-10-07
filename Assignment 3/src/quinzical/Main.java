@@ -40,8 +40,8 @@ public class Main extends Application{
 		Label label1= new Label("Welcome to Quinzical!");
 		GridPane.setConstraints(label1, 1, 0);
 
-		//Play button
-		Button btnMainToGame= new Button("Play");
+		//Game button
+		Button btnMainToGame= new Button("Game Mode");
 		GridPane.setConstraints(btnMainToGame, 1, 1);
 		btnMainToGame.setMinSize(300,100);
 		
@@ -113,7 +113,7 @@ public class Main extends Application{
 	 * 
 	 */
 	private void closeProgram() {
-		Boolean answer= ConfirmBox.display();
+		Boolean answer= ConfirmBox.display("Quit Program", "Are you sure you want to exit?");
 		if(answer) {
 			program.close();
 		}

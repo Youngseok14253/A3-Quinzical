@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class GetQuestion {
-	public static String displayQuestion(String category) {
+	public static String returnQuestionFormat(String category) {
 		
 		int categoryNum = 0;
 		int lineNum = 0;
