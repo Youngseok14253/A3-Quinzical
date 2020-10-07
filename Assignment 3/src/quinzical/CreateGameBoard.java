@@ -2,7 +2,8 @@ package quinzical;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-
+import java.util.ArrayList;
+import java.util.Collections;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -39,16 +40,22 @@ public class CreateGameBoard{
 		
 		gameGrid.getChildren().add(label);
 		
+		ArrayList<Integer> randNumList= new ArrayList<>();
+		for (int i=1; i<=9; i++) {
+			randNumList.add(i);
+		}
+		Collections.shuffle(randNumList);
+		
 		//selects 5 categories to display at random
 		for (int i = 0; i < 5; i++) {
 			
-			String global = "";
 			
-			int randNum = (int) (1 + (Math.random() * 8));			
+			String global = "";
+						
 			
 			try {
 				//bash command returns the first line of formatted Category files, where it will return the name of the category
-				String command = ("sed -n '1p' < Category-" + randNum);
+				String command = ("sed -n '1p' < Category-" + randNumList.get(i));
 				ProcessBuilder pb = new ProcessBuilder("bash", "-c", command);
 
 				Process process = pb.start();
