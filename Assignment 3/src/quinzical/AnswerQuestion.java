@@ -6,10 +6,11 @@ import javafx.scene.*;
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
 
-public class SelectCategory {
+public class AnswerQuestion {
 
 
 
+	//string practice
 	public static void displayQuestion(String categoryName) {
 
 		Menu playbackMenu = new Menu("Playback Speed");
@@ -53,19 +54,41 @@ public class SelectCategory {
 		whatIsAre.setText(whatVal);
 		label.setText(question);
 
+		CompareAnswer.setCount();
+		
 		TextField answerField= new TextField();
 		Button submitButton = new Button("Submit");
-		
 		submitButton.setOnAction(e -> {
 				boolean ans= CompareAnswer.compareAnswerToInput(answerField, answer);
 				if (ans== true) {
 					CompareAnswer.display("Correct!");
+					window.close();
 				}
 				else {
 					CompareAnswer.display("Incorrect!");
+					//if statement to check whether it's game mode or not
+					//if game mode, then it exits here
 				}
-				window.close();
+				//checks whether or not the user has displayed incorrect twice, if so 
+				//(new window) display the hint
+				//on third try, if incorrect, then 
+				//(new window) display the answer, and 
+				//close window (below)
+				
+				int val = CompareAnswer.getCount();
+				
+				if (val == 2) {
+					System.out.println("displaying hint");
+				} else if (val == 3) {
+					System.out.println("correct answer was ...");
+					CompareAnswer.resetCount();
+					window.close();
+				}
+				System.out.println(val);
+				CompareAnswer.incrementCount();
+				
 		});
+		
 		window.setOnCloseRequest(new EventHandler<WindowEvent>() {
 
 			@Override

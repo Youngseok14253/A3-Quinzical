@@ -23,6 +23,8 @@ import javafx.stage.Stage;
  * 
  */
 public class CompareAnswer{
+	
+	public static int count;
 
 	/*
 	 * This method converts the answer and input into lower case, and checks whether 
@@ -96,6 +98,27 @@ public class CompareAnswer{
 		window.setScene(scene);
 		window.showAndWait();
 
+	}
+	
+	public static void setCount() {
+		count = 1;
+	}
+	
+	public static int getCount() {
+		return count;
+	}
+	
+	public static void incrementCount() {
+		count++;
+	}
+	
+	public static void resetCount() {
+		count = 1;
+	}
+	
+	//isPractice .equalsString, display incorrect
+	//if true
+	public static void isPractice(String mode) {
 	}
 }
 

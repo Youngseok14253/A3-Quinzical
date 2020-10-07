@@ -26,7 +26,7 @@ public class CreatePracticeBoard {
 		String catName1 = Category1.getText();
 
 		Category1.setOnAction(e -> {
-			SelectCategory.displayQuestion(catName1);
+			AnswerQuestion.displayQuestion(catName1);
 		}
 				);
 
@@ -36,7 +36,7 @@ public class CreatePracticeBoard {
 		String catName2 = Category2.getText();
 
 		Category2.setOnAction(e -> {
-			SelectCategory.displayQuestion(catName2);
+			AnswerQuestion.displayQuestion(catName2);
 		}
 				);
 
@@ -46,7 +46,7 @@ public class CreatePracticeBoard {
 		String catName3 = Category3.getText();
 
 		Category3.setOnAction(e -> {
-			SelectCategory.displayQuestion(catName3);
+			AnswerQuestion.displayQuestion(catName3);
 		}
 				);
 
@@ -56,7 +56,7 @@ public class CreatePracticeBoard {
 		String catName4 = Category4.getText();
 
 		Category4.setOnAction(e -> {
-			SelectCategory.displayQuestion(catName4);
+			AnswerQuestion.displayQuestion(catName4);
 		}
 				);
 
@@ -66,7 +66,7 @@ public class CreatePracticeBoard {
 		String catName5 = Category5.getText();
 
 		Category5.setOnAction(e -> {
-			SelectCategory.displayQuestion(catName5);
+			AnswerQuestion.displayQuestion(catName5);
 		}
 				);
 
@@ -76,7 +76,7 @@ public class CreatePracticeBoard {
 		String catName6 = Category6.getText();
 
 		Category6.setOnAction(e -> {
-			SelectCategory.displayQuestion(catName6);
+			AnswerQuestion.displayQuestion(catName6);
 		}
 				);
 
@@ -87,7 +87,7 @@ public class CreatePracticeBoard {
 
 		
 		Category7.setOnAction(e -> {
-			SelectCategory.displayQuestion(catName7);
+			AnswerQuestion.displayQuestion(catName7);
 		}
 				);
 
@@ -97,7 +97,7 @@ public class CreatePracticeBoard {
 		String catName8 = Category8.getText();
 
 		Category8.setOnAction(e -> {
-			SelectCategory.displayQuestion(catName8);
+			AnswerQuestion.displayQuestion(catName8);
 		}
 				);
 
@@ -107,7 +107,7 @@ public class CreatePracticeBoard {
 		String catName9 = Category9.getText();
 
 		Category9.setOnAction(e -> {
-			SelectCategory.displayQuestion(catName9);
+			AnswerQuestion.displayQuestion(catName9);
 		}
 				);
 
