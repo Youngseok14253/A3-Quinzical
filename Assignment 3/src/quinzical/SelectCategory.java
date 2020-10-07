@@ -52,7 +52,7 @@ public class SelectCategory {
 		Button submitButton = new Button("Submit");
 		
 		submitButton.setOnAction(e -> {
-				CompareAnswer.isAnswerPractice(answerField, answer, 0);
+				CompareAnswer.compareAnswerToInput(answerField, answer);
 				window.close();
 		});
 		

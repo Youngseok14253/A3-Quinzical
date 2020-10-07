@@ -10,10 +10,31 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * This class provides the display method for the Main class when the user asks to exit the game.
+ * It confirms that the user wants to exit and quits the game, and also makes sure that a misclick
+ * by the user does not result in a shutdown.
+ * 
+ * @author Do Hyun Lee, Youngseok Chae
+ *
+ */
 public class ConfirmBox {
-	static boolean answer;
+	
+	private static boolean answer;
 
-	public static boolean display(String title, String message) {
+	/*
+	 * This method returns a boolean value depending on the confirmation of the user when pressing
+	 * the exit buttons provided in the Main class. A true is returned when the Yes button is pressed,
+	 * or vice versa for the No button. 
+	 * 
+	 * @return A boolean value (true for Yes, false for No)
+	 * 
+	 */
+	public static boolean display() {
+		
+		String title = "Quit";
+		String message = "Are you sure you want to exit?";
+		
 		Stage window= new Stage();
 		window.initModality(Modality.APPLICATION_MODAL);
 		window.setTitle(title);
@@ -25,6 +46,7 @@ public class ConfirmBox {
 		Button btnYes= new Button("Yes");
 		Button btnNo= new Button("No");
 
+		//return true if Yes is pressed
 		btnYes.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -32,6 +54,8 @@ public class ConfirmBox {
 				window.close();
 			}
 		});
+		
+		//return false if No is pressed
 		btnNo.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -48,5 +72,6 @@ public class ConfirmBox {
 		window.showAndWait();
 		
 		return answer;
+		
 	}
 }

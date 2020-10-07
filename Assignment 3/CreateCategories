@@ -1,5 +1,10 @@
 #! /bin/bash
 
+# This function checks if the categories have been created already.
+# If they haven't, it formats QuestionBank.txt into Categories,
+# where Category-1, Category-2, etc. each contain the category name on the first line,
+# followed by its questions.
+
 if [[ $(find . -name Category-1) ]]
 then 
 	:

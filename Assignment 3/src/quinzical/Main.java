@@ -7,47 +7,56 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
-import javafx.scene.control.RadioMenuItem;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 import java.io.*;
 
+/**
+ * This Main class provides the launch of the Quinzical GUI. It mainly implements CreateGameBoard 
+ * and CreatePracticeBoard classes, and ConfirmBox if the user wishes to exit the game.
+ * 
+ * @author Do Hyun Lee, Youngseok Chae
+ *
+ */
 public class Main extends Application{
 
 	Scene mainScene, gameScene, practiceScene;
 	Stage program;
 	
-	/**
-	* This is the first GUI the user is greeted with - the face of Quinzical. 
-	* Here the user can select 3 options - Game mode, Practice mode, or Quit.
+	/*
+	* This is the first GUI the user is greeted with - the main menu of Quinzical.
+	* Here, the user can select 3 options - Game mode, Practice mode, or Quit.
 	*
+	* @param input primaryStage The stage called by the launch method
+	* 
 	*/
 	@Override
 	public void start(Stage primaryStage) {	
-		program= primaryStage;
+		
+		program = primaryStage;
+		
 		Label label1= new Label("Welcome to Quinzical!");
 		GridPane.setConstraints(label1, 1, 0);
 
-		//Play button on main menu
-		//check
+		//Play button
 		Button btnMainToGame= new Button("Play");
 		GridPane.setConstraints(btnMainToGame, 1, 1);
 		btnMainToGame.setMinSize(300,100);
+		
 		btnMainToGame.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				createGameBoard.displayGameBoard();
+				CreateGameBoard.displayGameBoard();
 			}
 		});
 
-		//Practice button on main menu
+		//Practice button 
 		Button btnMainToPractice= new Button("Practice Mode");
 		GridPane.setConstraints(btnMainToPractice, 1, 2);
 		btnMainToPractice.setMinSize(300, 100);
+		
 		btnMainToPractice.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -55,10 +64,11 @@ public class Main extends Application{
 			}
 		});
 
-		//Exit button on main menu
+		//Quit button 
 		Button btnMainToExit= new Button("Quit");
 		GridPane.setConstraints(btnMainToExit, 1, 3);
 		btnMainToExit.setMinSize(300, 100);
+		
 		btnMainToExit.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -67,7 +77,8 @@ public class Main extends Application{
 		});
 
 
-		//Closing when pressing the red X
+		//Closing when pressing the red X at top right corner
+		//Asks the user to confirm, rather than exit immediately
 		program.setOnCloseRequest(new EventHandler<WindowEvent>() {
 
 			@Override
@@ -79,8 +90,8 @@ public class Main extends Application{
 		});
 
 
+		//This is the main scene/window 
 		//mainScene layout with GridPane
-		//VBox mainLayout= new VBox(20);
 		GridPane mainLayout= new GridPane();
 		mainLayout.setPadding(new Insets(10,10,10,10));
 		mainLayout.setVgap(8);
@@ -89,41 +100,28 @@ public class Main extends Application{
 		mainScene= new Scene(mainLayout, 500,400);		
 		
 		
-		//Adjusting speed of Text-to-Speech
-		Menu playbackMenu = new Menu("Playback Speed");
-		ToggleGroup playbackSpeed = new ToggleGroup();
-		
-		RadioMenuItem halfSpeed = new RadioMenuItem("x0.50");
-		RadioMenuItem slowSpeed = new RadioMenuItem("x0.75");
-		RadioMenuItem normalSpeed = new RadioMenuItem("x1.00");
-		RadioMenuItem quickSpeed = new RadioMenuItem("x1.50");
-		RadioMenuItem fastSpeed = new RadioMenuItem("x1.75");
-		RadioMenuItem doubleSpeed = new RadioMenuItem("x2.00");
-		
-		halfSpeed.setToggleGroup(playbackSpeed);
-		slowSpeed.setToggleGroup(playbackSpeed);
-		normalSpeed.setToggleGroup(playbackSpeed);
-		quickSpeed.setToggleGroup(playbackSpeed);
-		fastSpeed.setToggleGroup(playbackSpeed);
-		doubleSpeed.setToggleGroup(playbackSpeed);
-		
-		playbackMenu.getItems().addAll(halfSpeed, slowSpeed, normalSpeed, quickSpeed, fastSpeed, doubleSpeed);
-
 		program.setScene(mainScene);
 		mainScene.getStylesheets().add(getClass().getResource("mainMenu.css").toExternalForm());
 		program.setTitle("Quinzical");
 		program.show();
+		
 	}
 
+	/*
+	 * This method creates a confirmation window when the user tries to exit the game.
+	 * Called by the Quit button and the red X.
+	 * 
+	 */
 	private void closeProgram() {
-		Boolean answer= ConfirmBox.display("Quit", "Are you sure you want to exit?");
+		Boolean answer= ConfirmBox.display();
 		if(answer) {
 			program.close();
 		}
 	}
 
 	public static void main(String[] args) {
-        
+		
+		//The try and catch method calls the CreateCategories bash function
 		try {
 			String command = "bash CreateCategories";
 			ProcessBuilder pb = new ProcessBuilder("bash", "-c", command);
@@ -151,6 +149,7 @@ public class Main extends Application{
 			e.printStackTrace();
 		}
 		
+		//Launches the game
 	    launch(args);
 	}
 }
