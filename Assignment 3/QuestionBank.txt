@@ -11,12 +11,12 @@ This is the city that is the first to see the sunrise each day@what is@Gisborne
 This is the most northern tip on the North Island@what is@Cape Reinga
 This is the most southern port in the South Island@what is@Bluff
 This city is nicknamed the Edinburgh of the South@what is@Dunedin
-The number of river systems that flow through either the North or South Island@what is@70/seventy
+The number of river systems that flow through either the North or South Island@what is@seventy/70
 +
 +
 Symbols
 These are the colours on the New Zealand Flag in alphabetical order@what are@blue, red, white
-This is the number of stars on the New Zealand flag@what is@4/four
+This is the number of stars on the New Zealand flag@what is@four/4
 This is the ship on the 50 cent coin@what is@Endeavour
 This plant is the national symbol of New Zealand@what is@silver fern
 These are the birds that New Zealanders are named after@who are@kiwi
@@ -88,7 +88,7 @@ This is the common name for the New Zealand owl@what is@morepork/ruru
 This native bird lays the largest egg in relation to their body size of any species of bird in the world@what is@kiwi
 This is the now extinct giant flightless bird that inhabited all of New Zealand@what is@moa
 This is the only land mammal native to New Zealand@what is@bat
-This is the number of Kiwi species@what is@5/five
+This is the number of Kiwi species@what is@five/5
 This is the animal that is the greatest threat to Kiwi@what is@stoat
 This animal was introduced in the late 1700s to New Zealand and can damage the forest ecosystem@what are@pig
 This animal is known as Kiore in Māori@what is@black rat

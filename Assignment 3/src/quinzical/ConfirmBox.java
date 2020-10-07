@@ -77,7 +77,7 @@ public class ConfirmBox {
 		window.setTitle("Hint");
 		window.setMinWidth(250);
 		Label label= new Label();
-		label.setText("The first letter of the answer is\n\t\t\t"+ Character.toUpperCase(hint));
+		label.setText("The first character of the answer is\n\t\t\t"+ Character.toUpperCase(hint));
 		
 		Button button= new Button("Confirm");
 		
