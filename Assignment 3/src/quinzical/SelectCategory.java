@@ -52,7 +52,13 @@ public class SelectCategory {
 		Button submitButton = new Button("Submit");
 		
 		submitButton.setOnAction(e -> {
-				CompareAnswer.compareAnswerToInput(answerField, answer);
+				boolean ans= CompareAnswer.compareAnswerToInput(answerField, answer);
+				if (ans== true) {
+					CompareAnswer.display("Correct!");
+				}
+				else {
+					CompareAnswer.display("Incorrect!");
+				}
 				window.close();
 		});
 		
@@ -65,10 +71,6 @@ public class SelectCategory {
 		VBox layout = new VBox(menuBar);
 
 		layout.getChildren().addAll(label,warning,answerField,submitButton, closeButton);
-
-
-		//need to position individual nodes in VBox
-		//setting up a new repository due to network changes
 
 		Scene scene = new Scene(layout, 400, 400);
 		window.setScene(scene);

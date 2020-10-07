@@ -1,6 +1,8 @@
 package quinzical;
 
 
+import java.util.Arrays;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -21,7 +23,7 @@ import javafx.stage.Stage;
  * 
  */
 public class CompareAnswer{
-	
+
 	/*
 	 * This method converts the answer and input into lower case, and checks whether 
 	 * or not they match. If they have answered correctly, then a display pops up
@@ -31,20 +33,34 @@ public class CompareAnswer{
 	 * @param answer The answer on QuestionBank.txt
 	 *
 	 */
-	public static void compareAnswerToInput(TextField input, String answer) {
+	public static boolean compareAnswerToInput(TextField input, String answer) {
 		String text= input.getText();
 		String lowerText= text.toLowerCase();
+		lowerText = lowerText.replace(" ", "");
 		String lowerAnswer=  answer.toLowerCase();
-		//change equals
-		if (lowerText.equals(lowerAnswer)) {
-			display("Correct!");
-		}
-		else {
-			display("Incorrect!");
+		lowerAnswer = lowerAnswer.replace(" ", "");
+
+		int ansNum= 1;
+		for(char c: lowerAnswer.toCharArray()) {
+			if (c== '/') {
+				ansNum++;
+			}
 		}
 
+		String[] answerArr= new String[ansNum];
+		answerArr= lowerAnswer.split("/");
+		System.out.println(Arrays.toString(answerArr));
+		for(int i=0; i< ansNum;i++) {
+			if(lowerText.length()== answerArr[i].length()) {
+				if (lowerAnswer.contains(lowerText)) {
+					return true;
+				} 
+			}
+		}
+		return false;
+
 	}
-	
+
 	/*
 	 * This method is called by isAnswerPractice and creates a window showing whether 
 	 * the user's answer was correct or not.
@@ -52,17 +68,17 @@ public class CompareAnswer{
 	 * @param message A message "Correct!" or "Incorrect!" depending on user input
 	 */
 	public static void display(String message) {
-		
+
 		String title= "Confirmation";
-		
+
 		Stage window= new Stage();
 		window.initModality(Modality.APPLICATION_MODAL);
 		window.setTitle(title);
 		window.setMinWidth(200);
-		
+
 		Label label= new Label();
 		label.setText(message);
-		
+
 		Button btnCont= new Button("Continue");
 
 		btnCont.setOnAction(new EventHandler<ActionEvent>() {
@@ -70,16 +86,16 @@ public class CompareAnswer{
 			public void handle(ActionEvent event) {
 				window.close();
 			}
-			
+
 		});
-		
+
 		VBox layout= new VBox(10);
 		layout.getChildren().addAll(label, btnCont);
 		layout.setAlignment(Pos.CENTER);
 		Scene scene= new Scene(layout);
 		window.setScene(scene);
 		window.showAndWait();
-		
+
 	}
 }
 
