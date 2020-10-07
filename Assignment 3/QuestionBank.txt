@@ -32,7 +32,7 @@ This is the name of the ocean New Zealand sits in@what is@Pacific/Pacific Ocean
 This is the name of the sea between New Zealand Australia@what is@Tasman
 This is the name of the sea between the North and the South Island@what is@Cook Strait
 This is the name of the long chain of mountains that make up the backbone of the South Island@what is@Southern Alps
-This volcano in Auckland last erupted 20,000 years ago, and was the site of a major pā@what is@Māngere Mountain 
+This volcano in Auckland last erupted 20,000 years ago, and was the site of a major pā@what is@Mangere Mountain 
 This volcano emerged unexpectedly in the Hauraki gulf about 600 years ago@what is@Rangitoto/Rangitoto Island
 This is the largest active volcano in New Zealand@what is@Ruapehu/Mount Ruapehu
 This is the third largest island of New Zealand@what is@Stewart Island/Rakiura
@@ -61,7 +61,7 @@ This New Zealander led the 1975 land march from Te Hapua to Parliament@who is@Wh
 +
 +
 NZ Life
-This is the name for a traditional fenced Māori village@what is@pā
+This is the name for a traditional fenced Māori village@what is@pa
 This is the Māori word for stomach@what is@puku
 This is the Māori word for sweet potato@what is@kumara
 This is the name of the underground method of cooking used in New Zealand@what is@hangi
@@ -73,10 +73,10 @@ Flora
 This is the largest native tree in New Zealand@what is@kauri
 This well known fruit use to be called the Chinese Gooseberry@what is@kiwifruit
 New Zealand has 200 of this species, and one species is our national symbol@what is@fern
-The honey from this plant is known for its medicinal benefits@what is@mānuka
-The nectar from bright yellow flowers of this tree are an important food source for native birds@what is@kōwhai
-This is known as the New Zealand Christmas tree@what is@pōhutukawa
-This green vegetable is a traditional staple food of the Māori@what is@pūhā
+The honey from this plant is known for its medicinal benefits@what is@manuka
+The nectar from bright yellow flowers of this tree are an important food source for native birds@what is@kowhai
+This is known as the New Zealand Christmas tree@what is@pohutukawa
+This green vegetable is a traditional staple food of the Māori@what is@puha
 This is the plant that the Māori weaved into baskets@what is@flax/harakeke
 This introduced alga is a threat to New Zealand rivers and is known as rock snot@what is@didymo
 +
@@ -92,12 +92,12 @@ This is the number of Kiwi species@what is@5/five
 This is the animal that is the greatest threat to Kiwi@what is@stoat
 This animal was introduced in the late 1700s to New Zealand and can damage the forest ecosystem@what are@pig
 This animal is known as Kiore in Māori@what is@black rat
-This native bird of prey can fly over 1000 kilometers an hour@what is@New Zealand falcon/falcon/kārearea
+This native bird of prey can fly over 1000 kilometers an hour@what is@New Zealand falcon/falcon/karearea
 This large brown flightless bird is known for being curious and a bit of a thief@what is@weka
-This small common bird has a tail that opens up to look like a fan@what is@Fantail/pīwakawaka
-This large flightless nocturnal parrot is one of New Zealand's most endangered birds@what is@kākāpō
+This small common bird has a tail that opens up to look like a fan@what is@Fantail/piwakawaka
+This large flightless nocturnal parrot is one of New Zealand's most endangered birds@what is@kakapo
 This common forest bird is known for its beautiful song, and distinctive white tuft under their throat@what is@tui
-This is the only poisonous Native spider in New Zealand@what is@katipō
+This is the only poisonous Native spider in New Zealand@what is@katipo
 This grub chews up wood, and is edible@what is@huhu grub/huhu
 +
 +
