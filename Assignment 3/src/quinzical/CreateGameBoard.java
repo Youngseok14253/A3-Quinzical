@@ -36,7 +36,7 @@ public class CreateGameBoard{
 		gameGrid.setPadding(new Insets(10,10,10,10));
 		gameGrid.setVgap(8);
 		gameGrid.setHgap(10);
-		
+
 		Stage window = new Stage();
 
 		Scene scene= new Scene(gameGrid, 400,300);
@@ -55,11 +55,10 @@ public class CreateGameBoard{
 		}
 		Collections.shuffle(randNumList);
 		if(truth== true) {
-			CompareAnswer.setCount();
+			ShowWinnings.setCount();
 		}
 		//selects 5 categories to display at random
 		for (int i = 0; i < 5; i++) {
-
 
 			String global = "";
 
@@ -100,6 +99,7 @@ public class CreateGameBoard{
 			GridPane.setConstraints(category, 1, i+1);
 			category.setPrefSize(200, 40);
 			String catName = category.getText();
+			ShowWinnings.saveCategory(catName);
 
 
 			category.setOnAction(new EventHandler<ActionEvent>() {
@@ -107,7 +107,9 @@ public class CreateGameBoard{
 				public void handle(ActionEvent event) {
 					window.close();
 					AnswerQuestion.displayQuestion(catName, "Game");
-					CompareAnswer.incrementCount();
+					if (ShowWinnings.getCount()<5) {
+						ShowWinnings.incrementCount();
+					}
 					truth=false;
 					displayGameBoard();
 				}
@@ -117,7 +119,7 @@ public class CreateGameBoard{
 
 
 			Label categoryWinnings = new Label();
-			int count= CompareAnswer.getCount();
+			int count= ShowWinnings.getCount();
 			categoryWinnings.setText("$"+count+"00");
 			GridPane.setConstraints(categoryWinnings, 2, i+1); //Move out of for loop but keep ith position
 			category.setPrefSize(200, 40);
