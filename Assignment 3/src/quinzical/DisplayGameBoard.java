@@ -13,6 +13,16 @@ import javafx.stage.Stage;
 public class DisplayGameBoard {
 
 	public static void displayGameBoard(ArrayList<String> categories) {
+		
+		DeleteQuestionHelper.setOneCount();
+		DeleteQuestionHelper.setTwoCount();
+		DeleteQuestionHelper.setThreeCount();
+		DeleteQuestionHelper.setFourCount();
+		DeleteQuestionHelper.setFiveCount();
+		DeleteQuestionHelper.setSixCount();
+		DeleteQuestionHelper.setSevenCount();
+		DeleteQuestionHelper.setEightCount();
+		DeleteQuestionHelper.setNineCount();
 
 		Stage window = new Stage();
 		boolean finished = false;
