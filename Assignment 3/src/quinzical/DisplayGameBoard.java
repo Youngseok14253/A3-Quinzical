@@ -13,9 +13,9 @@ import javafx.stage.Stage;
 public class DisplayGameBoard {
 
 	public static void displayGameBoard(ArrayList<String> categories) {
-		
+
 		Stage window = new Stage();
-		
+
 		//This method sets up a new window and gives access to all 9 categories to the user.
 		GridPane gameGrid= new GridPane();
 		gameGrid.setPadding(new Insets(10,10,10,10));
@@ -30,15 +30,14 @@ public class DisplayGameBoard {
 		Category1.setPrefSize(200, 40);
 		String catName1 = Category1.getText();
 
-		Category1.setOnAction(e -> {
-			window.close();
-			AnswerQuestion.displayQuestion(catName1, "Game", 1);
-			System.out.println(ShowWinnings.getOneCount());
-			ShowWinnings.incrementOneCount();
-			displayGameBoard(categories);
-		}
-				);
-
+			Category1.setOnAction(e -> {
+				window.close();
+				AnswerQuestion.displayQuestion(catName1, "Game", 1);
+				System.out.println(ShowWinnings.getOneCount());
+				ShowWinnings.incrementOneCount();
+				displayGameBoard(categories);
+			}
+					);
 		Button Category2 = new Button(categories.get(1));
 		GridPane.setConstraints(Category2, 0, 2);
 		Category2.setPrefSize(200, 40);
@@ -48,7 +47,7 @@ public class DisplayGameBoard {
 			window.close();
 			AnswerQuestion.displayQuestion(catName2, "Game", 2);
 			ShowWinnings.incrementTwoCount();
-		    displayGameBoard(categories);
+			displayGameBoard(categories);
 		}
 				);
 
@@ -90,29 +89,59 @@ public class DisplayGameBoard {
 			displayGameBoard(categories);
 		}
 				);
-		
+
 		Label catOneMoney = new Label();
 		GridPane.setConstraints(catOneMoney,1,1);
 		catOneMoney.setText("Question Worth $"+ShowWinnings.getOneCount()+"00");
 		Label catTwoMoney = new Label();
 		GridPane.setConstraints(catTwoMoney,1,2);
-		catTwoMoney.setText("$"+ShowWinnings.getTwoCount()+"00");
+		catTwoMoney.setText("Question Worth $"+ShowWinnings.getTwoCount()+"00");
 		Label catThreeMoney = new Label();
 		GridPane.setConstraints(catThreeMoney,1,3);
-		catThreeMoney.setText("$"+ShowWinnings.getThreeCount()+"00");
+		catThreeMoney.setText("Question Worth $"+ShowWinnings.getThreeCount()+"00");
 		Label catFourMoney = new Label();
 		GridPane.setConstraints(catFourMoney,1,4);
-		catFourMoney.setText("$"+ShowWinnings.getFourCount()+"00");
+		catFourMoney.setText("Question Worth $"+ShowWinnings.getFourCount()+"00");
 		Label catFiveMoney = new Label();
 		GridPane.setConstraints(catFiveMoney,1,5);
-		catFiveMoney.setText("$"+ShowWinnings.getFiveCount()+"00");
+		catFiveMoney.setText("Question Worth $"+ShowWinnings.getFiveCount()+"00");
 
 		gameGrid.getChildren().addAll(Category, Category1, Category2, Category3, Category4, Category5);
 		gameGrid.getChildren().addAll(catOneMoney, catTwoMoney, catThreeMoney, catFourMoney, catFiveMoney);
-		Scene scene= new Scene(gameGrid, 400,300);
+		if (ShowWinnings.isOneLimit()==true) {
+			gameGrid.getChildren().removeAll(Category1, catOneMoney);
+			Label oneFinish= new Label(categories.get(0)+" unavailable");
+			GridPane.setConstraints(oneFinish, 0,1);
+			gameGrid.getChildren().add(oneFinish);
+		}
+		if (ShowWinnings.isTwoLimit()==true) {
+			gameGrid.getChildren().removeAll(Category2, catTwoMoney);
+			Label twoFinish= new Label(categories.get(1)+" unavailable");
+			GridPane.setConstraints(twoFinish, 0,2);
+			gameGrid.getChildren().add(twoFinish);
+		}
+		if (ShowWinnings.isThreeLimit()==true) {
+			gameGrid.getChildren().removeAll(Category3, catThreeMoney);
+			Label threeFinish= new Label(categories.get(2)+" unavailable");
+			GridPane.setConstraints(threeFinish, 0,3);
+			gameGrid.getChildren().add(threeFinish);
+		}
+		if (ShowWinnings.isFourLimit()==true) {
+			gameGrid.getChildren().removeAll(Category4, catFourMoney);
+			Label fourFinish= new Label(categories.get(3)+" unavailable");
+			GridPane.setConstraints(fourFinish, 0,4);
+			gameGrid.getChildren().add(fourFinish);
+		}
+		if (ShowWinnings.isFiveLimit()==true) {
+			gameGrid.getChildren().removeAll(Category5, catFiveMoney);
+			Label fiveFinish= new Label(categories.get(4)+" unavailable");
+			GridPane.setConstraints(fiveFinish, 0,5);
+			gameGrid.getChildren().add(fiveFinish);
+		}
+		Scene scene= new Scene(gameGrid, 600,300);
 		window.setScene(scene);
-		window.setTitle("Test Game Mode");
+		window.setTitle("Game Mode");
 		window.initModality(Modality.APPLICATION_MODAL);
 		window.show();
-}
+	}
 }

@@ -26,7 +26,7 @@ public class ShowWinnings {
 	}
 	
 	public static boolean isOneLimit() {
-		if (categoryOneCount == 5) {
+		if (categoryOneCount == 6) {
 			return true;
 		}
 		else {
@@ -45,6 +45,14 @@ public class ShowWinnings {
 	public static void incrementTwoCount() {
 		categoryTwoCount++;
 	}
+	public static boolean isTwoLimit() {
+		if (categoryTwoCount == 6) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 	public static void setThreeCount() {
 		categoryThreeCount = 1;
 	}
@@ -55,6 +63,14 @@ public class ShowWinnings {
 	
 	public static void incrementThreeCount() {
 		categoryThreeCount++;
+	}
+	public static boolean isThreeLimit() {
+		if (categoryThreeCount == 6) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 	public static void setFourCount() {
 		categoryFourCount = 1;
@@ -67,6 +83,14 @@ public class ShowWinnings {
 	public static void incrementFourCount() {
 		categoryFourCount++;
 	}
+	public static boolean isFourLimit() {
+		if (categoryFourCount == 6) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 	public static void setFiveCount() {
 		categoryFiveCount = 1;
 	}
@@ -77,6 +101,14 @@ public class ShowWinnings {
 	
 	public static void incrementFiveCount() {
 		categoryFiveCount++;
+	}
+	public static boolean isFiveLimit() {
+		if (categoryFiveCount == 6) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 }
