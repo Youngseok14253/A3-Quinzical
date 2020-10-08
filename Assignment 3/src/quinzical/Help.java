@@ -19,11 +19,15 @@ public class Help {
 		
 		Label text = new Label();
 		text.setText(
-				"Quinzical will ignore spaces between characters and words." +
-		     "\n as well as uppercase/lowercase letters." +
-		     "\n For example, for a question where the answer was teapot," +
-			 "\n the words 'tea pot', 'TEAPOT', 'TE a PO t' would work" +
-		     "\n but 'teapor' would not.");
+				"Quinzical will ignore spaces between characters and wordsn" +
+		     "\nas well as uppercase/lowercase letters." +
+		     "\nFor example, for a question where the answer was teapot," +
+			 "\nthe words 'tea pot', 'TEAPOT', 'TE a PO t' would be accepted" +
+		     "\nbut 'teapor' would not.\n\n" +
+			 "Numbers (excluding years) can also be written in word format." +
+		     "\nFor example, for a question where the answer was 4," +
+			 "\nboth '4' and 'four' would be accepted."
+		     );
 		
 		Button closeButton = new Button("I Understand");
 		closeButton.setOnAction(e -> window.close());

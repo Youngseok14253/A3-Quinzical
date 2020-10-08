@@ -68,7 +68,7 @@ public class CompareAnswer{
 	 */
 	public static void display(String message) {
 
-		String title= "Confirmation";
+		String title= "Result";
 
 		Stage window= new Stage();
 		window.initModality(Modality.APPLICATION_MODAL);

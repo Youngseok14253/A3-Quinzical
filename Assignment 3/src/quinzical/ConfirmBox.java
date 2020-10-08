@@ -77,7 +77,15 @@ public class ConfirmBox {
 		window.setTitle("Hint");
 		window.setMinWidth(250);
 		Label label= new Label();
-		label.setText("The first character of the answer is\n\t\t\t"+ Character.toUpperCase(hint));
+		label.setText("The first character of the answer is:");
+		
+		String hintString = Character.toString(hint);
+		Label hintLabel = new Label();
+		
+		Label goodLuck = new Label();
+		goodLuck.setText("This is your last attempt - make it count!");
+		
+		hintLabel.setText(hintString.toUpperCase());
 		
 		Button button= new Button("Confirm");
 		
@@ -88,7 +96,7 @@ public class ConfirmBox {
 			}
 		});
 		VBox layout= new VBox(10);
-		layout.getChildren().addAll(label, button);
+		layout.getChildren().addAll(label, hintLabel, goodLuck, button);
 		layout.setAlignment(Pos.CENTER);
 		Scene scene= new Scene(layout);
 		window.setScene(scene);
