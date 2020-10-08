@@ -73,7 +73,8 @@ public class CompareAnswer{
 		Stage window= new Stage();
 		window.initModality(Modality.APPLICATION_MODAL);
 		window.setTitle(title);
-		window.setMinWidth(200);
+		window.setMinWidth(300);
+		window.setMinHeight(20);
 
 		Label label= new Label();
 		label.setText(message);

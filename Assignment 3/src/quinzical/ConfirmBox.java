@@ -76,6 +76,7 @@ public class ConfirmBox {
 		window.initModality(Modality.APPLICATION_MODAL);
 		window.setTitle("Hint");
 		window.setMinWidth(250);
+		
 		Label label= new Label();
 		label.setText("The first character of the answer is:");
 		
@@ -109,7 +110,10 @@ public class ConfirmBox {
 		window.setTitle("Answer");
 		window.setMinWidth(250);
 		Label label= new Label();
-		label.setText("The answer of the clue was: "+ answer );
+		label.setText("The correct answer was:" );
+		
+		Label ansLabel= new Label();
+		ansLabel.setText(answer);
 		
 		Button button= new Button("Confirm");
 		
@@ -120,7 +124,7 @@ public class ConfirmBox {
 			}
 		});
 		VBox layout= new VBox(10);
-		layout.getChildren().addAll(label, button);
+		layout.getChildren().addAll(label, ansLabel, button);
 		layout.setAlignment(Pos.CENTER);
 		Scene scene= new Scene(layout);
 		window.setScene(scene);

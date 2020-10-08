@@ -126,7 +126,9 @@ public class AnswerQuestion {
 			@Override
 			public void handle(WindowEvent event) {
 				event.consume();
-				Boolean answer= ConfirmBox.display("Give Up Question?", "This will count as an incorrect answer if you are in Game Mode");
+				Boolean answer= ConfirmBox.display("Give Up Question?", "\t\t  (In Game Mode)," +
+				"\nThis will count as an incorrect answer," + 
+				"\nand the answer will not be revealed.");
 				if(answer) {
 					window.close();
 				}

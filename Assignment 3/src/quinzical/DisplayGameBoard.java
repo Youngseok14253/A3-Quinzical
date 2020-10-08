@@ -28,7 +28,7 @@ public class DisplayGameBoard {
 
 		Button Category1 = new Button(categories.get(0));
 		GridPane.setConstraints(Category1, 0, 1);
-		Category1.setPrefSize(200, 40);
+		Category1.setPrefSize(300, 80);
 		String catName1 = Category1.getText();
 
 			Category1.setOnAction(e -> {
@@ -40,7 +40,7 @@ public class DisplayGameBoard {
 					);
 		Button Category2 = new Button(categories.get(1));
 		GridPane.setConstraints(Category2, 0, 2);
-		Category2.setPrefSize(200, 40);
+		Category2.setPrefSize(300, 80);
 		String catName2 = Category2.getText();
 
 		Category2.setOnAction(e -> {
@@ -53,7 +53,7 @@ public class DisplayGameBoard {
 
 		Button Category3 = new Button(categories.get(2));
 		GridPane.setConstraints(Category3, 0, 3);
-		Category3.setPrefSize(200, 40);
+		Category3.setPrefSize(300, 80);
 		String catName3 = Category3.getText();
 
 		Category3.setOnAction(e -> {
@@ -66,7 +66,7 @@ public class DisplayGameBoard {
 
 		Button Category4 = new Button(categories.get(3));
 		GridPane.setConstraints(Category4, 0, 4);
-		Category4.setPrefSize(200, 40);
+		Category4.setPrefSize(300, 80);
 		String catName4 = Category4.getText();
 
 		Category4.setOnAction(e -> {
@@ -79,7 +79,7 @@ public class DisplayGameBoard {
 
 		Button Category5 = new Button(categories.get(4));
 		GridPane.setConstraints(Category5, 0, 5);
-		Category5.setPrefSize(200, 40);
+		Category5.setPrefSize(300, 80);
 		String catName5 = Category5.getText();
 
 		Category5.setOnAction(e -> {
@@ -92,33 +92,33 @@ public class DisplayGameBoard {
 
 		Label catOneMoney = new Label();
 		GridPane.setConstraints(catOneMoney,1,1);
-		catOneMoney.setText("Question Worth $"+ShowWinnings.getOneCount()+"00");
+		catOneMoney.setText("\t\tQuestion Worth $"+ShowWinnings.getOneCount()+"00");
 		Label catTwoMoney = new Label();
 		GridPane.setConstraints(catTwoMoney,1,2);
-		catTwoMoney.setText("Question Worth $"+ShowWinnings.getTwoCount()+"00");
+		catTwoMoney.setText("\t\tQuestion Worth $"+ShowWinnings.getTwoCount()+"00");
 		Label catThreeMoney = new Label();
 		GridPane.setConstraints(catThreeMoney,1,3);
-		catThreeMoney.setText("Question Worth $"+ShowWinnings.getThreeCount()+"00");
+		catThreeMoney.setText("\t\tQuestion Worth $"+ShowWinnings.getThreeCount()+"00");
 		Label catFourMoney = new Label();
 		GridPane.setConstraints(catFourMoney,1,4);
-		catFourMoney.setText("Question Worth $"+ShowWinnings.getFourCount()+"00");
+		catFourMoney.setText("\t\tQuestion Worth $"+ShowWinnings.getFourCount()+"00");
 		Label catFiveMoney = new Label();
 		GridPane.setConstraints(catFiveMoney,1,5);
-		catFiveMoney.setText("Question Worth $"+ShowWinnings.getFiveCount()+"00");
+		catFiveMoney.setText("\t\tQuestion Worth $"+ShowWinnings.getFiveCount()+"00");
 
 		gameGrid.getChildren().addAll(Category, Category1, Category2, Category3, Category4, Category5);
 		gameGrid.getChildren().addAll(catOneMoney, catTwoMoney, catThreeMoney, catFourMoney, catFiveMoney);
 		
-		Button oneFinish= new Button("Unavailable");
-		oneFinish.setPrefSize(200, 40);
-		Button twoFinish= new Button("Unavailable");
-		twoFinish.setPrefSize(200, 40);
-		Button threeFinish= new Button("Unavailable");
-		threeFinish.setPrefSize(200, 40);
-		Button fourFinish= new Button("Unavailable");
-		fourFinish.setPrefSize(200, 40);
-		Button fiveFinish= new Button("Unavailable");
-		fiveFinish.setPrefSize(200, 40);
+		Button oneFinish= new Button("\t\tUnavailable");
+		oneFinish.setPrefSize(300, 80);
+		Button twoFinish= new Button("\t\tUnavailable");
+		twoFinish.setPrefSize(300, 80);
+		Button threeFinish= new Button("\t\tUnavailable");
+		threeFinish.setPrefSize(300, 80);
+		Button fourFinish= new Button("\t\tUnavailable");
+		fourFinish.setPrefSize(300, 80);
+		Button fiveFinish= new Button("\t\tUnavailable");
+		fiveFinish.setPrefSize(300, 80);
 		
 		if (ShowWinnings.isOneLimit()==true) {
 			gameGrid.getChildren().removeAll(Category1, catOneMoney);
@@ -153,7 +153,7 @@ public class DisplayGameBoard {
 			finished = true;
 		}
 		
-		Scene scene= new Scene(gameGrid, 450,300);
+		Scene scene= new Scene(gameGrid, 600, 450);
 		window.setScene(scene);
 		window.setTitle("Game Mode");
 		window.initModality(Modality.APPLICATION_MODAL);
