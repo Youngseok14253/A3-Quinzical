@@ -53,7 +53,7 @@ public class AnswerQuestion {
 		Label whatIsAre= new Label();
 
 
-		qAndA= GetQuestion.returnQuestionFormat(categoryName);
+		qAndA= GetQuestion.returnQuestionFormat(categoryName, mode);
 
 		String[] arrQAndA= qAndA.split("@",3);
 		String question = arrQAndA[0];
@@ -74,24 +74,25 @@ public class AnswerQuestion {
 				CompareAnswer.display("Correct!");
 				if (mode.equals("Game")) {
 					if (categoryNumber==1) {
-						//int catOneWinnings= ShowWinnings.getOneCount()*100;;
+						ShowWinnings.addToWinnings(ShowWinnings.getOneCount());
 					}
 					if (categoryNumber==2) {
-						//int catTwoWinnings= ShowWinnings.getTwoCount()*100;
+						ShowWinnings.addToWinnings(ShowWinnings.getTwoCount());
 					}
 
 					if (categoryNumber==3) {
-						//int catThreeWinnings= ShowWinnings.getThreeCount()*100;
+						ShowWinnings.addToWinnings(ShowWinnings.getThreeCount());
 					}
 
 					if (categoryNumber==4) {
-						//int catFourWinnings= ShowWinnings.getFourCount()*100;
+						ShowWinnings.addToWinnings(ShowWinnings.getFourCount());
 					}
 					if (categoryNumber==5) {
-						//int catFiveWinnings= ShowWinnings.getFiveCount()*100;
+						ShowWinnings.addToWinnings(ShowWinnings.getFiveCount());
 					}
 
 				}
+				
 				CompareAnswer.setCount();
 				window.close();
 

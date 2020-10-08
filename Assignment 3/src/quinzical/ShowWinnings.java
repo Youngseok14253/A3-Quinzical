@@ -17,6 +17,7 @@ public class ShowWinnings {
 	public static int categoryThreeCount;
 	public static int categoryFourCount;
 	public static int categoryFiveCount;
+	public static int totalWinnings;
 	
 	
 	public static void saveCategory(String catName) {
@@ -24,7 +25,7 @@ public class ShowWinnings {
 	}
 	
 	public static void setOneCount() {
-		categoryOneCount = 6;
+		categoryOneCount = 1;
 	}
 	
 	public static int getOneCount() {
@@ -45,7 +46,7 @@ public class ShowWinnings {
 	}
 	
 	public static void setTwoCount() {
-		categoryTwoCount = 6;
+		categoryTwoCount = 1;
 	}
 	
 	public static int getTwoCount() {
@@ -64,7 +65,7 @@ public class ShowWinnings {
 		}
 	}
 	public static void setThreeCount() {
-		categoryThreeCount = 6;
+		categoryThreeCount = 1;
 	}
 	
 	public static int getThreeCount() {
@@ -83,7 +84,7 @@ public class ShowWinnings {
 		}
 	}
 	public static void setFourCount() {
-		categoryFourCount = 6;
+		categoryFourCount = 1;
 	}
 	
 	public static int getFourCount() {
@@ -102,7 +103,7 @@ public class ShowWinnings {
 		}
 	}
 	public static void setFiveCount() {
-		categoryFiveCount = 5;
+		categoryFiveCount = 1;
 	}
 	
 	public static int getFiveCount() {
@@ -120,14 +121,25 @@ public class ShowWinnings {
 			return false;
 		}
 	}
+	
+	public static void addToWinnings(int val) {
+		totalWinnings = totalWinnings + (val*100);
+	}
+	
+	public static int returnTotalWinnings() {
+		return totalWinnings;
+	}
+	
 	public static void rewardScreen() {
 		Stage window= new Stage();
 		window.initModality(Modality.APPLICATION_MODAL);
 		window.setTitle("Rewards");
 		window.setMinWidth(250);
+		
 		Label label= new Label();
-		int totalWinnings= 0; //need to find way to find total winnings
-		label.setText("Congratulations, you earned "+ totalWinnings+"!");
+		label.setText("Congratulations, you earned:");
+		Label winnings = new Label();
+		winnings.setText("$" + totalWinnings);
 
 		//Creating two buttons
 		Button btnMainMenu= new Button("Return to Main Menu");
@@ -137,17 +149,16 @@ public class ShowWinnings {
 		btnMainMenu.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
+								
 				ShowWinnings.setOneCount();
 				ShowWinnings.setTwoCount();
 				ShowWinnings.setThreeCount();
 				ShowWinnings.setFourCount();
-				ShowWinnings.setFiveCount();
-				ShowWinnings.categoryOneCount=1;
-				ShowWinnings.categoryTwoCount=1;
-				ShowWinnings.categoryThreeCount=1;
-				ShowWinnings.categoryFourCount=1;
-				ShowWinnings.categoryFiveCount=1;
+				ShowWinnings.setFiveCount();	
+				
 				window.close();
+
+				
 			}
 		});
 		
@@ -155,12 +166,19 @@ public class ShowWinnings {
 		btnPlayAgain.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
+				
+				ShowWinnings.setOneCount();
+				ShowWinnings.setTwoCount();
+				ShowWinnings.setThreeCount();
+				ShowWinnings.setFourCount();
+				ShowWinnings.setFiveCount();
+				
 				window.close();
 			}
 		});
 		
 		VBox layout= new VBox(10);
-		layout.getChildren().addAll(label, btnPlayAgain, btnMainMenu);
+		layout.getChildren().addAll(label, winnings, btnPlayAgain, btnMainMenu);
 		layout.setAlignment(Pos.CENTER);
 		layout.setStyle("-fx-background-color: #AAAAAA;");
 		Scene scene= new Scene(layout);

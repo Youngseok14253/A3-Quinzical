@@ -15,8 +15,9 @@ public class DisplayGameBoard {
 	public static void displayGameBoard(ArrayList<String> categories) {
 
 		Stage window = new Stage();
+		boolean finished = false;
 
-		//This method sets up a new window and gives access to all 9 categories to the user.
+		//This method sets up a new window and creates 5 random categories.
 		GridPane gameGrid= new GridPane();
 		gameGrid.setPadding(new Insets(10,10,10,10));
 		gameGrid.setVgap(8);
@@ -149,11 +150,16 @@ public class DisplayGameBoard {
 			//gameGrid.getChildren().removeAll(oneFinish,twoFinish,threeFinish,fourFinish,fiveFinish);
 			ShowWinnings.rewardScreen();
 			window.close();
+			finished = true;
 		}
+		
 		Scene scene= new Scene(gameGrid, 450,300);
 		window.setScene(scene);
 		window.setTitle("Game Mode");
 		window.initModality(Modality.APPLICATION_MODAL);
-		window.show();
+		if (!(finished == true)) {
+			window.show();
+		}
+
 	}
 }

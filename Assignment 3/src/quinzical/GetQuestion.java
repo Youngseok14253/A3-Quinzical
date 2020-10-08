@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class GetQuestion {
-	public static String returnQuestionFormat(String category) {
+	public static String returnQuestionFormat(String category, String mode) {
 		
 		int categoryNum = 0;
 		int lineNum = 0;
@@ -79,6 +79,10 @@ public class GetQuestion {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+		
+		if (mode.equals("Game")) {
+				
 		}
 		
 		return global;
