@@ -60,11 +60,18 @@ public class AnswerQuestion {
 		Button submitButton = new Button("Submit");
 		submitButton.setOnAction(e -> {
 				boolean ans= CompareAnswer.compareAnswerToInput(answerField, answer);
-				if (ans== true) {
+				if (ans == true) {
 					CompareAnswer.display("Correct!");
-					CompareAnswer.resetCount();
+					//if (mode.equals("Game")) {
+					//	ConfirmBox.showAnswer(answer);
+					//	window.close();
+						//Show current winnings
+					//}
+					CompareAnswer.setCount();
 					window.close();
+					
 				}
+				
 				else {
 					CompareAnswer.display("Incorrect!");
 					if (mode.equals("Game")) {
@@ -81,7 +88,7 @@ public class AnswerQuestion {
 					ConfirmBox.displayHint(hint);
 				} else if (val == 3) {
 					ConfirmBox.showAnswer(answer);
-					CompareAnswer.resetCount();
+					CompareAnswer.setCount();
 					window.close();
 				}
 				CompareAnswer.incrementCount();

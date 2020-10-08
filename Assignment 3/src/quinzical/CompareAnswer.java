@@ -108,14 +108,6 @@ public class CompareAnswer{
 	public static void incrementCount() {
 		count++;
 	}
-	
-	public static void resetCount() {
-		count = 1;
-	}
-	
-	//isPractice .equalsString, display incorrect
-	//if true
-	public static void isPractice(String mode) {
-	}
+
 }
 

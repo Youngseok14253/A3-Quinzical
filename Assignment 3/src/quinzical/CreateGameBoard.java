@@ -38,7 +38,7 @@ public class CreateGameBoard{
 		Label label= new Label("Please select a category");
 		GridPane.setConstraints(label, 1, 0);
 		
-		gameGrid.getChildren().add(label);
+		gameGrid.getChildren().add(label); 
 		
 		ArrayList<Integer> randNumList= new ArrayList<>();
 		for (int i=1; i<=9; i++) {
@@ -85,14 +85,19 @@ public class CreateGameBoard{
 				e.printStackTrace();
 			}
 				
-			Button Category = new Button(global);
-			GridPane.setConstraints(Category, 1, i+1);
-			Category.setPrefSize(200, 40);
-			String catName = Category.getText();
-			Category.setOnAction(e -> AnswerQuestion.displayQuestion(catName, "Game"));
+			Button category = new Button(global);
+			GridPane.setConstraints(category, 1, i+1);
+			category.setPrefSize(200, 40);
+			String catName = category.getText();
+			category.setOnAction( e -> AnswerQuestion.displayQuestion(catName, "Game"));
 
-			gameGrid.getChildren().add(Category);
+			gameGrid.getChildren().add(category);
 			
+			Label categoryWinnings = new Label("prize for button " + i+1);
+			GridPane.setConstraints(categoryWinnings, 2, i+1);
+			category.setPrefSize(200, 40);
+			gameGrid.getChildren().add(categoryWinnings);
+		
 		}
 		
 		Stage window = new Stage();
@@ -104,4 +109,5 @@ public class CreateGameBoard{
 		window.showAndWait();
 		
 	}
+
 }
