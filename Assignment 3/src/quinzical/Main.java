@@ -4,10 +4,13 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -24,7 +27,7 @@ import java.util.ArrayList;
 public class Main extends Application{
 
 	Scene mainScene, gameScene, practiceScene;
-	Stage program;
+	public Stage program;
 	
 	/*
 	* This is the first GUI the user is greeted with - the main menu of Quinzical.
@@ -53,8 +56,8 @@ public class Main extends Application{
 
 		//Game button
 		Button btnMainToGame= new Button("Game Mode");
+		btnMainToGame.setPrefSize(335, 50);
 		GridPane.setConstraints(btnMainToGame, 1, 1);
-		btnMainToGame.setMinSize(300,100);
 		
 		btnMainToGame.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -66,8 +69,8 @@ public class Main extends Application{
 
 		//Practice button 
 		Button btnMainToPractice= new Button("Practice Mode");
+		btnMainToPractice.setPrefSize(335, 50);
 		GridPane.setConstraints(btnMainToPractice, 1, 2);
-		btnMainToPractice.setMinSize(300, 100);
 		
 		btnMainToPractice.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -78,8 +81,8 @@ public class Main extends Application{
 
 		//Quit button 
 		Button btnMainToExit= new Button("Quit");
+		btnMainToExit.setPrefSize(335, 50);
 		GridPane.setConstraints(btnMainToExit, 1, 3);
-		btnMainToExit.setMinSize(300, 100);
 		
 		btnMainToExit.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -109,6 +112,13 @@ public class Main extends Application{
 		mainLayout.setVgap(8);
 		mainLayout.setHgap(10);
 		mainLayout.getChildren().addAll(label1, btnMainToGame, btnMainToPractice, btnMainToExit);
+		
+		label1.setFont(new Font("Cavolini", 30));
+		label1.setTextFill(Color.web("#ff0000",0.8));
+		btnMainToGame.setFont(new Font("Arial",20));
+		btnMainToPractice.setFont(new Font("Arial",20));
+		btnMainToExit.setFont(new Font("Arial",20));
+		mainLayout.setAlignment(Pos.CENTER);
 		mainScene= new Scene(mainLayout, 500,400);		
 		
 		

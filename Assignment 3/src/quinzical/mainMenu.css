@@ -1,4 +1,5 @@
 .root{
-	-fx-background-colour: #38ee00;
-	-fx-font-size: 30pt;
+	-fx-background-image: url("Quinz.png");
+	-fx-background-repeat: stretch;
+	-fx-background-size: 500 350;
 }	

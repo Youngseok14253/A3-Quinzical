@@ -1,5 +1,15 @@
 package quinzical;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
 public class ShowWinnings {
 	
 	public static int categoryOneCount;
@@ -14,7 +24,7 @@ public class ShowWinnings {
 	}
 	
 	public static void setOneCount() {
-		categoryOneCount = 1;
+		categoryOneCount = 5;
 	}
 	
 	public static int getOneCount() {
@@ -35,7 +45,7 @@ public class ShowWinnings {
 	}
 	
 	public static void setTwoCount() {
-		categoryTwoCount = 1;
+		categoryTwoCount = 6;
 	}
 	
 	public static int getTwoCount() {
@@ -54,7 +64,7 @@ public class ShowWinnings {
 		}
 	}
 	public static void setThreeCount() {
-		categoryThreeCount = 1;
+		categoryThreeCount = 6;
 	}
 	
 	public static int getThreeCount() {
@@ -73,7 +83,7 @@ public class ShowWinnings {
 		}
 	}
 	public static void setFourCount() {
-		categoryFourCount = 1;
+		categoryFourCount = 6;
 	}
 	
 	public static int getFourCount() {
@@ -92,7 +102,7 @@ public class ShowWinnings {
 		}
 	}
 	public static void setFiveCount() {
-		categoryFiveCount = 1;
+		categoryFiveCount = 5;
 	}
 	
 	public static int getFiveCount() {
@@ -109,6 +119,52 @@ public class ShowWinnings {
 		else {
 			return false;
 		}
+	}
+	public static void rewardScreen() {
+		Stage window= new Stage();
+		window.initModality(Modality.APPLICATION_MODAL);
+		window.setTitle("Rewards");
+		window.setMinWidth(250);
+		Label label= new Label();
+		int totalWinnings= 0; //need to find way to find total winnings
+		label.setText("Congratulations, you earned "+ totalWinnings);
+
+		//Creating two buttons
+		Button btnMainMenu= new Button("Return to Main Menu");
+		Button btnPlayAgain= new Button("Play Again");
+		
+		//Back to main menu if this button is pressed
+		btnMainMenu.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				ShowWinnings.setOneCount();
+				ShowWinnings.setTwoCount();
+				ShowWinnings.setThreeCount();
+				ShowWinnings.setFourCount();
+				ShowWinnings.setFiveCount();
+				ShowWinnings.categoryOneCount=1;
+				ShowWinnings.categoryTwoCount=1;
+				ShowWinnings.categoryThreeCount=1;
+				ShowWinnings.categoryFourCount=1;
+				ShowWinnings.categoryFiveCount=1;
+				window.close();
+			}
+		});
+		
+		//Play again if this button is pressed
+		btnPlayAgain.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				window.close();
+			}
+		});
+		
+		VBox layout= new VBox(10);
+		layout.getChildren().addAll(label, btnMainMenu, btnPlayAgain);
+		layout.setAlignment(Pos.CENTER);
+		Scene scene= new Scene(layout);
+		window.setScene(scene);
+		window.showAndWait();
 	}
 
 }
