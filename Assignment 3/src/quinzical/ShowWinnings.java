@@ -25,6 +25,15 @@ public class ShowWinnings {
 		categoryOneCount++;
 	}
 	
+	public static boolean isOneLimit() {
+		if (categoryOneCount == 5) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
 	public static void setTwoCount() {
 		categoryTwoCount = 1;
 	}
