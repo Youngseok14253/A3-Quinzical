@@ -72,8 +72,6 @@ public class MockGameBoard{
 			
 		}
 		
-		System.out.println(test.toString());
-		
 		return test;
 		
 

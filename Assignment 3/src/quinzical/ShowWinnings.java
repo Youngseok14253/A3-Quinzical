@@ -24,7 +24,7 @@ public class ShowWinnings {
 	}
 	
 	public static void setOneCount() {
-		categoryOneCount = 5;
+		categoryOneCount = 1;
 	}
 	
 	public static int getOneCount() {
@@ -45,7 +45,7 @@ public class ShowWinnings {
 	}
 	
 	public static void setTwoCount() {
-		categoryTwoCount = 6;
+		categoryTwoCount = 1;
 	}
 	
 	public static int getTwoCount() {
@@ -64,7 +64,7 @@ public class ShowWinnings {
 		}
 	}
 	public static void setThreeCount() {
-		categoryThreeCount = 6;
+		categoryThreeCount = 1;
 	}
 	
 	public static int getThreeCount() {
@@ -83,7 +83,7 @@ public class ShowWinnings {
 		}
 	}
 	public static void setFourCount() {
-		categoryFourCount = 6;
+		categoryFourCount = 1;
 	}
 	
 	public static int getFourCount() {
@@ -102,7 +102,7 @@ public class ShowWinnings {
 		}
 	}
 	public static void setFiveCount() {
-		categoryFiveCount = 5;
+		categoryFiveCount = 1;
 	}
 	
 	public static int getFiveCount() {
@@ -162,6 +162,7 @@ public class ShowWinnings {
 		VBox layout= new VBox(10);
 		layout.getChildren().addAll(label, btnMainMenu, btnPlayAgain);
 		layout.setAlignment(Pos.CENTER);
+		
 		Scene scene= new Scene(layout);
 		window.setScene(scene);
 		window.showAndWait();

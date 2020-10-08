@@ -150,7 +150,7 @@ public class DisplayGameBoard {
 			ShowWinnings.rewardScreen();
 			window.close();
 		}
-		Scene scene= new Scene(gameGrid, 600,300);
+		Scene scene= new Scene(gameGrid, 450,300);
 		window.setScene(scene);
 		window.setTitle("Game Mode");
 		window.initModality(Modality.APPLICATION_MODAL);
