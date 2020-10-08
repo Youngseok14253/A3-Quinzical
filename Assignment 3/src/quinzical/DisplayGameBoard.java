@@ -109,15 +109,15 @@ public class DisplayGameBoard {
 		gameGrid.getChildren().addAll(Category, Category1, Category2, Category3, Category4, Category5);
 		gameGrid.getChildren().addAll(catOneMoney, catTwoMoney, catThreeMoney, catFourMoney, catFiveMoney);
 		
-		Button oneFinish= new Button("\t\tUnavailable");
+		Button oneFinish= new Button("Unavailable");
 		oneFinish.setPrefSize(300, 80);
-		Button twoFinish= new Button("\t\tUnavailable");
+		Button twoFinish= new Button("Unavailable");
 		twoFinish.setPrefSize(300, 80);
-		Button threeFinish= new Button("\t\tUnavailable");
+		Button threeFinish= new Button("Unavailable");
 		threeFinish.setPrefSize(300, 80);
-		Button fourFinish= new Button("\t\tUnavailable");
+		Button fourFinish= new Button("Unavailable");
 		fourFinish.setPrefSize(300, 80);
-		Button fiveFinish= new Button("\t\tUnavailable");
+		Button fiveFinish= new Button("Unavailable");
 		fiveFinish.setPrefSize(300, 80);
 		
 		if (ShowWinnings.isOneLimit()==true) {
