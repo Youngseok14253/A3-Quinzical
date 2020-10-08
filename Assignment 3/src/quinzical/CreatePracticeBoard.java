@@ -11,16 +11,7 @@ import javafx.stage.Stage;
 public class CreatePracticeBoard {
 
 	public static void displayPracticeBoard() { 
-		
-		DeleteQuestionHelper.setOneCount();
-		DeleteQuestionHelper.setTwoCount();
-		DeleteQuestionHelper.setThreeCount();
-		DeleteQuestionHelper.setFourCount();
-		DeleteQuestionHelper.setFiveCount();
-		DeleteQuestionHelper.setSixCount();
-		DeleteQuestionHelper.setSevenCount();
-		DeleteQuestionHelper.setEightCount();
-		DeleteQuestionHelper.setNineCount();
+
 		
 		//This method sets up a new window and gives access to all 9 categories to the user.
 		GridPane gameGrid= new GridPane();

@@ -12,39 +12,39 @@ public class GetQuestion {
 		//Depending on the category name, a certain file is opened
 		if (category.equals("Places")) {
 			categoryNum = 1;
-			lineNum = 13 - DeleteQuestionHelper.getOneCount();
+			lineNum = 13;
 		}
 		else if (category.equals("Symbols")) {
 			categoryNum = 2;
-			lineNum = 8 - DeleteQuestionHelper.getTwoCount();
+			lineNum = 8;
 		}
 		else if (category.equals("Geography")) {
 			categoryNum = 3;
-			lineNum = 12 - DeleteQuestionHelper.getThreeCount();
+			lineNum = 12;
 		}
 		else if (category.equals("History")) {
 			categoryNum = 4;
-			lineNum = 9 - DeleteQuestionHelper.getFourCount();
+			lineNum = 9;
 		}
 		else if (category.equals("Famous People")) {
 			categoryNum = 5;
-			lineNum = 9 - DeleteQuestionHelper.getFiveCount();
+			lineNum = 9;
 		}
 		else if (category.equals("NZ Life")) {
 			categoryNum = 6;
-			lineNum = 7 - DeleteQuestionHelper.getSixCount();
+			lineNum = 7;
 		}
 		else if (category.equals("Flora")) {
 			categoryNum = 7;
-			lineNum = 10 - DeleteQuestionHelper.getSevenCount();
+			lineNum = 10;
 		}
 		else if (category.equals("Fauna")) {
 			categoryNum = 8;
-			lineNum = 18 - DeleteQuestionHelper.getEightCount();
+			lineNum = 18;
 		}
 		else if (category.equals("Oddities")) {
 			categoryNum = 9;
-			lineNum = 8 - - DeleteQuestionHelper.getNineCount();
+			lineNum = 8;
 		}
 		
 		String global = "";
@@ -80,35 +80,6 @@ public class GetQuestion {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		if (mode.equals("Game")) {
-			if (category.equals("Places")) {
-				DeleteQuestionHelper.increaseOne();
-			}
-			else if (category.equals("Symbols")) {
-				DeleteQuestionHelper.increaseTwo();
-			}
-			else if (category.equals("Geography")) {
-				DeleteQuestionHelper.increaseThree();
-			}
-			else if (category.equals("History")) {
-				DeleteQuestionHelper.increaseFour();
-			}
-			else if (category.equals("Famous People")) {
-				DeleteQuestionHelper.increaseFive();
-			}
-			else if (category.equals("NZ Life")) {
-				DeleteQuestionHelper.increaseSix();
-			}
-			else if (category.equals("Flora")) {
-				DeleteQuestionHelper.increaseSeven();
-			}
-			else if (category.equals("Fauna")) {
-				DeleteQuestionHelper.increaseEight();
-			}
-			else if (category.equals("Oddities")) {
-				DeleteQuestionHelper.increaseNine();
-			}
 			
 			try {
 				String command = ("sed -i '" + randNum + "d' " + "Category-" + categoryNum);
@@ -139,7 +110,6 @@ public class GetQuestion {
 			}
 			
 			
-		}
 		
 		return global;
 		
