@@ -114,7 +114,6 @@ public class Main extends Application{
 		mainLayout.getChildren().addAll(label1, btnMainToGame, btnMainToPractice, btnMainToExit);
 		
 		label1.setFont(new Font("Cavolini", 30));
-		label1.setTextFill(Color.web("#ff0000",0.8));
 		btnMainToGame.setFont(new Font("Arial",20));
 		btnMainToPractice.setFont(new Font("Arial",20));
 		btnMainToExit.setFont(new Font("Arial",20));
@@ -123,7 +122,6 @@ public class Main extends Application{
 		
 		
 		program.setScene(mainScene);
-		mainScene.getStylesheets().add(getClass().getResource("mainMenu.css").toExternalForm());
 		program.setTitle("Quinzical");
 		program.show();
 		
