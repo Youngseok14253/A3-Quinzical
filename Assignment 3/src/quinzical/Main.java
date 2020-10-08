@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 import java.io.*;
+import java.util.ArrayList;
 
 /**
  * This Main class provides the launch of the Quinzical GUI. It mainly implements CreateGameBoard 
@@ -35,10 +36,20 @@ public class Main extends Application{
 	@Override
 	public void start(Stage primaryStage) {	
 		
+		MockGameBoard.displayGameBoard();
+		
 		program = primaryStage;
 		
 		Label label1= new Label("Welcome to Quinzical!");
 		GridPane.setConstraints(label1, 1, 0);
+		
+		ShowWinnings.setOneCount();
+		ShowWinnings.setTwoCount();
+		ShowWinnings.setThreeCount();
+		ShowWinnings.setFourCount();
+		ShowWinnings.setFiveCount();
+		
+		final ArrayList<String> Categories = MockGameBoard.displayGameBoard();
 
 		//Game button
 		Button btnMainToGame= new Button("Game Mode");
@@ -48,7 +59,8 @@ public class Main extends Application{
 		btnMainToGame.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				CreateGameBoard.displayGameBoard();
+				//CreateGameBoard.displayGameBoard();
+				DisplayGameBoard.displayGameBoard(Categories);
 			}
 		});
 

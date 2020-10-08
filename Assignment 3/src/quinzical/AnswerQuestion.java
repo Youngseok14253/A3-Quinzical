@@ -10,7 +10,7 @@ public class AnswerQuestion {
 
 
 
-	public static void displayQuestion(String categoryName, String mode) {
+	public static void displayQuestion(String categoryName, String mode, int categoryNumber) {
 
 		Menu playbackMenu = new Menu("Playback Speed");
 		ToggleGroup playbackSpeed = new ToggleGroup();
@@ -67,6 +67,9 @@ public class AnswerQuestion {
 					//	window.close();
 						//Show current winnings
 					//}
+					if (mode.equals("Game")) {
+						//updateValue(categoryNumber);
+					}
 					CompareAnswer.setCount();
 					window.close();
 					
@@ -76,8 +79,8 @@ public class AnswerQuestion {
 					CompareAnswer.display("Incorrect!");
 					if (mode.equals("Game")) {
 						ConfirmBox.showAnswer(answer);
+						//updateValue(categoryNumber);
 						window.close();
-						//Show current winnings
 					}
 				}
 				

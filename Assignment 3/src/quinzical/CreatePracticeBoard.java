@@ -26,7 +26,7 @@ public class CreatePracticeBoard {
 		String catName1 = Category1.getText();
 
 		Category1.setOnAction(e -> {
-			AnswerQuestion.displayQuestion(catName1, "Practice");
+			AnswerQuestion.displayQuestion(catName1, "Practice", 0);
 		}
 				);
 
@@ -36,7 +36,7 @@ public class CreatePracticeBoard {
 		String catName2 = Category2.getText();
 
 		Category2.setOnAction(e -> {
-			AnswerQuestion.displayQuestion(catName2, "Practice");
+			AnswerQuestion.displayQuestion(catName2, "Practice", 0);
 		}
 				);
 
@@ -46,7 +46,7 @@ public class CreatePracticeBoard {
 		String catName3 = Category3.getText();
 
 		Category3.setOnAction(e -> {
-			AnswerQuestion.displayQuestion(catName3, "Practice");
+			AnswerQuestion.displayQuestion(catName3, "Practice", 0);
 		}
 				);
 
@@ -56,7 +56,7 @@ public class CreatePracticeBoard {
 		String catName4 = Category4.getText();
 
 		Category4.setOnAction(e -> {
-			AnswerQuestion.displayQuestion(catName4, "Practice");
+			AnswerQuestion.displayQuestion(catName4, "Practice", 0);
 		}
 				);
 
@@ -66,7 +66,7 @@ public class CreatePracticeBoard {
 		String catName5 = Category5.getText();
 
 		Category5.setOnAction(e -> {
-			AnswerQuestion.displayQuestion(catName5, "Practice");
+			AnswerQuestion.displayQuestion(catName5, "Practice", 0);
 		}
 				);
 
@@ -76,7 +76,7 @@ public class CreatePracticeBoard {
 		String catName6 = Category6.getText();
 
 		Category6.setOnAction(e -> {
-			AnswerQuestion.displayQuestion(catName6, "Practice");
+			AnswerQuestion.displayQuestion(catName6, "Practice", 0);
 		}
 				);
 
@@ -87,7 +87,7 @@ public class CreatePracticeBoard {
 
 		
 		Category7.setOnAction(e -> {
-			AnswerQuestion.displayQuestion(catName7, "Practice");
+			AnswerQuestion.displayQuestion(catName7, "Practice", 0);
 		}
 				);
 
@@ -97,7 +97,7 @@ public class CreatePracticeBoard {
 		String catName8 = Category8.getText();
 
 		Category8.setOnAction(e -> {
-			AnswerQuestion.displayQuestion(catName8, "Practice");
+			AnswerQuestion.displayQuestion(catName8, "Practice", 0);
 		}
 				);
 
@@ -107,7 +107,7 @@ public class CreatePracticeBoard {
 		String catName9 = Category9.getText();
 
 		Category9.setOnAction(e -> {
-			AnswerQuestion.displayQuestion(catName9, "Practice");
+			AnswerQuestion.displayQuestion(catName9, "Practice", 0);
 		}
 				);
 
