@@ -24,7 +24,7 @@ public class ShowWinnings {
 	}
 	
 	public static void setOneCount() {
-		categoryOneCount = 1;
+		categoryOneCount = 6;
 	}
 	
 	public static int getOneCount() {
@@ -45,7 +45,7 @@ public class ShowWinnings {
 	}
 	
 	public static void setTwoCount() {
-		categoryTwoCount = 1;
+		categoryTwoCount = 6;
 	}
 	
 	public static int getTwoCount() {
@@ -64,7 +64,7 @@ public class ShowWinnings {
 		}
 	}
 	public static void setThreeCount() {
-		categoryThreeCount = 1;
+		categoryThreeCount = 6;
 	}
 	
 	public static int getThreeCount() {
@@ -83,7 +83,7 @@ public class ShowWinnings {
 		}
 	}
 	public static void setFourCount() {
-		categoryFourCount = 1;
+		categoryFourCount = 6;
 	}
 	
 	public static int getFourCount() {
@@ -102,7 +102,7 @@ public class ShowWinnings {
 		}
 	}
 	public static void setFiveCount() {
-		categoryFiveCount = 1;
+		categoryFiveCount = 5;
 	}
 	
 	public static int getFiveCount() {
@@ -127,7 +127,7 @@ public class ShowWinnings {
 		window.setMinWidth(250);
 		Label label= new Label();
 		int totalWinnings= 0; //need to find way to find total winnings
-		label.setText("Congratulations, you earned "+ totalWinnings);
+		label.setText("Congratulations, you earned "+ totalWinnings+"!");
 
 		//Creating two buttons
 		Button btnMainMenu= new Button("Return to Main Menu");
@@ -160,9 +160,9 @@ public class ShowWinnings {
 		});
 		
 		VBox layout= new VBox(10);
-		layout.getChildren().addAll(label, btnMainMenu, btnPlayAgain);
+		layout.getChildren().addAll(label, btnPlayAgain, btnMainMenu);
 		layout.setAlignment(Pos.CENTER);
-		
+		layout.setStyle("-fx-background-color: #AAAAAA;");
 		Scene scene= new Scene(layout);
 		window.setScene(scene);
 		window.showAndWait();

@@ -128,7 +128,7 @@ public class AnswerQuestion {
 
 		layout.getChildren().addAll(label,warning,blank,whatIsAre,answerField,submitButton);
 
-		Scene scene = new Scene(layout, 600, 400);
+		Scene scene = new Scene(layout, 600, 200);
 		window.setScene(scene);
 		window.showAndWait();
 
