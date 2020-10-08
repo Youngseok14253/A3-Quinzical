@@ -110,31 +110,36 @@ public class DisplayGameBoard {
 		gameGrid.getChildren().addAll(catOneMoney, catTwoMoney, catThreeMoney, catFourMoney, catFiveMoney);
 		if (ShowWinnings.isOneLimit()==true) {
 			gameGrid.getChildren().removeAll(Category1, catOneMoney);
-			Label oneFinish= new Label(categories.get(0)+" unavailable");
+			Button oneFinish= new Button("Unavailable");
+			oneFinish.setPrefSize(200, 40);
 			GridPane.setConstraints(oneFinish, 0,1);
 			gameGrid.getChildren().add(oneFinish);
 		}
 		if (ShowWinnings.isTwoLimit()==true) {
 			gameGrid.getChildren().removeAll(Category2, catTwoMoney);
-			Label twoFinish= new Label(categories.get(1)+" unavailable");
+			Button twoFinish= new Button("Unavailable");
+			twoFinish.setPrefSize(200, 40);
 			GridPane.setConstraints(twoFinish, 0,2);
 			gameGrid.getChildren().add(twoFinish);
 		}
 		if (ShowWinnings.isThreeLimit()==true) {
 			gameGrid.getChildren().removeAll(Category3, catThreeMoney);
-			Label threeFinish= new Label(categories.get(2)+" unavailable");
+			Button threeFinish= new Button("Unavailable");
+			threeFinish.setPrefSize(200, 40);
 			GridPane.setConstraints(threeFinish, 0,3);
 			gameGrid.getChildren().add(threeFinish);
 		}
 		if (ShowWinnings.isFourLimit()==true) {
 			gameGrid.getChildren().removeAll(Category4, catFourMoney);
-			Label fourFinish= new Label(categories.get(3)+" unavailable");
+			Button fourFinish= new Button("Unavailable");
+			fourFinish.setPrefSize(200, 40);
 			GridPane.setConstraints(fourFinish, 0,4);
 			gameGrid.getChildren().add(fourFinish);
 		}
 		if (ShowWinnings.isFiveLimit()==true) {
 			gameGrid.getChildren().removeAll(Category5, catFiveMoney);
-			Label fiveFinish= new Label(categories.get(4)+" unavailable");
+			Button fiveFinish= new Button("Unavailable");
+			fiveFinish.setPrefSize(200, 40);
 			GridPane.setConstraints(fiveFinish, 0,5);
 			gameGrid.getChildren().add(fiveFinish);
 		}
