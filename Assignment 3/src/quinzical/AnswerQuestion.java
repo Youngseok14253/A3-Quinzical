@@ -2,6 +2,7 @@ package quinzical;
 
 import javafx.stage.*;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.*;
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
@@ -29,19 +30,28 @@ public class AnswerQuestion {
 		doubleSpeed.setToggleGroup(playbackSpeed);
 
 		playbackMenu.getItems().addAll(halfSpeed, slowSpeed, normalSpeed, quickSpeed, fastSpeed, doubleSpeed);
+		
+		Menu helpMenu = new Menu("Help");
+		
+		Menu answerHelp = new Menu("Answering Questions");
+		answerHelp.setOnAction(e -> Help.displayHowToAnswer());
+		
+		helpMenu.getItems().add(answerHelp);
+		
 
 		Stage window = new Stage();
 
 		window.initModality(Modality.APPLICATION_MODAL);
 		window.setTitle(categoryName);
-		window.setMinWidth(400);
+		window.setMinWidth(600);
+		window.setMinHeight(200);
 
 
 		Label label = new Label();
-		Label warning= new Label("Do not include prefixes in your answer");
+		Label warning= new Label("\nSee help Menu for acceptable answer formats");
 		String qAndA = new String();
 		Label whatIsAre= new Label();
-		Label blank= new Label(" ");
+
 
 		qAndA= GetQuestion.returnQuestionFormat(categoryName);
 
@@ -50,12 +60,14 @@ public class AnswerQuestion {
 		String answer= arrQAndA[2];
 		String whatVal= arrQAndA[1];
 
-		whatIsAre.setText(whatVal);
-		label.setText(question);
+		whatIsAre.setText("\n" + whatVal + ":");
+		label.setText(question + "...");
 
 		CompareAnswer.setCount();
 		TextField answerField= new TextField();
+		answerField.setMinWidth(100);
 		Button submitButton = new Button("Submit");
+		
 		submitButton.setOnAction(e -> {
 			boolean ans= CompareAnswer.compareAnswerToInput(answerField, answer);
 			if (ans == true) {
@@ -121,12 +133,14 @@ public class AnswerQuestion {
 		});
 
 		MenuBar menuBar = new MenuBar();
-		menuBar.getMenus().addAll(playbackMenu);
+		menuBar.getMenus().addAll(playbackMenu, helpMenu);
 
 
 		VBox layout = new VBox(menuBar);
+		layout.setAlignment(Pos.TOP_CENTER);
 
-		layout.getChildren().addAll(label,warning,blank,whatIsAre,answerField,submitButton);
+		layout.getChildren().addAll(label,whatIsAre,answerField,submitButton, warning);
+		
 
 		Scene scene = new Scene(layout, 600, 200);
 		window.setScene(scene);
