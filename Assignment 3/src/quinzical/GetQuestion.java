@@ -32,34 +32,34 @@ public class GetQuestion {
 
 		// Depending on the category name, a certain file is opened
 		if (category.equals("Places")) {
-			categoryNum = 1;
+			categoryNum = 2;
 			lineNum = 13;
 		} else if (category.equals("Symbols")) {
-			categoryNum = 2;
+			categoryNum = 3;
 			lineNum = 8;
 		} else if (category.equals("Geography")) {
-			categoryNum = 3;
+			categoryNum = 4;
 			lineNum = 12;
 		} else if (category.equals("History")) {
-			categoryNum = 4;
-			lineNum = 9;
-		} else if (category.equals("Famous People")) {
 			categoryNum = 5;
 			lineNum = 9;
-		} else if (category.equals("NZ Life")) {
+		} else if (category.equals("Famous People")) {
 			categoryNum = 6;
+			lineNum = 9;
+		} else if (category.equals("NZ Life")) {
+			categoryNum = 7;
 			lineNum = 7;
 		} else if (category.equals("Flora")) {
-			categoryNum = 7;
+			categoryNum = 8;
 			lineNum = 10;
 		} else if (category.equals("Fauna")) {
-			categoryNum = 8;
+			categoryNum = 9;
 			lineNum = 18;
 		} else if (category.equals("Oddities")) {
-			categoryNum = 9;
+			categoryNum = 10;
 			lineNum = 8;
 		} else if (category.equals("International")) {
-			categoryNum = 0;
+			categoryNum = 1;
 			lineNum = 13;
 		}
 

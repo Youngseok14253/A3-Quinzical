@@ -140,6 +140,9 @@ public class AnswerQuestion {
 					if (categoryNumber == 5) {
 						ShowWinnings.addToWinnings(ShowWinnings.getFiveCount());
 					}
+					if (categoryNumber == 6) {
+						ShowWinnings.addToWinnings(ShowWinnings.getInternationalCount());
+					}
 				}
 
 				// The count for the attempts resets, and the window closes

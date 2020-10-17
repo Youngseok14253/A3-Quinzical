@@ -1,4 +1,19 @@
 +
+International
+International This is the capital of New Zealand@what is@Wellington
+International This is the Māori name for New Zealand@what is@Aotearoa
+International This is the largest city in New Zealand@what is@Auckland
+International This is the name of the port that serves Christchurch@what is@Lyttleton
+International This is the name of the Parliament Building in Wellington@what is@Beehive
+International This is the name of New Zealand's national museum@what is@Te Papa
+International This is the island in New Zealand that has the largest population@what is@North Island
+International This is the city that is the first to see the sunrise each day@what is@Gisborne
+International This is the most northern tip on the North Island@what is@Cape Reinga
+International This is the most southern port in the South Island@what is@Bluff
+International This city is nicknamed the Edinburgh of the South@what is@Dunedin
+International The number of river systems that flow through either the North or South Island@what is@seventy/70
++
++
 Places
 This is the capital of New Zealand@what is@Wellington
 This is the Māori name for New Zealand@what is@Aotearoa

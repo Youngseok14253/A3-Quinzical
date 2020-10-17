@@ -26,13 +26,13 @@ public class MockGameBoard {
 
 		// Initialising an ArrayList with numbers from 1 to 9.
 		ArrayList<Integer> randNumList = new ArrayList<>();
-		for (int i = 1; i <= 9; i++) {
+		for (int i = 2; i <= 9; i++) {
 			randNumList.add(i);
 		}
 		// Randomises the ordering of the numbers in the Array List.
 		Collections.shuffle(randNumList);
 
-		ArrayList<String> test = new ArrayList<>();
+		ArrayList<String> randomCategories = new ArrayList<>();
 
 		// Selects 5 categories to display at random
 		for (int i = 0; i < 5; i++) {
@@ -71,11 +71,11 @@ public class MockGameBoard {
 				e.printStackTrace();
 			}
 
-			test.add(global);
+			randomCategories.add(global);
 
 		}
 
-		return test;
+		return randomCategories;
 
 	}
 

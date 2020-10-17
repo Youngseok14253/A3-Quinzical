@@ -1,4 +1,4 @@
 #! /bin/bash
 
-rm -f Category-!(+([0]))
+rm -f Category-*
 

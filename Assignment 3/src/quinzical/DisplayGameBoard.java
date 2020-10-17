@@ -138,7 +138,7 @@ public class DisplayGameBoard {
 		
 		CategoryInternational.setOnAction(e -> {
 			window.close();
-			AnswerQuestion.displayQuestion("International", "Game", 0);
+			AnswerQuestion.displayQuestion("International", "Game", 6);
 			ShowWinnings.incrementInternationalCount();
 			displayGameBoard(categories);
 		});
@@ -184,6 +184,8 @@ public class DisplayGameBoard {
 		fourFinish.setPrefSize(300, 80);
 		Button fiveFinish = new Button("Unavailable");
 		fiveFinish.setPrefSize(300, 80);
+		Button intFinish = new Button("Unavailable");
+		intFinish.setPrefSize(300, 80);
 
 		// If the limit (five) is reached, then the corresponding button and question
 		// value labels are
@@ -216,9 +218,9 @@ public class DisplayGameBoard {
 			gameGrid.getChildren().add(fiveFinish);
 		}
 		if (ShowWinnings.isInternationalLimit() == true) {
-			gameGrid.getChildren().removeAll(Category5, catFiveMoney);
-			GridPane.setConstraints(fiveFinish, 0, 5);
-			gameGrid.getChildren().add(fiveFinish);
+			gameGrid.getChildren().removeAll(CategoryInternational, catInternationalMoney);
+			GridPane.setConstraints(intFinish, 0, 6);
+			gameGrid.getChildren().add(intFinish);
 		}
 		
 		//The following count is to keep track of how many categories have been completed.
@@ -240,7 +242,7 @@ public class DisplayGameBoard {
 		}
 		//If two categories have been completed, the international category is unlocked
 		//along with its current potential winning if the question is answered correctly.
-		if (count==2) {
+		if (count>=2) {
 			gameGrid.getChildren().remove(CategoryLocked);
 			gameGrid.getChildren().add(CategoryInternational);
 			gameGrid.getChildren().add(catInternationalMoney);
@@ -251,7 +253,7 @@ public class DisplayGameBoard {
 		// a final window displaying their total winnings
 		if (ShowWinnings.isOneLimit() == true && ShowWinnings.isTwoLimit() == true
 				&& ShowWinnings.isThreeLimit() == true && ShowWinnings.isFourLimit() == true
-				&& ShowWinnings.isFiveLimit() == true) {
+				&& ShowWinnings.isFiveLimit() == true && ShowWinnings.isInternationalLimit() == true) {
 			ShowWinnings.rewardScreen();
 			window.close();
 			// The boolean value is changed to true

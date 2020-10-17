@@ -51,6 +51,7 @@ public class Main extends Application {
 		ShowWinnings.setThreeCount();
 		ShowWinnings.setFourCount();
 		ShowWinnings.setFiveCount();
+		ShowWinnings.setInternationalCount();
 
 		final ArrayList<String> Categories = MockGameBoard.CreateGameBoardArray();
 
@@ -138,7 +139,7 @@ public class Main extends Application {
 
 			// The try and catch method removes created Category-* formats
 			try {
-				String command = "rm -f Category-*";
+				String command = "bash DeleteCategories";
 				ProcessBuilder pb = new ProcessBuilder("bash", "-c", command);
 
 				Process process = pb.start();
