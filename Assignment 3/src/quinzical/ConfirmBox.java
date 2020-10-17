@@ -27,12 +27,16 @@ public class ConfirmBox {
 	 * the exit buttons provided in the Main class. A true is returned when the Yes button is pressed,
 	 * or vice versa for the No button. 
 	 * 
+	 * @param title The title of the window
+	 * @param message The message to display through the window
 	 * @return A boolean value (true for Yes, false for No)
 	 * 
 	 */
 	public static boolean display(String title, String message) {
 		
+		//New Stage
 		Stage window= new Stage();
+		
 		window.initModality(Modality.APPLICATION_MODAL);
 		window.setTitle(title);
 		window.setMinWidth(250);
@@ -43,7 +47,7 @@ public class ConfirmBox {
 		Button btnYes= new Button("Yes");
 		Button btnNo= new Button("No");
 
-		//return true if Yes is pressed
+		//return true if Yes is pressed, and close the window
 		btnYes.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -52,7 +56,7 @@ public class ConfirmBox {
 			}
 		});
 		
-		//return false if No is pressed
+		//return false if No is pressed, and close the window
 		btnNo.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -61,7 +65,9 @@ public class ConfirmBox {
 			}
 		});
 		
+		//Create layout and show scene
 		VBox layout= new VBox(10);
+		
 		layout.getChildren().addAll(label, btnYes, btnNo);
 		layout.setAlignment(Pos.CENTER);
 		Scene scene= new Scene(layout);
@@ -71,61 +77,99 @@ public class ConfirmBox {
 		return answer;
 		
 	}
+	
+	/*
+	 * This method creates a new window, where it displays a hint (first character of the Answer) to the user
+	 * after their second attempt. The window closes after the user confirms to exit/continue.
+	 * 
+	 * @param hint The first character of the Answer to its corresponding Question
+	 * 
+	 */
 	public static void displayHint(char hint) {
+		
+		//New Stage
 		Stage window= new Stage();
+		
 		window.initModality(Modality.APPLICATION_MODAL);
+		
 		window.setTitle("Hint");
 		window.setMinWidth(250);
 		
 		Label label= new Label();
 		label.setText("The first character of the answer is:");
 		
+		//Converts char to String, and sets the Label to display
 		String hintString = Character.toString(hint);
 		Label hintLabel = new Label();
+		hintLabel.setText(hintString.toUpperCase());
 		
 		Label goodLuck = new Label();
 		goodLuck.setText("This is your last attempt - make it count!");
 		
-		hintLabel.setText(hintString.toUpperCase());
-		
 		Button button= new Button("Confirm");
 		
+		//Pressing confirm will close the window
 		button.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 				window.close();
 			}
 		});
+		
+		//Create layout and show the scene
 		VBox layout= new VBox(10);
+		
 		layout.getChildren().addAll(label, hintLabel, goodLuck, button);
+		
 		layout.setAlignment(Pos.CENTER);
+		
 		Scene scene= new Scene(layout);
 		window.setScene(scene);
 		window.showAndWait();
 		
 	}
+	
+	/*
+	 * This method creates a new window, where it displays the correct Answer to the user
+	 * either submitting and incorrect in Game Mode, or after a third incorrect attempt in
+	 * Practice Mode. The window closes after the user confirms to exit/continue.
+	 * 
+	 * @param answer The Answer to the Question
+	 * 
+	 */
 	public static void showAnswer(String answer) {
+		
 		Stage window= new Stage();
+		
 		window.initModality(Modality.APPLICATION_MODAL);
-		window.setTitle("Answer");
 		window.setMinWidth(250);
+		
+		window.setTitle("Answer");
+
 		Label label= new Label();
 		label.setText("The correct answer was:" );
 		
+		//Sets the label to display the Answer
 		Label ansLabel= new Label();
 		ansLabel.setText(answer);
 		
 		Button button= new Button("Confirm");
 		
+		//Pressing confirm will close the window
 		button.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 				window.close();
 			}
 		});
+		
+		//Create layout and show the scene
 		VBox layout= new VBox(10);
+		
 		layout.getChildren().addAll(label, ansLabel, button);
+		
 		layout.setAlignment(Pos.CENTER);
+		
 		Scene scene= new Scene(layout);
 		window.setScene(scene);
 		window.showAndWait();

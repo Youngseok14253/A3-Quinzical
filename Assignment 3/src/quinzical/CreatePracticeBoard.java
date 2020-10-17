@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 public class CreatePracticeBoard {
 
-	public static void displayPracticeBoard() { //This method sets up a new window and gives access to all 9 categories to the user.
+	public static void displayPracticeBoard() {
 		GridPane gameGrid= new GridPane();
 		gameGrid.setPadding(new Insets(10,10,10,10));
 		gameGrid.setVgap(8);

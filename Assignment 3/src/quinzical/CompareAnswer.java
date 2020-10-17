@@ -15,7 +15,8 @@ import javafx.stage.Stage;
 /**
  * This CompareAnswer class provides methods to compare the user input with the answer, and return
  * the respective message window depending on the result. This class is mainly called by the 
- * SelectCategory class, when the user input is submitted.
+ * SelectCategory class, when the user input is submitted. It also contains a method to count the
+ * user attempts during Practice Mode.
  * 
  *  @author Do Hyun Lee, Youngseok Chae
  * 
@@ -34,12 +35,20 @@ public class CompareAnswer{
 	 *
 	 */
 	public static boolean compareAnswerToInput(TextField input, String answer) {
+		
+		//Converts the TextField into String, then makes it all Lowercase
 		String text= input.getText();
 		String lowerText= text.toLowerCase();
+		
+		//removes any spaces
 		lowerText = lowerText.replace(" ", "");
+		
+		//Makes the answer all Lowercase, then removes spaces
 		String lowerAnswer=  answer.toLowerCase();
 		lowerAnswer = lowerAnswer.replace(" ", "");
 
+		//Checks how many alternate answers there are by counting the number of "/"
+		// in the answer (i.e Mt Cook/Mount Cook has two alternate answers)
 		int ansNum= 1;
 		for(char c: lowerAnswer.toCharArray()) {
 			if (c== '/') {
@@ -47,15 +56,21 @@ public class CompareAnswer{
 			}
 		}
 
+		//By splitting the answer by "/" and adding it the String Array, the input is
+		// compared with each element in the Array (all alternate answers)
 		String[] answerArr= new String[ansNum];
 		answerArr= lowerAnswer.split("/");
+		
 		for(int i=0; i< ansNum;i++) {
+			//If a match is found, then true is returned
 			if(lowerText.length()== answerArr[i].length()) {
 				if (lowerAnswer.contains(lowerText)) {
 					return true;
 				} 
 			}
 		}
+		
+		//If no matches are found, then return false
 		return false;
 
 	}
@@ -68,19 +83,22 @@ public class CompareAnswer{
 	 */
 	public static void display(String message) {
 
-		String title= "Result";
-
+		//New Stage
 		Stage window= new Stage();
+		
 		window.initModality(Modality.APPLICATION_MODAL);
-		window.setTitle(title);
+		
 		window.setMinWidth(300);
 		window.setMinHeight(20);
-
+		
+		window.setTitle("Result");
+		
 		Label label= new Label();
 		label.setText(message);
 
 		Button btnCont= new Button("Continue");
 
+		//Pressing confirm will close the window		
 		btnCont.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -89,14 +107,19 @@ public class CompareAnswer{
 
 		});
 
+		//Create layout and show the scene
 		VBox layout= new VBox(10);
+		
 		layout.getChildren().addAll(label, btnCont);
 		layout.setAlignment(Pos.CENTER);
+		
 		Scene scene= new Scene(layout);
 		window.setScene(scene);
 		window.showAndWait();
 
 	}
+	
+	//Some Getters and Setters to count the number of user attempts
 	
 	public static void setCount() {
 		count = 1;

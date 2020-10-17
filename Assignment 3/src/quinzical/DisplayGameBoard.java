@@ -10,14 +10,38 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * This class provides the display method for the Main class when the user selects the Game Mode. It contains
+ * a single method, displayGameBoard which creates a new window displaying five randomly selected categories, each with
+ * a value. After answering all Categories, the final window is shown with the user's total winnings and they are 
+ * returned to the Main Menu.
+ * 
+ * @author Do Hyun Lee, Youngseok Chae
+ *
+ */
 public class DisplayGameBoard {
 
+	/*
+	 * This method displays a new window with five randomly selected categories, which the user can select. Once 
+	 * selected, it displays a question corresponding to the Category and depending on the user's answer, displays
+	 * a "Correct" or "Incorrect" message. It also displays a question value next to each category which increases 
+	 * by 100 (starting from 100, up to 500) and adds the respective value to the user's winnings if they answer 
+	 * correctly. After answering 5 questions from each category, the category becomes unavailable. Once every category
+	 * is answered, the user is taken to the final screen with the total earnings and asked to play again, or return to 
+	 * the Main Menu.
+	 * 
+	 * @param categories Five randomly selected categories in a ArrayList format
+	 * 
+	 */
 	public static void displayGameBoard(ArrayList<String> categories) {
 
-		Stage window = new Stage();
+		//This boolean checks whether all of the categories have been answered
 		boolean finished = false;
+		
+		//New Stage
+		Stage window = new Stage();
 
-		//This method sets up a new window and creates 5 random categories.
+		//Set up GridPane
 		GridPane gameGrid= new GridPane();
 		gameGrid.setPadding(new Insets(10,10,10,10));
 		gameGrid.setVgap(8);
@@ -26,18 +50,29 @@ public class DisplayGameBoard {
 		Label Category= new Label("Please select a category");
 		GridPane.setConstraints(Category,0,0);
 
+		//Each button is formatted the same way, so follow along the comments for Button 1 (Category1)
+		
+		//Category 1 is the first element in the categories ArrayList, and placed in the (0,1) Pane
 		Button Category1 = new Button(categories.get(0));
 		GridPane.setConstraints(Category1, 0, 1);
+		//Set a reasonable size
 		Category1.setPrefSize(300, 80);
+		//Return the name of the Category from the ArrayList and store it in a variable
 		String catName1 = Category1.getText();
 
+		//When the button is pressed, the Category window closes, and the displayQuestion method is called
+		// where the question is displayed.
 			Category1.setOnAction(e -> {
 				window.close();
 				AnswerQuestion.displayQuestion(catName1, "Game", 1);
+				//The method incrementOneCount is called, where the count represents the number of questions
+				// which the user has selected from the first button (Category1)
 				ShowWinnings.incrementOneCount();
+				//The Cateogory board is displayed again
 				displayGameBoard(categories);
 			}
 					);
+			
 		Button Category2 = new Button(categories.get(1));
 		GridPane.setConstraints(Category2, 0, 2);
 		Category2.setPrefSize(300, 80);
@@ -90,6 +125,9 @@ public class DisplayGameBoard {
 		}
 				);
 
+		//The Labels show the value of the question, taken from the count (number of questions the user has
+		// answered from each Category) and multiplying it by 100 (technically concatenating, I know).
+		//The Labels will update each time a Category is pressed.
 		Label catOneMoney = new Label();
 		GridPane.setConstraints(catOneMoney,1,1);
 		catOneMoney.setText("\t\tQuestion Worth $"+ShowWinnings.getOneCount()+"00");
@@ -106,9 +144,12 @@ public class DisplayGameBoard {
 		GridPane.setConstraints(catFiveMoney,1,5);
 		catFiveMoney.setText("\t\tQuestion Worth $"+ShowWinnings.getFiveCount()+"00");
 
+		//Add the Labels and Buttons to the Grid
 		gameGrid.getChildren().addAll(Category, Category1, Category2, Category3, Category4, Category5);
 		gameGrid.getChildren().addAll(catOneMoney, catTwoMoney, catThreeMoney, catFourMoney, catFiveMoney);
 		
+		//Initialise "Unavailable Buttons" once the Category is completed (all five questions have been 
+		// answered by the user)
 		Button oneFinish= new Button("Unavailable");
 		oneFinish.setPrefSize(300, 80);
 		Button twoFinish= new Button("Unavailable");
@@ -120,6 +161,8 @@ public class DisplayGameBoard {
 		Button fiveFinish= new Button("Unavailable");
 		fiveFinish.setPrefSize(300, 80);
 		
+		//If the limit (five) is reached, then the corresponding button and question value labels are
+		// removed, and replaced by a single Unavailable button which does not do anything if pressed
 		if (ShowWinnings.isOneLimit()==true) {
 			gameGrid.getChildren().removeAll(Category1, catOneMoney);
 			GridPane.setConstraints(oneFinish, 0,1);
@@ -146,18 +189,29 @@ public class DisplayGameBoard {
 			GridPane.setConstraints(fiveFinish, 0,5);
 			gameGrid.getChildren().add(fiveFinish);
 		}
-		if (ShowWinnings.isOneLimit()== true && ShowWinnings.isTwoLimit()==true && ShowWinnings.isThreeLimit()== true && ShowWinnings.isFourLimit()== true && ShowWinnings.isFiveLimit()== true) {
+		
+		//If all buttons are Unavailable (i.e no more questions to ask), then the user is greeted with 
+		// a final window displaying their total winnings
+		if (ShowWinnings.isOneLimit() == true && ShowWinnings.isTwoLimit() ==true && ShowWinnings.isThreeLimit() == 
+				true && ShowWinnings.isFourLimit() == true && ShowWinnings.isFiveLimit() == true) {
 			//gameGrid.getChildren().removeAll(oneFinish,twoFinish,threeFinish,fourFinish,fiveFinish);
 			ShowWinnings.rewardScreen();
 			window.close();
+			//The boolean value is changed to true
 			finished = true;
 		}
 		
+		//Create layout and show scene
 		Scene scene= new Scene(gameGrid, 600, 450);
+		
+		window.initModality(Modality.APPLICATION_MODAL);
+		
 		window.setScene(scene);
 		window.setTitle("Game Mode");
-		window.initModality(Modality.APPLICATION_MODAL);
-		if (!(finished == true)) {
+		
+		//As long as one Category is available, the Category window will always display after the user 
+		// answers a question
+		if (finished == false) {
 			window.show();
 		}
 
