@@ -11,140 +11,138 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
- * This class provides the implementation of displaying the winnings after the user
- * plays the game on Game mode. This class consists of multiple getters and setters 
- * to keep track of which questions were answered correctly and accurately declare 
- * a total amount of winnings after the game is finished.
+ * This class provides the implementation of displaying the winnings after the
+ * user plays the game on Game mode. This class consists of multiple getters and
+ * setters to keep track of which questions were answered correctly and
+ * accurately declare a total amount of winnings after the game is finished.
  * 
  * @author Do Hyun Lee, Youngseok Chae
  *
  */
- 
+
 public class ShowWinnings {
-	
+
 	public static int categoryOneCount;
 	public static int categoryTwoCount;
 	public static int categoryThreeCount;
 	public static int categoryFourCount;
 	public static int categoryFiveCount;
 	public static int totalWinnings;
-	
-	
+
 	public static void saveCategory(String catName) {
-		
+
 	}
-	
-	//Below are the getters and setters for the random Category 1.
-	
+
+	// Below are the getters and setters for the random Category 1.
+
 	public static void setOneCount() {
 		categoryOneCount = 1;
 	}
-	
+
 	public static int getOneCount() {
 		return categoryOneCount;
 	}
-	
+
 	public static void incrementOneCount() {
 		categoryOneCount++;
 	}
-	
+
 	public static boolean isOneLimit() {
 		if (categoryOneCount == 6) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
-	
+
 	// Below are the getters and setters for the random Category 2.
-	
+
 	public static void setTwoCount() {
 		categoryTwoCount = 1;
 	}
-	
+
 	public static int getTwoCount() {
 		return categoryTwoCount;
 	}
-	
+
 	public static void incrementTwoCount() {
 		categoryTwoCount++;
 	}
+
 	public static boolean isTwoLimit() {
 		if (categoryTwoCount == 6) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
-	
+
 	// Below are the getters and setters for the random Category 3.
-	
+
 	public static void setThreeCount() {
 		categoryThreeCount = 1;
 	}
-	
+
 	public static int getThreeCount() {
 		return categoryThreeCount;
 	}
-	
+
 	public static void incrementThreeCount() {
 		categoryThreeCount++;
 	}
+
 	public static boolean isThreeLimit() {
 		if (categoryThreeCount == 6) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
-	
+
 	// Below are the getters and setters for the random Category 4.
-	
+
 	public static void setFourCount() {
 		categoryFourCount = 1;
 	}
-	
+
 	public static int getFourCount() {
 		return categoryFourCount;
 	}
-	
+
 	public static void incrementFourCount() {
 		categoryFourCount++;
 	}
+
 	public static boolean isFourLimit() {
 		if (categoryFourCount == 6) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
-	
+
 	// Below are the getters and setters for the random Category 5.
-	
+
 	public static void setFiveCount() {
 		categoryFiveCount = 1;
 	}
-	
+
 	public static int getFiveCount() {
 		return categoryFiveCount;
 	}
-	
+
 	public static void incrementFiveCount() {
 		categoryFiveCount++;
 	}
+
 	public static boolean isFiveLimit() {
 		if (categoryFiveCount == 6) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
-	
+
 	/*
 	 * This method adds all the winnings to find out the total amount of winnings.
 	 *
@@ -152,11 +150,12 @@ public class ShowWinnings {
 	 *
 	 */
 	public static void addToWinnings(int val) {
-		totalWinnings = totalWinnings + (val*100);
+		totalWinnings = totalWinnings + (val * 100);
 	}
-	
+
 	/*
-	 * This method returns the total winnings that was added up from the above method
+	 * This method returns the total winnings that was added up from the above
+	 * method
 	 * 
 	 * @return totalWinnings The total winnings of one game on Game mode.
 	 *
@@ -164,72 +163,71 @@ public class ShowWinnings {
 	public static int returnTotalWinnings() {
 		return totalWinnings;
 	}
-	
+
 	/*
-	 * This method implements the launch of the winnings window. 
+	 * This method implements the launch of the winnings window.
 	 *
 	 */
-	 
+
 	public static void rewardScreen() {
-		Stage window= new Stage();
+		Stage window = new Stage();
 		window.initModality(Modality.APPLICATION_MODAL);
 		window.setTitle("Rewards");
 		window.setMinWidth(250);
-		
-		Label label= new Label();
+
+		Label label = new Label();
 		label.setText("Congratulations, you earned:");
 		Label winnings = new Label();
 		winnings.setText("$" + totalWinnings);
 
-		//Creating two buttons
-		Button btnMainMenu= new Button("Return to Main Menu");
-		Button btnPlayAgain= new Button("Play Again");
-		
-		//Back to main menu if this button is pressed
+		// Creating two buttons
+		Button btnMainMenu = new Button("Return to Main Menu");
+		Button btnPlayAgain = new Button("Play Again");
+
+		// Back to main menu if this button is pressed
 		btnMainMenu.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-					
-				//Resetting the count of the category questions so that
-				//the implementation of winnings is reset.			
-				ShowWinnings.setOneCount();
-				ShowWinnings.setTwoCount();
-				ShowWinnings.setThreeCount();
-				ShowWinnings.setFourCount();
-				ShowWinnings.setFiveCount();	
-				
-				window.close();
 
-				
-			}
-		});
-		
-		//Play again if this button is pressed
-		btnPlayAgain.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				
-				//Resetting the count of the category questions so that
-				//the implementation of winnings is reset.
+				// Resetting the count of the category questions so that
+				// the implementation of winnings is reset.
 				ShowWinnings.setOneCount();
 				ShowWinnings.setTwoCount();
 				ShowWinnings.setThreeCount();
 				ShowWinnings.setFourCount();
 				ShowWinnings.setFiveCount();
-				
+
+				window.close();
+
+			}
+		});
+
+		// Play again if this button is pressed
+		btnPlayAgain.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+
+				// Resetting the count of the category questions so that
+				// the implementation of winnings is reset.
+				ShowWinnings.setOneCount();
+				ShowWinnings.setTwoCount();
+				ShowWinnings.setThreeCount();
+				ShowWinnings.setFourCount();
+				ShowWinnings.setFiveCount();
+
 				window.close();
 			}
 		});
-		
+
 		// The ShowWinnings layout is a VBox layout
-		VBox layout= new VBox(10);
+		VBox layout = new VBox(10);
 		layout.getChildren().addAll(label, winnings, btnPlayAgain, btnMainMenu);
-		
-		//Setting up general interface visuals.
+
+		// Setting up general interface visuals.
 		layout.setAlignment(Pos.CENTER);
 		layout.setStyle("-fx-background-color: #AAAAAA;");
-		
-		Scene scene= new Scene(layout);
+
+		Scene scene = new Scene(layout);
 		window.setScene(scene);
 		window.showAndWait();
 	}

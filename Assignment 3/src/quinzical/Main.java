@@ -17,13 +17,14 @@ import java.io.*;
 import java.util.ArrayList;
 
 /**
- * This Main class provides the launch of the Quinzical GUI. It mainly implements CreateGameBoard 
- * and CreatePracticeBoard classes, and ConfirmBox if the user wishes to exit the game.
+ * This Main class provides the launch of the Quinzical GUI. It mainly
+ * implements CreateGameBoard and CreatePracticeBoard classes, and ConfirmBox if
+ * the user wishes to exit the game.
  * 
  * @author Do Hyun Lee, Youngseok Chae
  *
  */
-public class Main extends Application{
+public class Main extends Application {
 
 	Scene mainScene, gameScene, practiceScene;
 	public Stage program;
@@ -36,17 +37,17 @@ public class Main extends Application{
 	 * 
 	 */
 	@Override
-	public void start(Stage primaryStage) {	
+	public void start(Stage primaryStage) {
 
 		MockGameBoard.displayGameBoard();
 
 		program = primaryStage;
 
-		Label label1= new Label("Welcome to Quinzical!");
+		Label label1 = new Label("Welcome to Quinzical!");
 		GridPane.setConstraints(label1, 1, 0);
 
-		//Setting/Resetting the count of the questions so that the implementation of 
-		//winnings is reset.  
+		// Setting/Resetting the count of the questions so that the implementation of
+		// winnings is reset.
 		ShowWinnings.setOneCount();
 		ShowWinnings.setTwoCount();
 		ShowWinnings.setThreeCount();
@@ -55,26 +56,26 @@ public class Main extends Application{
 
 		final ArrayList<String> Categories = MockGameBoard.displayGameBoard();
 
-		//Game button
-		Button btnMainToGame= new Button("Game Mode");
+		// Game button
+		Button btnMainToGame = new Button("Game Mode");
 		btnMainToGame.setPrefSize(335, 50);
 		GridPane.setConstraints(btnMainToGame, 1, 1);
 
-		//When pressed, a new window displaying the Game board will show.
+		// When pressed, a new window displaying the Game board will show.
 		btnMainToGame.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				//CreateGameBoard.displayGameBoard();
+				// CreateGameBoard.displayGameBoard();
 				DisplayGameBoard.displayGameBoard(Categories);
 			}
 		});
 
-		//Practice button 
-		Button btnMainToPractice= new Button("Practice Mode");
+		// Practice button
+		Button btnMainToPractice = new Button("Practice Mode");
 		btnMainToPractice.setPrefSize(335, 50);
 		GridPane.setConstraints(btnMainToPractice, 1, 2);
 
-		//When pressed, a new window displaying the Practice board will show.
+		// When pressed, a new window displaying the Practice board will show.
 		btnMainToPractice.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -82,12 +83,12 @@ public class Main extends Application{
 			}
 		});
 
-		//Quit button 
-		Button btnMainToExit= new Button("Quit");
+		// Quit button
+		Button btnMainToExit = new Button("Quit");
 		btnMainToExit.setPrefSize(335, 50);
 		GridPane.setConstraints(btnMainToExit, 1, 3);
 
-		//When pressed, a new window confirming the closure of the program will show.
+		// When pressed, a new window confirming the closure of the program will show.
 		btnMainToExit.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -95,9 +96,8 @@ public class Main extends Application{
 			}
 		});
 
-
-		//Closing when pressing the red X at top right corner
-		//Asks the user to confirm, rather than exit immediately
+		// Closing when pressing the red X at top right corner
+		// Asks the user to confirm, rather than exit immediately
 		program.setOnCloseRequest(new EventHandler<WindowEvent>() {
 
 			@Override
@@ -108,23 +108,21 @@ public class Main extends Application{
 			}
 		});
 
-
-		//This is the main scene/window 
-		//mainScene layout with GridPane
-		GridPane mainLayout= new GridPane();
-		mainLayout.setPadding(new Insets(10,10,10,10));
+		// This is the main scene/window
+		// mainScene layout with GridPane
+		GridPane mainLayout = new GridPane();
+		mainLayout.setPadding(new Insets(10, 10, 10, 10));
 		mainLayout.setVgap(8);
 		mainLayout.setHgap(10);
 		mainLayout.getChildren().addAll(label1, btnMainToGame, btnMainToPractice, btnMainToExit);
 
-		//Setting up font and general interface visuals.
+		// Setting up font and general interface visuals.
 		label1.setFont(new Font("Cavolini", 30));
-		btnMainToGame.setFont(new Font("Arial",20));
-		btnMainToPractice.setFont(new Font("Arial",20));
-		btnMainToExit.setFont(new Font("Arial",20));
+		btnMainToGame.setFont(new Font("Arial", 20));
+		btnMainToPractice.setFont(new Font("Arial", 20));
+		btnMainToExit.setFont(new Font("Arial", 20));
 		mainLayout.setAlignment(Pos.CENTER);
-		mainScene= new Scene(mainLayout, 500,400);		
-
+		mainScene = new Scene(mainLayout, 500, 400);
 
 		program.setScene(mainScene);
 		program.setTitle("Quinzical");
@@ -133,15 +131,15 @@ public class Main extends Application{
 	}
 
 	/*
-	 * This method creates a confirmation window when the user tries to exit the game.
-	 * Called by the Quit button and the red X.
+	 * This method creates a confirmation window when the user tries to exit the
+	 * game. Called by the Quit button and the red X.
 	 * 
 	 */
 	private void closeProgram() {
-		Boolean answer= ConfirmBox.display("Quit Program", "Are you sure you want to exit?");
-		if(answer) {
+		Boolean answer = ConfirmBox.display("Quit Program", "Are you sure you want to exit?");
+		if (answer) {
 
-			//The try and catch method removes created Category-* formats
+			// The try and catch method removes created Category-* formats
 			try {
 				String command = "rm -f Category-*";
 				ProcessBuilder pb = new ProcessBuilder("bash", "-c", command);
@@ -175,7 +173,7 @@ public class Main extends Application{
 
 	public static void main(String[] args) {
 
-		//The try and catch method calls the CreateCategories bash function
+		// The try and catch method calls the CreateCategories bash function
 		try {
 			String command = "bash CreateCategories";
 			ProcessBuilder pb = new ProcessBuilder("bash", "-c", command);
