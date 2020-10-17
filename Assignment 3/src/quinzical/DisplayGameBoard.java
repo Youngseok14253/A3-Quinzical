@@ -1,7 +1,6 @@
 package quinzical;
 
 import java.util.ArrayList;
-
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -74,6 +73,7 @@ public class DisplayGameBoard {
 			// The method incrementOneCount is called, where the count represents the number
 			// of questions
 			// which the user has selected from the first button (Category1)
+			
 			ShowWinnings.incrementOneCount();
 			// The Cateogory board is displayed again
 			displayGameBoard(categories);
@@ -126,6 +126,22 @@ public class DisplayGameBoard {
 			ShowWinnings.incrementFiveCount();
 			displayGameBoard(categories);
 		});
+		
+		Button CategoryLocked = new Button("Locked");
+		GridPane.setConstraints(CategoryLocked, 0, 6);
+		CategoryLocked.setPrefSize(300, 80);
+		
+		
+		Button CategoryInternational = new Button("International");
+		GridPane.setConstraints(CategoryInternational, 0, 6);
+		CategoryInternational.setPrefSize(300, 80);
+		
+		CategoryInternational.setOnAction(e -> {
+			window.close();
+			AnswerQuestion.displayQuestion("International", "Game", 6);
+			ShowWinnings.incrementInternationalCount();
+			displayGameBoard(categories);
+		});
 
 		// The Labels show the value of the question, taken from the count (number of
 		// questions the user has
@@ -147,9 +163,12 @@ public class DisplayGameBoard {
 		Label catFiveMoney = new Label();
 		GridPane.setConstraints(catFiveMoney, 1, 5);
 		catFiveMoney.setText("\t\tQuestion Worth $" + ShowWinnings.getFiveCount() + "00");
-
+		Label catInternationalMoney = new Label();
+		GridPane.setConstraints(catInternationalMoney, 1, 6);
+		catInternationalMoney.setText("\t\tQuestion Worth $" + ShowWinnings.getInternationalCount() + "00");
+		
 		// Add the Labels and Buttons to the Grid
-		gameGrid.getChildren().addAll(Category, Category1, Category2, Category3, Category4, Category5);
+		gameGrid.getChildren().addAll(Category, Category1, Category2, Category3, Category4, Category5, CategoryLocked);
 		gameGrid.getChildren().addAll(catOneMoney, catTwoMoney, catThreeMoney, catFourMoney, catFiveMoney);
 
 		// Initialise "Unavailable Buttons" once the Category is completed (all five
@@ -196,6 +215,36 @@ public class DisplayGameBoard {
 			GridPane.setConstraints(fiveFinish, 0, 5);
 			gameGrid.getChildren().add(fiveFinish);
 		}
+		if (ShowWinnings.isInternationalLimit() == true) {
+			gameGrid.getChildren().removeAll(Category5, catFiveMoney);
+			GridPane.setConstraints(fiveFinish, 0, 5);
+			gameGrid.getChildren().add(fiveFinish);
+		}
+		
+		//The following count is to keep track of how many categories have been completed.
+		int count=0;
+		if (ShowWinnings.isOneLimit()==true) {
+			count++;
+		}
+		if (ShowWinnings.isTwoLimit()==true) {
+			count++;
+		}
+		if (ShowWinnings.isThreeLimit()==true) {
+			count++;
+		}
+		if (ShowWinnings.isFourLimit()==true) {
+			count++;
+		}
+		if (ShowWinnings.isFiveLimit()==true) {
+			count++;
+		}
+		//If two categories have been completed, the international category is unlocked
+		//along with its current potential winning if the question is answered correctly.
+		if (count==2) {
+			gameGrid.getChildren().remove(CategoryLocked);
+			gameGrid.getChildren().add(CategoryInternational);
+			gameGrid.getChildren().add(catInternationalMoney);
+		}
 
 		// If all buttons are Unavailable (i.e no more questions to ask), then the user
 		// is greeted with
@@ -203,7 +252,6 @@ public class DisplayGameBoard {
 		if (ShowWinnings.isOneLimit() == true && ShowWinnings.isTwoLimit() == true
 				&& ShowWinnings.isThreeLimit() == true && ShowWinnings.isFourLimit() == true
 				&& ShowWinnings.isFiveLimit() == true) {
-			// gameGrid.getChildren().removeAll(oneFinish,twoFinish,threeFinish,fourFinish,fiveFinish);
 			ShowWinnings.rewardScreen();
 			window.close();
 			// The boolean value is changed to true

@@ -27,6 +27,7 @@ public class ShowWinnings {
 	public static int categoryThreeCount;
 	public static int categoryFourCount;
 	public static int categoryFiveCount;
+	public static int categoryInternationalCount;
 	public static int totalWinnings;
 
 	public static void saveCategory(String catName) {
@@ -142,6 +143,28 @@ public class ShowWinnings {
 			return false;
 		}
 	}
+	
+	// Below are the getters and setters for the International Category.
+	
+	public static void setInternationalCount() {
+		categoryInternationalCount = 1;
+	}
+
+	public static int getInternationalCount() {
+		return categoryInternationalCount;
+	}
+
+	public static void incrementInternationalCount() {
+		categoryInternationalCount++;
+	}
+
+	public static boolean isInternationalLimit() {
+		if (categoryInternationalCount == 6) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 	/*
 	 * This method adds all the winnings to find out the total amount of winnings.
@@ -196,6 +219,7 @@ public class ShowWinnings {
 				ShowWinnings.setThreeCount();
 				ShowWinnings.setFourCount();
 				ShowWinnings.setFiveCount();
+				ShowWinnings.setInternationalCount();
 
 				window.close();
 
@@ -214,6 +238,7 @@ public class ShowWinnings {
 				ShowWinnings.setThreeCount();
 				ShowWinnings.setFourCount();
 				ShowWinnings.setFiveCount();
+				ShowWinnings.setInternationalCount();
 
 				window.close();
 			}
