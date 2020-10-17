@@ -22,7 +22,7 @@ public class MockGameBoard {
 	 *
 	 * @return test A list of the 5 categories that has been selected at random
 	 */
-	public static ArrayList<String> displayGameBoard() {
+	public static ArrayList<String> CreateGameBoardArray() {
 
 		// Initialising an ArrayList with numbers from 1 to 9.
 		ArrayList<Integer> randNumList = new ArrayList<>();

@@ -38,9 +38,7 @@ public class Main extends Application {
 	 */
 	@Override
 	public void start(Stage primaryStage) {
-
-		MockGameBoard.displayGameBoard();
-
+		
 		program = primaryStage;
 
 		Label label1 = new Label("Welcome to Quinzical!");
@@ -54,7 +52,7 @@ public class Main extends Application {
 		ShowWinnings.setFourCount();
 		ShowWinnings.setFiveCount();
 
-		final ArrayList<String> Categories = MockGameBoard.displayGameBoard();
+		final ArrayList<String> Categories = MockGameBoard.CreateGameBoardArray();
 
 		// Game button
 		Button btnMainToGame = new Button("Game Mode");
@@ -65,7 +63,6 @@ public class Main extends Application {
 		btnMainToGame.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				// CreateGameBoard.displayGameBoard();
 				DisplayGameBoard.displayGameBoard(Categories);
 			}
 		});
