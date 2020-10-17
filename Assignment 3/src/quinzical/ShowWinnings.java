@@ -10,6 +10,16 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * This class provides the implementation of displaying the winnings after the user
+ * plays the game on Game mode. This class consists of multiple getters and setters 
+ * to keep track of which questions were answered correctly and accurately declare 
+ * a total amount of winnings after the game is finished.
+ * 
+ * @author Do Hyun Lee, Youngseok Chae
+ *
+ */
+ 
 public class ShowWinnings {
 	
 	public static int categoryOneCount;
@@ -23,6 +33,8 @@ public class ShowWinnings {
 	public static void saveCategory(String catName) {
 		
 	}
+	
+	//Below are the getters and setters for the random Category 1.
 	
 	public static void setOneCount() {
 		categoryOneCount = 1;
@@ -45,6 +57,8 @@ public class ShowWinnings {
 		}
 	}
 	
+	// Below are the getters and setters for the random Category 2.
+	
 	public static void setTwoCount() {
 		categoryTwoCount = 1;
 	}
@@ -64,6 +78,9 @@ public class ShowWinnings {
 			return false;
 		}
 	}
+	
+	// Below are the getters and setters for the random Category 3.
+	
 	public static void setThreeCount() {
 		categoryThreeCount = 1;
 	}
@@ -83,6 +100,9 @@ public class ShowWinnings {
 			return false;
 		}
 	}
+	
+	// Below are the getters and setters for the random Category 4.
+	
 	public static void setFourCount() {
 		categoryFourCount = 1;
 	}
@@ -102,6 +122,9 @@ public class ShowWinnings {
 			return false;
 		}
 	}
+	
+	// Below are the getters and setters for the random Category 5.
+	
 	public static void setFiveCount() {
 		categoryFiveCount = 1;
 	}
@@ -122,14 +145,31 @@ public class ShowWinnings {
 		}
 	}
 	
+	/*
+	 * This method adds all the winnings to find out the total amount of winnings.
+	 *
+	 * @param val The question number from that certain category.
+	 *
+	 */
 	public static void addToWinnings(int val) {
 		totalWinnings = totalWinnings + (val*100);
 	}
 	
+	/*
+	 * This method returns the total winnings that was added up from the above method
+	 * 
+	 * @return totalWinnings The total winnings of one game on Game mode.
+	 *
+	 */
 	public static int returnTotalWinnings() {
 		return totalWinnings;
 	}
 	
+	/*
+	 * This method implements the launch of the winnings window. 
+	 *
+	 */
+	 
 	public static void rewardScreen() {
 		Stage window= new Stage();
 		window.initModality(Modality.APPLICATION_MODAL);
@@ -149,7 +189,9 @@ public class ShowWinnings {
 		btnMainMenu.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-								
+					
+				//Resetting the count of the category questions so that
+				//the implementation of winnings is reset.			
 				ShowWinnings.setOneCount();
 				ShowWinnings.setTwoCount();
 				ShowWinnings.setThreeCount();
@@ -167,6 +209,8 @@ public class ShowWinnings {
 			@Override
 			public void handle(ActionEvent event) {
 				
+				//Resetting the count of the category questions so that
+				//the implementation of winnings is reset.
 				ShowWinnings.setOneCount();
 				ShowWinnings.setTwoCount();
 				ShowWinnings.setThreeCount();
@@ -177,10 +221,14 @@ public class ShowWinnings {
 			}
 		});
 		
+		// The ShowWinnings layout is a VBox layout
 		VBox layout= new VBox(10);
 		layout.getChildren().addAll(label, winnings, btnPlayAgain, btnMainMenu);
+		
+		//Setting up general interface visuals.
 		layout.setAlignment(Pos.CENTER);
 		layout.setStyle("-fx-background-color: #AAAAAA;");
+		
 		Scene scene= new Scene(layout);
 		window.setScene(scene);
 		window.showAndWait();
