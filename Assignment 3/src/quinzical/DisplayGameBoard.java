@@ -138,7 +138,7 @@ public class DisplayGameBoard {
 		
 		CategoryInternational.setOnAction(e -> {
 			window.close();
-			AnswerQuestion.displayQuestion("International", "Game", 6);
+			AnswerQuestion.displayQuestion("International", "Game", 0);
 			ShowWinnings.incrementInternationalCount();
 			displayGameBoard(categories);
 		});

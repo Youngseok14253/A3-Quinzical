@@ -58,6 +58,9 @@ public class GetQuestion {
 		} else if (category.equals("Oddities")) {
 			categoryNum = 9;
 			lineNum = 8;
+		} else if (category.equals("International")) {
+			categoryNum = 0;
+			lineNum = 13;
 		}
 
 		String global = "";
