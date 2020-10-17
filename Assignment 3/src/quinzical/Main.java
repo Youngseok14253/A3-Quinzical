@@ -37,6 +37,8 @@ public class Main extends Application{
 	@Override
 	public void start(Stage primaryStage) {	
 		
+		//testing new A4 virtualbox
+		
 		MockGameBoard.displayGameBoard();
 		
 		program = primaryStage;
