@@ -80,36 +80,10 @@ public class GetQuestion {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-			
-			try {
-				String command = ("sed -i '" + randNum + "d' " + "Category-" + categoryNum);
-				ProcessBuilder pb = new ProcessBuilder("bash", "-c", command);
-
-				Process process = pb.start();
-
-				BufferedReader stdout = new BufferedReader(new InputStreamReader(process.getInputStream()));
-				BufferedReader stderr = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+		
+		if (mode.equals("Game")) {
 				
-				int exitStatus = process.waitFor();
-				
-				if (exitStatus == 0) {
-					String line;
-					while ((line = stdout.readLine()) != null) {
-						System.out.println(line);
-					}
-				} else {
-					String line;
-					while ((line = stderr.readLine()) != null) {
-						System.err.println(line);
-					}
-				}			
-				
-				
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-			
+		}
 		
 		return global;
 		

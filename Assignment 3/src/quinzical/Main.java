@@ -9,9 +9,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+
 import java.io.*;
 import java.util.ArrayList;
 
@@ -36,8 +38,6 @@ public class Main extends Application{
 	*/
 	@Override
 	public void start(Stage primaryStage) {	
-		
-		//testing new A4 virtualbox
 		
 		MockGameBoard.displayGameBoard();
 		
