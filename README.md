@@ -1,5 +1,5 @@
 # A3-Quinzical
-Before running, please install the VirtualBox image.\
+Before running, please install the VirtualBox image. Make sure that JavaFX-11 is installed.\
 Navigate to the Assignment 3 folder. Ensure that there is a runQuinzical script.\
 Right click and open the terminal inside the Assignment 3 folder.\
 Type in the following:\
