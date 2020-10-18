@@ -61,4 +61,4 @@ else if (category.equals("NAME")) {\
 ------------------------------------------------------------------------------------------------\
 Where X+1 is the same number used in the CreatePracticeBoard.java class plus 1.\
 Where NAME is the same category name used in CreatePracticeBoard.java.\
-Where Y is the number of lines the category takes up, including the line containing the category name.\
+Where Y is the number of lines the category takes up, including the line containing the category name.
