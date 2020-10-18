@@ -40,7 +40,7 @@ public class ShowWinnings {
 	// Below are the getters and setters for the random Category 1.
 
 	public static void setOneCount() {
-		categoryOneCount = 1;
+		categoryOneCount = 5;
 	}
 
 	public static int getOneCount() {
@@ -62,7 +62,7 @@ public class ShowWinnings {
 	// Below are the getters and setters for the random Category 2.
 
 	public static void setTwoCount() {
-		categoryTwoCount = 1;
+		categoryTwoCount = 5;
 	}
 
 	public static int getTwoCount() {
@@ -84,7 +84,7 @@ public class ShowWinnings {
 	// Below are the getters and setters for the random Category 3.
 
 	public static void setThreeCount() {
-		categoryThreeCount = 1;
+		categoryThreeCount = 5;
 	}
 
 	public static int getThreeCount() {
@@ -106,7 +106,7 @@ public class ShowWinnings {
 	// Below are the getters and setters for the random Category 4.
 
 	public static void setFourCount() {
-		categoryFourCount = 1;
+		categoryFourCount = 5;
 	}
 
 	public static int getFourCount() {
@@ -128,7 +128,7 @@ public class ShowWinnings {
 	// Below are the getters and setters for the random Category 5.
 
 	public static void setFiveCount() {
-		categoryFiveCount = 1;
+		categoryFiveCount = 5;
 	}
 
 	public static int getFiveCount() {
@@ -150,7 +150,7 @@ public class ShowWinnings {
 	// Below are the getters and setters for the International Category.
 	
 	public static void setInternationalCount() {
-		categoryInternationalCount = 1;
+		categoryInternationalCount = 5;
 	}
 
 	public static int getInternationalCount() {
@@ -218,6 +218,8 @@ public class ShowWinnings {
 			@Override
 			public void handle(ActionEvent event) {
 				String name= nickname.getText();
+				System.out.println(name);
+			
 				// Resetting the count of the category questions so that
 				// the implementation of winnings is reset.
 				ShowWinnings.setOneCount();

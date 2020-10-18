@@ -109,6 +109,7 @@ public class HighScore {
 
 			mainLayout.getChildren().add(scoreLabel);
 		}
+		
 		if (winnings<=9000) {
 			//Label for the nickname they entered from the Game Mode
 			Label nickname = new Label(name+ ": "+ winnings);
@@ -116,7 +117,6 @@ public class HighScore {
 			nickname.setFont(new Font("Arial", 20));
 			mainLayout.getChildren().add(nickname);
 		}
-		
 		
 		//Return button to Main Menu
 		Button button = new Button("Return");
@@ -140,7 +140,7 @@ public class HighScore {
 
 		window.setScene(mainScene);
 		window.setTitle("High Scores");
-		window.showAndWait();
+		window.show();
 		
 	}
 
