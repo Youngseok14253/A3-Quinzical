@@ -3,10 +3,10 @@ Before running, please install the VirtualBox image.\
 Navigate to the Assignment 3 folder. Ensure that there is a runQuinzical script.\
 Right click and open the terminal inside the Assignment 3 folder.\
 Type in the following:\
-chmod+x runQuinzical\
+chmod +x runQuinzical\
 Press enter.\
 Then type in the following:\
-bash Quinzical\
+bash runQuinzical\
 Press enter.\
 The application should now be running.\
 \
