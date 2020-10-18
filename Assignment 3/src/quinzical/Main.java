@@ -108,7 +108,7 @@ public class Main extends Application {
 		btnMainToHighScore.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				System.out.println("High Scores");
+				showScores();
 			}
 		});
 
@@ -226,36 +226,22 @@ public class Main extends Application {
 	private void resetProgram() {
 		Boolean answer = ConfirmBox.display("Reset Scores and lock International", "Are you sure you want to reset?");
 		if (answer) {
+			
+			System.out.println("reset");
 
-			// The try and catch method removes created Category-* formats
-			try {
-				String command = "ls";
-				ProcessBuilder pb = new ProcessBuilder("bash", "-c", command);
-
-				Process process = pb.start();
-
-				BufferedReader stdout = new BufferedReader(new InputStreamReader(process.getInputStream()));
-				BufferedReader stderr = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-
-				int exitStatus = process.waitFor();
-
-				if (exitStatus == 0) {
-					String line;
-					while ((line = stdout.readLine()) != null) {
-						System.out.println(line);
-					}
-				} else {
-					String line;
-					while ((line = stderr.readLine()) != null) {
-						System.err.println(line);
-					}
-				}
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 
 		}
+	}
+	
+	/*
+	 * This method creates a window with the high scores of all attempts. Pressing the return button
+	 * takes the user back to the Main Menu.
+	 */
+	private void showScores() {
+		
+		ArrayList<String> scores = HighScore.returnScores();
+		
+		HighScore.displayScores(scores);
 	}
 
 	public static void main(String[] args) {
