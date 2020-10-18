@@ -13,9 +13,12 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
-import java.awt.Desktop;
 import java.io.*;
 import java.util.ArrayList;
+
+import board.CreatePracticeBoard;
+import board.DisplayGameBoard;
+import board.MockGameBoard;
 
 /**
  * This Main class provides the launch of the Quinzical GUI. It mainly

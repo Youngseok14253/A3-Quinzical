@@ -1,4 +1,4 @@
-package quinzical;
+package board;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

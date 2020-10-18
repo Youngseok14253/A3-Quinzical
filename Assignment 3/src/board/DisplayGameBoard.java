@@ -1,4 +1,4 @@
-package quinzical;
+package board;
 
 import java.util.ArrayList;
 import javafx.geometry.Insets;
@@ -8,6 +8,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import quinzical.AnswerQuestion;
+import quinzical.ShowWinnings;
 
 /**
  * This class provides the display method for the Main class when the user
