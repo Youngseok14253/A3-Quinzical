@@ -6,7 +6,7 @@ Open the Main.java class and click Run as Java Application.\
 \
 IF YOU WANT TO ADD A CATEGORY TO THE GAME:\
 Open the QuestionBank.txt text file.\
-Copy this code under the + sign in line 128:\
+Copy this code under the + sign on line 128:\
 -----------------------------------------------------------------------------------------------\
 +\
 NAME\
@@ -26,7 +26,7 @@ question@what is@answer\
 \
 \
 Open the CreatePracticeBoard.java class.\
-Copy this code under Category 9 in line 138:\
+Copy this code under Category 9 on line 139:\
 ------------------------------------------------------------------------------------------------\
 Button CategoryX = new Button("NAME");\
 	  GridPane.setConstraints(Category9, a, b);\
@@ -51,7 +51,7 @@ gameGrid.getChildren().addAll(Category, Category1, Category2, Category3, Categor
         \
 \
 Now open the GetQuestion.java class.\
-Copy this code under line 64:\
+Copy this code in line 65:\
 ------------------------------------------------------------------------------------------------\
 else if (category.equals("NAME")) {\
 			categoryNum = X+1;\
