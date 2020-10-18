@@ -1,8 +1,13 @@
 # A3-Quinzical
-Before running, please install VirtualBox image.\
-Open Eclipse, and import the A3-Quinzical file to your Java projects. \
-Make sure you have jdk-11 and JavaFX-11 installed in your IDE.\
-Open the Main.java class and click Run as Java Application.\
+Before running, please install the VirtualBox image.\
+Navigate to the Assignment 3 folder. Ensure that there is a runQuinzical script.\
+Right click and open the terminal inside the Assignment 3 folder.\
+Type in the following:\
+chomod+x runQuinzical\
+Press enter.\
+Then type in the following:\
+bash Quinzical\
+The application should now be running.\
 \
 IF YOU WANT TO ADD A CATEGORY TO THE GAME:\
 Open the QuestionBank.txt text file.\
