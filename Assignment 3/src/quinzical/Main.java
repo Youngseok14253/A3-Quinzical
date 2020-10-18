@@ -80,11 +80,50 @@ public class Main extends Application {
 				CreatePracticeBoard.displayPracticeBoard();
 			}
 		});
+		
+		// Help button
+		Button btnMainToHelp = new Button("Help");
+		btnMainToHelp.setPrefSize(335, 50);
+		GridPane.setConstraints(btnMainToHelp, 1, 3);
 
+		// When pressed, a pdf file with the manual is shown
+		btnMainToHelp.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				System.out.println("Help");
+			}
+		});
+		
+		// High Score button
+		Button btnMainToHighScore = new Button("High Scores");
+		btnMainToHighScore.setPrefSize(335, 50);
+		GridPane.setConstraints(btnMainToHighScore, 1, 4);
+
+		// When pressed, a new window showing the name and score is shown
+		btnMainToHighScore.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				System.out.println("High Scores");
+			}
+		});
+
+		// Reset button
+		Button btnMainToReset = new Button("Reset");
+		btnMainToReset.setPrefSize(335, 50);
+		GridPane.setConstraints(btnMainToReset, 1, 5);
+
+		// When pressed, the game resets, and international becomes hidden
+		btnMainToReset.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				resetProgram();
+			}
+		});
+		
 		// Quit button
 		Button btnMainToExit = new Button("Quit");
 		btnMainToExit.setPrefSize(335, 50);
-		GridPane.setConstraints(btnMainToExit, 1, 3);
+		GridPane.setConstraints(btnMainToExit, 1, 6);
 
 		// When pressed, a new window confirming the closure of the program will show.
 		btnMainToExit.setOnAction(new EventHandler<ActionEvent>() {
@@ -112,13 +151,17 @@ public class Main extends Application {
 		mainLayout.setPadding(new Insets(10, 10, 10, 10));
 		mainLayout.setVgap(8);
 		mainLayout.setHgap(10);
-		mainLayout.getChildren().addAll(label1, btnMainToGame, btnMainToPractice, btnMainToExit);
+		mainLayout.getChildren().addAll(label1, btnMainToGame, btnMainToPractice, 
+				btnMainToHelp, btnMainToHighScore, btnMainToReset, btnMainToExit);
 
 		// Setting up font and general interface visuals.
 		label1.setFont(new Font("Cavolini", 30));
 		btnMainToGame.setFont(new Font("Arial", 20));
 		btnMainToPractice.setFont(new Font("Arial", 20));
 		btnMainToExit.setFont(new Font("Arial", 20));
+		btnMainToHelp.setFont(new Font("Arial", 20));
+		btnMainToHighScore.setFont(new Font("Arial", 20));
+		btnMainToReset.setFont(new Font("Arial", 20));
 		mainLayout.setAlignment(Pos.CENTER);
 		mainScene = new Scene(mainLayout, 500, 400);
 
@@ -166,6 +209,47 @@ public class Main extends Application {
 			}
 
 			program.close();
+		}
+	}
+	
+	/*
+	 * This method creates a confirmation window when the user tries to reset the
+	 * game. When the user confirms, it resets high scores and locks the international
+	 * button.
+	 * 
+	 */
+	private void resetProgram() {
+		Boolean answer = ConfirmBox.display("Reset Scores and lock International", "Are you sure you want to reset?");
+		if (answer) {
+
+			// The try and catch method removes created Category-* formats
+			try {
+				String command = "ls";
+				ProcessBuilder pb = new ProcessBuilder("bash", "-c", command);
+
+				Process process = pb.start();
+
+				BufferedReader stdout = new BufferedReader(new InputStreamReader(process.getInputStream()));
+				BufferedReader stderr = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+
+				int exitStatus = process.waitFor();
+
+				if (exitStatus == 0) {
+					String line;
+					while ((line = stdout.readLine()) != null) {
+						System.out.println(line);
+					}
+				} else {
+					String line;
+					while ((line = stderr.readLine()) != null) {
+						System.err.println(line);
+					}
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
 		}
 	}
 
