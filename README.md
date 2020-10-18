@@ -36,27 +36,27 @@ Button CategoryX = new Button("NAME");\
 			AnswerQuestion.displayQuestion(catNameX, "Practice", 0);\
 		});\
     \
-Where X is 10 if this is the first category that is being added. This number will increment depending on how many categories you add.
-Where NAME is the general topic of the category eg. Places, Symbols, Famous People etc.
-Where a is 1 and b is 5. If you are adding more than 1 category, each time you add a category, 'a' will alternate between 0 and 1, and 'b' will increment by 1 every time 'a' goes from 1 to 0. ie. Adding a 2nd category, 'a' would be 0 and 'b' would be 6.
-
-The existing code on line 141:
+Where X is 10 if this is the first category that is being added. This number will increment depending on how many categories you add.\
+Where NAME is the general topic of the category eg. Places, Symbols, Famous People etc.\
+Where a is 1 and b is 5. If you are adding more than 1 category, each time you add a category, 'a' will alternate between 0 and 1, and 'b' will increment by 1 every time 'a' goes from 1 to 0. ie. Adding a 2nd category, 'a' would be 0 and 'b' would be 6.\
+\
+The existing code on line 141:\
 gameGrid.getChildren().addAll(Category, Category1, Category2, Category3, Category4, Category5, Category6,
-				Category7, Category8, Category9);
-
-Should now be:
+				Category7, Category8, Category9);\
+\
+Should now be:\
 gameGrid.getChildren().addAll(Category, Category1, Category2, Category3, Category4, Category5, Category6,
-				Category7, Category8, Category9, CategoryX);
-        
-
-Now open the GetQuestion.java class.
-Copy this code under line 64:
-
-else if (category.equals("NAME")) {
-			categoryNum = X+1;
-			lineNum = Y;
-		}
-  
-Where X+1 is the same number used in the CreatePracticeBoard.java class plus 1.
-Where NAME is the same category name used in CreatePracticeBoard.java.
-Where Y is the number of lines the category takes up, including the line containing the category name.
+				Category7, Category8, Category9, CategoryX);\
+        \
+\
+Now open the GetQuestion.java class.\
+Copy this code under line 64:\
+\
+else if (category.equals("NAME")) {\
+			categoryNum = X+1;\
+			lineNum = Y;\
+		}\
+  \
+Where X+1 is the same number used in the CreatePracticeBoard.java class plus 1.\
+Where NAME is the same category name used in CreatePracticeBoard.java.\
+Where Y is the number of lines the category takes up, including the line containing the category name.\
