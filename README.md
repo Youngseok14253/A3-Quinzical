@@ -46,9 +46,10 @@ gameGrid.getChildren().addAll(Category, Category1, Category2, Category3, Categor
 				Category7, Category8, Category9);\
 \
 Should be changed to:\
+------------------------------------------------------------------------------------------------\
 gameGrid.getChildren().addAll(Category, Category1, Category2, Category3, Category4, Category5, Category6,
 				Category7, Category8, Category9, CategoryX);\
-        \
+------------------------------------------------------------------------------------------------\
 \
 Now open the GetQuestion.java class.\
 Copy this code in line 65:\
