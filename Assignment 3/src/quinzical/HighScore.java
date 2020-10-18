@@ -80,7 +80,7 @@ public class HighScore {
 	 * @param scores The list of Names and final Winnings
 	 *
 	 */
-	public static void displayScores(ArrayList<String> scores) {
+	public static void displayScores(ArrayList<String> scores, String name, int winnings) {
 		
 		//New Stage with GridPane
 		Stage window = new Stage();
@@ -109,11 +109,19 @@ public class HighScore {
 
 			mainLayout.getChildren().add(scoreLabel);
 		}
-
+		if (winnings<=9000) {
+			//Label for the nickname they entered from the Game Mode
+			Label nickname = new Label(name+ ": "+ winnings);
+			GridPane.setConstraints(nickname, 1, scores.size()+1);
+			nickname.setFont(new Font("Arial", 20));
+			mainLayout.getChildren().add(nickname);
+		}
+		
+		
 		//Return button to Main Menu
 		Button button = new Button("Return");
 		button.setPrefSize(335, 50);
-		GridPane.setConstraints(button, 1, scores.size() + 1);
+		GridPane.setConstraints(button, 1, scores.size() + 2);
 		button.setFont(new Font("Arial", 20));
 
 		// Pressing confirm will close the window
@@ -126,7 +134,7 @@ public class HighScore {
 		
 		mainLayout.getChildren().add(button);
 		
-		//Sizing and Alignmnet, then show scene
+		//Sizing and Alignment, then show scene
 		mainLayout.setAlignment(Pos.CENTER);
 		Scene mainScene = new Scene(mainLayout, 500, 400);
 

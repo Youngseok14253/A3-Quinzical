@@ -1,11 +1,14 @@
 package quinzical;
 
+import java.util.ArrayList;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -202,16 +205,19 @@ public class ShowWinnings {
 		label.setText("Congratulations, you earned:");
 		Label winnings = new Label();
 		winnings.setText("$" + totalWinnings);
+		
+		Label enterName= new Label();
+		enterName.setText("Please enter a nickname:");
+		TextField nickname= new TextField();
 
 		// Creating two buttons
-		Button btnMainMenu = new Button("Return to Main Menu");
-		Button btnPlayAgain = new Button("Play Again");
+		Button submit = new Button("Submit");
 
 		// Back to main menu if this button is pressed
-		btnMainMenu.setOnAction(new EventHandler<ActionEvent>() {
+		submit.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-
+				String name= nickname.getText();
 				// Resetting the count of the category questions so that
 				// the implementation of winnings is reset.
 				ShowWinnings.setOneCount();
@@ -222,11 +228,14 @@ public class ShowWinnings {
 				ShowWinnings.setInternationalCount();
 
 				window.close();
+				ArrayList<String> score= HighScore.returnScores();
+				HighScore.displayScores(score,name,totalWinnings);
 
 			}
 		});
 
 		// Play again if this button is pressed
+		/**
 		btnPlayAgain.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -243,10 +252,11 @@ public class ShowWinnings {
 				window.close();
 			}
 		});
+		*/
 
 		// The ShowWinnings layout is a VBox layout
 		VBox layout = new VBox(10);
-		layout.getChildren().addAll(label, winnings, btnPlayAgain, btnMainMenu);
+		layout.getChildren().addAll(label, winnings,enterName,nickname,submit);
 
 		// Setting up general interface visuals.
 		layout.setAlignment(Pos.CENTER);

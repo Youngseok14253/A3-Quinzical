@@ -241,7 +241,7 @@ public class Main extends Application {
 		
 		ArrayList<String> scores = HighScore.returnScores();
 		
-		HighScore.displayScores(scores);
+		HighScore.displayScores(scores, "User", 9100);
 	}
 
 	public static void main(String[] args) {
