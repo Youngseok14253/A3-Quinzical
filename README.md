@@ -1,13 +1,13 @@
-# A3-Quinzical
-Before running, please install VirtualBox image.
-Open Eclipse, and import the A3-Quinzical file to your Java projects. 
-Make sure you have jdk-11 and JavaFX-11 installed in your IDE.
-Open the Main.java class and click Run as Java Application.
-
-IF YOU WANT TO ADD A CATEGORY TO THE GAME:
-Open the QuestionBank.txt text file.
-Copy this code under the + sign in line 128.
-
+# A3-Quinzical\
+Before running, please install VirtualBox image.\
+Open Eclipse, and import the A3-Quinzical file to your Java projects. \
+Make sure you have jdk-11 and JavaFX-11 installed in your IDE.\
+Open the Main.java class and click Run as Java Application.\
+\
+IF YOU WANT TO ADD A CATEGORY TO THE GAME:\
+Open the QuestionBank.txt text file.\
+Copy this code under the + sign in line 128.\
+\
 +
 NAME
 What is the year the Government pledged New Zealand would be predator free@what is@2050
