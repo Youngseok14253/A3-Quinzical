@@ -13,6 +13,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+import java.awt.Desktop;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -38,7 +39,7 @@ public class Main extends Application {
 	 */
 	@Override
 	public void start(Stage primaryStage) {
-		
+
 		program = primaryStage;
 
 		Label label1 = new Label("Welcome to Quinzical!");
@@ -80,7 +81,7 @@ public class Main extends Application {
 				CreatePracticeBoard.displayPracticeBoard();
 			}
 		});
-		
+
 		// Help button
 		Button btnMainToHelp = new Button("Help");
 		btnMainToHelp.setPrefSize(335, 50);
@@ -90,10 +91,11 @@ public class Main extends Application {
 		btnMainToHelp.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				System.out.println("Help");
+				System.out.println("this is supposed to open Help.pdf");
 			}
+
 		});
-		
+
 		// High Score button
 		Button btnMainToHighScore = new Button("High Scores");
 		btnMainToHighScore.setPrefSize(335, 50);
@@ -119,7 +121,7 @@ public class Main extends Application {
 				resetProgram();
 			}
 		});
-		
+
 		// Quit button
 		Button btnMainToExit = new Button("Quit");
 		btnMainToExit.setPrefSize(335, 50);
@@ -151,8 +153,8 @@ public class Main extends Application {
 		mainLayout.setPadding(new Insets(10, 10, 10, 10));
 		mainLayout.setVgap(8);
 		mainLayout.setHgap(10);
-		mainLayout.getChildren().addAll(label1, btnMainToGame, btnMainToPractice, 
-				btnMainToHelp, btnMainToHighScore, btnMainToReset, btnMainToExit);
+		mainLayout.getChildren().addAll(label1, btnMainToGame, btnMainToPractice, btnMainToHelp, btnMainToHighScore,
+				btnMainToReset, btnMainToExit);
 
 		// Setting up font and general interface visuals.
 		label1.setFont(new Font("Cavolini", 30));
@@ -211,11 +213,11 @@ public class Main extends Application {
 			program.close();
 		}
 	}
-	
+
 	/*
 	 * This method creates a confirmation window when the user tries to reset the
-	 * game. When the user confirms, it resets high scores and locks the international
-	 * button.
+	 * game. When the user confirms, it resets high scores and locks the
+	 * international button.
 	 * 
 	 */
 	private void resetProgram() {
