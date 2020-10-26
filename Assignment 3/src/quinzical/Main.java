@@ -68,7 +68,7 @@ public class Main extends Application {
 		btnMainToGame.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				DisplayGameBoard.displayGameBoard(Categories);
+				DisplayGameBoard.displayGame(Categories);
 			}
 		});
 

@@ -127,7 +127,7 @@ public class AnswerQuestion {
 			// increments
 			// the count of the selected category (from 1 to 5) by 1
 			if (ans == true) {
-				CompareAnswer.display("Correct!");
+				CompareAnswer.display("Correct, Ka pai!");
 				if (mode.equals("Game")) {
 					if (categoryNumber == 1) {
 						ShowWinnings.addToWinnings(ShowWinnings.getOneCount());

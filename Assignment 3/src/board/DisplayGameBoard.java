@@ -9,6 +9,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import quinzical.AnswerQuestion;
+import quinzical.CompareAnswer;
 import quinzical.ShowWinnings;
 
 /**
@@ -22,10 +23,263 @@ import quinzical.ShowWinnings;
  *
  */
 public class DisplayGameBoard {
-
+	private static int count;
 	/*
-	 * This method displays a new window with five randomly selected categories,
-	 * which the user can select. Once selected, it displays a question
+	 * This method displays a new window with all categories in the Question Bank.
+	 * Once 5 categories are selected by the user, the method displayGameBoard is called
+	 * and the 5 selected categories are used as the parameter for the latter method, 
+	 * in an ArrayList format.
+	 * 
+	 * 
+	 */
+	public static void displayGame(ArrayList<String> categories) {
+		// New Stage
+		Stage window = new Stage();
+
+		// Set up GridPane
+		GridPane gameGrid = new GridPane();
+		gameGrid.setPadding(new Insets(10, 10, 10, 10));
+		gameGrid.setVgap(8);
+		gameGrid.setHgap(10);
+		
+		ArrayList<String> chosenCategories= new ArrayList<String>();
+
+		CompareAnswer.setCount();
+		Label Category = new Label("Please select any 5 categories");
+		GridPane.setConstraints(Category, 0, 0);
+
+		// Each button is formatted the same way, so follow along the comments for
+		// Button 1 (Category1)
+
+		// Button for Places created, and placed in the (0,1) Pane
+		Button Category1 = new Button("Places");
+		GridPane.setConstraints(Category1, 1, 1);
+		// Set a reasonable size
+		Category1.setPrefSize(300, 80);
+		// Return the name of the Category from the ArrayList and store it in a variable
+		String catName1 = Category1.getText();
+		Button catLabel1= new Button();
+		catLabel1.setText("Places selected");
+
+		// When the button is pressed, the category is marked as a selected category and changes into a 
+		// unlickable button that shows the category is selected
+		Category1.setOnAction(e -> {
+			gameGrid.getChildren().remove(Category1);
+			GridPane.setConstraints(catLabel1, 1, 1);
+			catLabel1.setPrefSize(300, 80);
+			gameGrid.getChildren().add(catLabel1);
+			incrementCount();
+			chosenCategories.add(catName1);
+			boolean booleanType= isCategoriesSelected();
+			if (booleanType== true) {
+				window.close();
+				displayGameBoard(chosenCategories);
+			}
+		});
+
+		Button Category2 = new Button("Symbols");
+		GridPane.setConstraints(Category2, 1, 2);
+		Category2.setPrefSize(300, 80);
+		String catName2 = Category2.getText();
+		Button catLabel2= new Button();
+		catLabel2.setText("Symbols selected");
+
+		Category2.setOnAction(e -> {
+			gameGrid.getChildren().remove(Category2);
+			GridPane.setConstraints(catLabel2, 1, 2);
+			catLabel2.setPrefSize(300, 80);
+			gameGrid.getChildren().add(catLabel2);
+			incrementCount();
+			chosenCategories.add(catName2);
+			boolean booleanType= isCategoriesSelected();
+			if (booleanType== true) {
+				window.close();
+				displayGameBoard(chosenCategories);
+			}
+		});
+
+		Button Category3 = new Button("Geography");
+		GridPane.setConstraints(Category3, 1, 3);
+		Category3.setPrefSize(300, 80);
+		String catName3 = Category3.getText();
+		Button catLabel3= new Button();
+		catLabel3.setText("Geography selected");
+
+		Category3.setOnAction(e -> {
+			gameGrid.getChildren().remove(Category3);
+			GridPane.setConstraints(catLabel3, 1, 3);
+			catLabel3.setPrefSize(300, 80);
+			gameGrid.getChildren().add(catLabel3);
+			incrementCount();
+			chosenCategories.add(catName3);
+			boolean booleanType= isCategoriesSelected();
+			if (booleanType== true) {
+				window.close();
+				displayGameBoard(chosenCategories);
+			}
+		});
+
+		Button Category4 = new Button("History");
+		GridPane.setConstraints(Category4, 1, 4);
+		Category4.setPrefSize(300, 80);
+		String catName4 = Category4.getText();
+		Button catLabel4= new Button();
+		catLabel4.setText("History selected");
+
+		Category4.setOnAction(e -> {
+			gameGrid.getChildren().remove(Category4);
+			GridPane.setConstraints(catLabel4, 1, 4);
+			catLabel4.setPrefSize(300, 80);
+			gameGrid.getChildren().add(catLabel4);
+			incrementCount();
+			chosenCategories.add(catName4);
+			boolean booleanType= isCategoriesSelected();
+			if (booleanType== true) {
+				window.close();
+				displayGameBoard(chosenCategories);
+			}
+		});
+
+		Button Category5 = new Button("Famous People");
+		GridPane.setConstraints(Category5, 0, 1);
+		Category5.setPrefSize(300, 80);
+		String catName5 = Category5.getText();
+		Button catLabel5= new Button();
+		catLabel5.setText("Famous People selected");
+
+		Category5.setOnAction(e -> {
+			gameGrid.getChildren().remove(Category5);
+			GridPane.setConstraints(catLabel5, 0, 1);
+			catLabel5.setPrefSize(300, 80);
+			gameGrid.getChildren().add(catLabel5);
+			incrementCount();
+			chosenCategories.add(catName5);
+			boolean booleanType= isCategoriesSelected();
+			if (booleanType== true) {
+				window.close();
+				displayGameBoard(chosenCategories);
+			}
+		});
+
+		Button Category6 = new Button("NZ Life");
+		GridPane.setConstraints(Category6, 0, 2);
+		Category6.setPrefSize(300, 80);
+		String catName6 = Category6.getText();
+		Button catLabel6= new Button();
+		catLabel6.setText("NZ Life selected");
+
+		Category6.setOnAction(e -> {
+			gameGrid.getChildren().remove(Category6);
+			GridPane.setConstraints(catLabel6, 0, 2);
+			catLabel6.setPrefSize(300, 80);
+			gameGrid.getChildren().add(catLabel6);
+			incrementCount();
+			chosenCategories.add(catName6);
+			boolean booleanType= isCategoriesSelected();
+			if (booleanType== true) {
+				window.close();
+				displayGameBoard(chosenCategories);
+			}
+		});
+
+		Button Category7 = new Button("Flora");
+		GridPane.setConstraints(Category7, 0, 3);
+		Category7.setPrefSize(300, 80);
+		String catName7 = Category7.getText();
+		Button catLabel7= new Button();
+		catLabel7.setText("Flora selected");
+
+		Category7.setOnAction(e -> {
+			gameGrid.getChildren().remove(Category7);
+			GridPane.setConstraints(catLabel7, 0, 3);
+			catLabel7.setPrefSize(300, 80);
+			gameGrid.getChildren().add(catLabel7);
+			incrementCount();
+			chosenCategories.add(catName7);
+			boolean booleanType= isCategoriesSelected();
+			if (booleanType== true) {
+				window.close();
+				displayGameBoard(chosenCategories);
+			}
+		});
+
+		Button Category8 = new Button("Fauna");
+		GridPane.setConstraints(Category8, 0, 4);
+		Category8.setPrefSize(300, 80);
+		String catName8 = Category8.getText();
+		Button catLabel8= new Button();
+		catLabel8.setText("Fauna selected");
+
+		Category8.setOnAction(e -> {
+			gameGrid.getChildren().remove(Category8);
+			GridPane.setConstraints(catLabel8, 0, 4);
+			catLabel8.setPrefSize(300, 80);
+			gameGrid.getChildren().add(catLabel8);
+			incrementCount();
+			chosenCategories.add(catName8);
+			boolean booleanType= isCategoriesSelected();
+			if (booleanType== true) {
+				window.close();
+				displayGameBoard(chosenCategories);
+			}
+		});
+		Button Category9 = new Button("Oddities");
+		GridPane.setConstraints(Category9, 0, 5);
+		Category9.setPrefSize(300, 80);
+		String catName9 = Category9.getText();
+		Button catLabel9= new Button();
+		catLabel9.setText("Oddities selected");
+
+		Category9.setOnAction(e -> {
+			gameGrid.getChildren().remove(Category9);
+			GridPane.setConstraints(catLabel9, 0, 5);
+			catLabel9.setPrefSize(300, 80);
+			gameGrid.getChildren().add(catLabel9);
+			incrementCount();
+			chosenCategories.add(catName9);
+			boolean booleanType= isCategoriesSelected();
+			if (booleanType== true) {
+				window.close();
+				displayGameBoard(chosenCategories);
+			}
+		});
+
+		// Adds the buttons and Labels to the Grid
+		gameGrid.getChildren().addAll(Category, Category1, Category2, Category3, Category4, Category5, Category6,
+				Category7, Category8, Category9);
+	
+		// Create layout and show scene
+		Scene scene = new Scene(gameGrid, 600, 450);
+
+		window.initModality(Modality.APPLICATION_MODAL);
+
+		window.setScene(scene);
+		window.setTitle("Game Mode");
+		window.show();
+		
+	}
+	public static boolean isCategoriesSelected() {
+		if (getCount()==5) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	public static void setCount() {
+		count = 0;
+	}
+
+	public static int getCount() {
+		return count;
+	}
+
+	public static void incrementCount() {
+		count++;
+	}
+	/*
+	 * This method displays a new window with the five selected categories.
+	 * Once selected, it displays a question
 	 * corresponding to the Category and depending on the user's answer, displays a
 	 * "Correct" or "Incorrect" message. It also displays a question value next to
 	 * each category which increases by 100 (starting from 100, up to 500) and adds
@@ -34,12 +288,11 @@ public class DisplayGameBoard {
 	 * Once every category is answered, the user is taken to the final screen with
 	 * the total earnings and asked to play again, or return to the Main Menu.
 	 * 
-	 * @param categories Five randomly selected categories in a ArrayList format
+	 * @param categories Five selected categories in a ArrayList format
 	 * 
 	 */
 	public static void displayGameBoard(ArrayList<String> categories) {
-		
-		boolean val = true;
+
 
 		// This boolean checks whether all of the categories have been answered
 		boolean finished = false;
@@ -77,7 +330,7 @@ public class DisplayGameBoard {
 			// The method incrementOneCount is called, where the count represents the number
 			// of questions
 			// which the user has selected from the first button (Category1)
-			
+
 			ShowWinnings.incrementOneCount();
 			// The Cateogory board is displayed again
 			displayGameBoard(categories);
@@ -130,16 +383,16 @@ public class DisplayGameBoard {
 			ShowWinnings.incrementFiveCount();
 			displayGameBoard(categories);
 		});
-		
+
 		Button CategoryLocked = new Button("Locked");
 		GridPane.setConstraints(CategoryLocked, 0, 6);
 		CategoryLocked.setPrefSize(300, 80);
-		
-		
+
+
 		Button CategoryInternational = new Button("International");
 		GridPane.setConstraints(CategoryInternational, 0, 6);
 		CategoryInternational.setPrefSize(300, 80);
-		
+
 		CategoryInternational.setOnAction(e -> {
 			window.close();
 			AnswerQuestion.displayQuestion("International", "Game", 6);
@@ -170,7 +423,7 @@ public class DisplayGameBoard {
 		Label catInternationalMoney = new Label();
 		GridPane.setConstraints(catInternationalMoney, 1, 6);
 		catInternationalMoney.setText("\t\tQuestion Worth $" + ShowWinnings.getInternationalCount() + "00");
-		
+
 		// Add the Labels and Buttons to the Grid
 		gameGrid.getChildren().addAll(Category, Category1, Category2, Category3, Category4, Category5, CategoryLocked);
 		gameGrid.getChildren().addAll(catOneMoney, catTwoMoney, catThreeMoney, catFourMoney, catFiveMoney);
@@ -221,7 +474,7 @@ public class DisplayGameBoard {
 			GridPane.setConstraints(fiveFinish, 0, 5);
 			gameGrid.getChildren().add(fiveFinish);
 		}
-		
+
 		//The following count is to keep track of how many categories have been completed.
 		int count=0;
 		if (ShowWinnings.isOneLimit()==true) {
@@ -239,16 +492,16 @@ public class DisplayGameBoard {
 		if (ShowWinnings.isFiveLimit()==true) {
 			count++;
 		}
-		
+
 		//If two categories have been completed, the international category is unlocked
 		//along with its current potential winning if the question is answered correctly.
-		
+
 		if (count >= 2) {
 			gameGrid.getChildren().remove(CategoryLocked);
 			gameGrid.getChildren().add(CategoryInternational);
 			gameGrid.getChildren().add(catInternationalMoney);
 		}
-		
+
 		if (ShowWinnings.isInternationalLimit() == true) {
 
 			gameGrid.getChildren().removeAll(CategoryInternational, catInternationalMoney);
@@ -263,7 +516,7 @@ public class DisplayGameBoard {
 				&& ShowWinnings.isThreeLimit() == true && ShowWinnings.isFourLimit() == true
 				&& ShowWinnings.isFiveLimit() == true && ShowWinnings.isInternationalLimit() == true) {
 			String[] nameAndScore = ShowWinnings.rewardScreen();
-			
+
 			compareWinnings(nameAndScore);
 			window.close();
 			// The boolean value is changed to true
@@ -290,7 +543,7 @@ public class DisplayGameBoard {
 
 		System.out.println(nameAndScore[0]);
 		System.out.println(nameAndScore[1]);
-		
+
 	}
 
 
