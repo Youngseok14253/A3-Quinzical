@@ -13,6 +13,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+import java.awt.Desktop;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -90,11 +91,49 @@ public class Main extends Application {
 		btnMainToHelp.setPrefSize(335, 50);
 		GridPane.setConstraints(btnMainToHelp, 1, 3);
 
-		// When pressed, a pdf file with the manual is shown
+		// When pressed and confirmed, a pdf file with the manual is shown
 		btnMainToHelp.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				System.out.println("this is supposed to open Help.pdf");
+				
+				boolean openHelp = ConfirmBox.display("Open Manual?", "By pressing Yes, it will redirect you to the Quinzical Manual"
+						+ "\n\n\t\t\t\t\tConfirm?");
+
+				//when the user confirms they want to open the pdf, they are redirected to a page where 
+				if (openHelp) {
+					try {
+						
+						//bash command copied from the URL below:
+						//https://askubuntu.com/questions/43264/how-to-open-a-pdf-file-from-terminal
+
+						String command = "xdg-open Help.pdf";
+						ProcessBuilder pb = new ProcessBuilder("bash", "-c", command);
+
+						Process process = pb.start();
+
+						BufferedReader stdout = new BufferedReader(new InputStreamReader(process.getInputStream()));
+						BufferedReader stderr = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+
+						int exitStatus = process.waitFor();
+
+						if (exitStatus == 0) {
+							String line;
+							while ((line = stdout.readLine()) != null) {
+								System.out.println(line);
+							}
+						} else {
+							String line;
+							while ((line = stderr.readLine()) != null) {
+								System.err.println(line);
+							}
+						}
+
+					} catch (Exception e) {
+						e.printStackTrace();
+					}					
+				}
+				
+
 			}
 
 		});
