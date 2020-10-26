@@ -38,6 +38,8 @@ public class DisplayGameBoard {
 	 * 
 	 */
 	public static void displayGameBoard(ArrayList<String> categories) {
+		
+		boolean val = true;
 
 		// This boolean checks whether all of the categories have been answered
 		boolean finished = false;
@@ -219,11 +221,6 @@ public class DisplayGameBoard {
 			GridPane.setConstraints(fiveFinish, 0, 5);
 			gameGrid.getChildren().add(fiveFinish);
 		}
-		if (ShowWinnings.isInternationalLimit() == true) {
-			gameGrid.getChildren().removeAll(CategoryInternational, catInternationalMoney);
-			GridPane.setConstraints(intFinish, 0, 6);
-			gameGrid.getChildren().add(intFinish);
-		}
 		
 		//The following count is to keep track of how many categories have been completed.
 		int count=0;
@@ -242,12 +239,21 @@ public class DisplayGameBoard {
 		if (ShowWinnings.isFiveLimit()==true) {
 			count++;
 		}
+		
 		//If two categories have been completed, the international category is unlocked
 		//along with its current potential winning if the question is answered correctly.
-		if (count>=2) {
+		
+		if (count >= 2) {
 			gameGrid.getChildren().remove(CategoryLocked);
 			gameGrid.getChildren().add(CategoryInternational);
 			gameGrid.getChildren().add(catInternationalMoney);
+		}
+		
+		if (ShowWinnings.isInternationalLimit() == true) {
+
+			gameGrid.getChildren().removeAll(CategoryInternational, catInternationalMoney);
+			GridPane.setConstraints(intFinish, 0, 6);
+			gameGrid.getChildren().add(intFinish);
 		}
 
 		// If all buttons are Unavailable (i.e no more questions to ask), then the user
@@ -256,7 +262,9 @@ public class DisplayGameBoard {
 		if (ShowWinnings.isOneLimit() == true && ShowWinnings.isTwoLimit() == true
 				&& ShowWinnings.isThreeLimit() == true && ShowWinnings.isFourLimit() == true
 				&& ShowWinnings.isFiveLimit() == true && ShowWinnings.isInternationalLimit() == true) {
-			ShowWinnings.rewardScreen();
+			String[] nameAndScore = ShowWinnings.rewardScreen();
+			
+			compareWinnings(nameAndScore);
 			window.close();
 			// The boolean value is changed to true
 			finished = true;
@@ -276,6 +284,15 @@ public class DisplayGameBoard {
 		if (finished == false) {
 			window.show();
 		}
-
 	}
+
+	private static void compareWinnings(String[] nameAndScore) {
+
+		System.out.println(nameAndScore[0]);
+		System.out.println(nameAndScore[1]);
+		
+	}
+
+
 }
+
