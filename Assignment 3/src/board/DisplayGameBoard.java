@@ -1,5 +1,7 @@
 package board;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -10,6 +12,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import quinzical.AnswerQuestion;
 import quinzical.CompareAnswer;
+import quinzical.HighScore;
 import quinzical.ShowWinnings;
 
 /**
@@ -515,9 +518,10 @@ public class DisplayGameBoard {
 		if (ShowWinnings.isOneLimit() == true && ShowWinnings.isTwoLimit() == true
 				&& ShowWinnings.isThreeLimit() == true && ShowWinnings.isFourLimit() == true
 				&& ShowWinnings.isFiveLimit() == true && ShowWinnings.isInternationalLimit() == true) {
-			String[] nameAndScore = ShowWinnings.rewardScreen();
+		   String[] nameAndScore = ShowWinnings.rewardScreen();
 
-			compareWinnings(nameAndScore);
+		   HighScore.updateScoreBoard(nameAndScore);
+
 			window.close();
 			// The boolean value is changed to true
 			finished = true;
@@ -538,14 +542,6 @@ public class DisplayGameBoard {
 			window.show();
 		}
 	}
-
-	private static void compareWinnings(String[] nameAndScore) {
-
-		System.out.println(nameAndScore[0]);
-		System.out.println(nameAndScore[1]);
-
-	}
-
 
 }
 

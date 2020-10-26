@@ -1,0 +1,31 @@
+#! /bin/bash
+
+pushd Scores > /dev/null
+
+tac High-Scores > temp1
+
+TEMP=`sed "2q;d" High-Scores`
+
+VAL="${TEMP//[!0-9]/}"
+
+if [[ $1 -gt $VAL ]]
+then
+        sed '/'"$VAL"'/i '"$2 - $1"'' High-Scores > tempFinal
+else
+        for x in `grep -o '[0-9]*' temp1`;
+        do
+                if [[ $1 -le $x ]]
+                then
+                        sed '/'"$x"'/i '"$2 - $1"'' temp1 > temp2
+                        tac temp2 > tempFinal
+                        break
+                fi
+        done
+fi
+
+rm High-Scores temp1 temp2 > /dev/null
+
+mv tempFinal High-Scores > /dev/null
+
+popd > /dev/null
+
