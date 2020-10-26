@@ -1,6 +1,10 @@
 package quinzical;
 
 import javafx.stage.*;
+
+import java.util.TimerTask;
+import java.util.Timer;
+
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.*;
@@ -19,7 +23,7 @@ import javafx.scene.control.*;
  * 
  */
 public class AnswerQuestion {
-
+	private static int time=60;
 	/*
 	 * This method creates a new window, where it displays a question (either
 	 * text/audio) from the Question Bank corresponding to the selected category and
@@ -105,6 +109,8 @@ public class AnswerQuestion {
 		whatIsAre.setText("\n" + whatVal + ":");
 		label.setText(question + "...");
 
+		// Creating the timer for the question
+		Timer();
 		// Calls the setCount method, where the count becomes 1
 		// This count is used to check the number of user attempts when answering a
 		// Question
@@ -209,5 +215,27 @@ public class AnswerQuestion {
 		window.setScene(scene);
 		window.showAndWait();
 
+	}
+	/* 
+	 * This method creates a Timer for the game module and gives a 60 second time limit to the user for
+	 * them to answer the question. The Timer is stopped once the time reaches to 0.
+	 */
+	private static void Timer() {
+		Timer gameTimer= new Timer();
+		gameTimer.scheduleAtFixedRate(new TimerTask() {
+			@Override
+			public void run() {
+				if (time<= 0) {
+					System.out.println("TImer stopped");
+					gameTimer.cancel();
+				}
+				else {
+					System.out.println(time);
+					//timerLabel.setText(Integer.toString(time));
+					
+					time--;
+				}
+			}
+		}, 0, 1000);
 	}
 }
