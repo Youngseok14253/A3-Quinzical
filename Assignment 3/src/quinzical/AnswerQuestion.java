@@ -110,7 +110,9 @@ public class AnswerQuestion {
 		label.setText(question + "...");
 
 		// Creating the timer for the question
-		Timer();
+		int remainingTime= Timer();
+		Label remainTime= new Label();
+		remainTime.setText(Integer.toString(remainingTime));
 		// Calls the setCount method, where the count becomes 1
 		// This count is used to check the number of user attempts when answering a
 		// Question
@@ -209,7 +211,7 @@ public class AnswerQuestion {
 		VBox layout = new VBox(menuBar);
 		layout.setAlignment(Pos.TOP_CENTER);
 
-		layout.getChildren().addAll(label, whatIsAre, answerField, submitButton, warning);
+		layout.getChildren().addAll(label, whatIsAre, answerField, submitButton, warning, remainTime);
 
 		Scene scene = new Scene(layout, 600, 200);
 		window.setScene(scene);
@@ -220,22 +222,24 @@ public class AnswerQuestion {
 	 * This method creates a Timer for the game module and gives a 60 second time limit to the user for
 	 * them to answer the question. The Timer is stopped once the time reaches to 0.
 	 */
-	private static void Timer() {
+	private static int Timer() {
+		
 		Timer gameTimer= new Timer();
 		gameTimer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
 				if (time<= 0) {
-					System.out.println("TImer stopped");
 					gameTimer.cancel();
 				}
 				else {
-					System.out.println(time);
+					
+					//System.out.println(time);
 					//timerLabel.setText(Integer.toString(time));
 					
 					time--;
 				}
 			}
 		}, 0, 1000);
+		return time;
 	}
 }

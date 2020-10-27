@@ -175,7 +175,7 @@ public class Main extends Application {
 				closeProgram();
 			}
 		});
-
+ 
 		// Closing when pressing the red X at top right corner
 		// Asks the user to confirm, rather than exit immediately
 		program.setOnCloseRequest(new EventHandler<WindowEvent>() {
