@@ -41,7 +41,7 @@ public class HighScore {
 
 		// The try and catch method reads the High-Scores file from line 2 onwards
 		try {
-			String command = "tail -n +2 Scores/High-Scores";
+			String command = "sed '1d;$d' Scores/High-Scores"; //"tail -n +2 High-Scores";
 			ProcessBuilder pb = new ProcessBuilder("bash", "-c", command);
 
 			int count = 1;
@@ -150,6 +150,8 @@ public class HighScore {
 
 		String name = nameAndScore[0];
 		String winnings = nameAndScore[1];
+		
+		System.out.println(winnings);
 
 		// The try and catch method calls the CreateCategories bash function
 		try {
