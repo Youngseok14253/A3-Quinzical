@@ -57,14 +57,17 @@ public class Main extends Application {
 		ShowWinnings.setFiveCount();
 		ShowWinnings.setInternationalCount();
 
-		//final ArrayList<String> Categories = MockGameBoard.CreateGameBoardArray();
 
 		// Game button
 		Button btnMainToGame = new Button("Game Mode");
 		btnMainToGame.setPrefSize(335, 50);
 		GridPane.setConstraints(btnMainToGame, 1, 1);
 
-		// When pressed, a new window displaying the Game board will show.
+		// When pressed, a new window displaying the Game board will show. If this button
+		// is pressed and there was a pre-existing game, then via the use of a count variable
+		// that records how many times this button was clicked before the completion of the
+		// game, this button will open the appropriate window regarding the completion state 
+		// of the game at the point of the button click
 		btnMainToGame.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -325,6 +328,8 @@ public class Main extends Application {
 		launch(args);
 
 	}
+	// Below are some getters and setters for the variable count that helps keep track
+	// of how many times the game mode button has been clicked
 	public static void setCount() {
 		count=0;
 	}

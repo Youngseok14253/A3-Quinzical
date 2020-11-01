@@ -213,6 +213,7 @@ public class ShowWinnings {
 		Label enterName= new Label();
 		enterName.setText("Please enter a nickname:");
 		TextField nickname= new TextField();
+		nickname.setPromptText("John");
 
 		// Creating two buttons
 		Button submit = new Button("Submit");
@@ -244,25 +245,6 @@ public class ShowWinnings {
 			
 		});
 
-		// Play again if this button is pressed
-		/**
-		btnPlayAgain.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-
-				// Resetting the count of the category questions so that
-				// the implementation of winnings is reset.
-				ShowWinnings.setOneCount();
-				ShowWinnings.setTwoCount();
-				ShowWinnings.setThreeCount();
-				ShowWinnings.setFourCount();
-				ShowWinnings.setFiveCount();
-				ShowWinnings.setInternationalCount();
-
-				window.close();
-			}
-		});
-		*/
 
 		// The ShowWinnings layout is a VBox layout
 		VBox layout = new VBox(10);

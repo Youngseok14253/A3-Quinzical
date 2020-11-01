@@ -67,7 +67,7 @@ public class DisplayGameBoard {
 		catLabel1.setText("Places selected");
 
 		// When the button is pressed, the category is marked as a selected category and changes into a 
-		// unlickable button that shows the category is selected
+		// unclickable button that shows the category is selected
 		Category1.setOnAction(e -> {
 			gameGrid.getChildren().remove(Category1);
 			GridPane.setConstraints(catLabel1, 1, 1);
@@ -76,6 +76,7 @@ public class DisplayGameBoard {
 			incrementCount();
 			chosenCategories.add(catName1);
 			boolean booleanType= isCategoriesSelected();
+			//If 5 categories are selected, a new window will appear with the 5 chosen categories
 			if (booleanType== true) {
 				window.close();
 				displayGameBoard(chosenCategories);
@@ -263,6 +264,12 @@ public class DisplayGameBoard {
 		window.show();
 
 	}
+	/**
+	 * This method determines through a count variable whether 5 categories have
+	 * been selected yet or not. 
+	 * @return boolean true
+	 * @return boolean false
+	 */
 	public static boolean isCategoriesSelected() {
 		if (getCount()==5) {
 			return true;
@@ -271,6 +278,7 @@ public class DisplayGameBoard {
 			return false;
 		}
 	}
+	// Below are some getters and setters for the count variable
 	public static void setCount() {
 		count = 0;
 	}
@@ -537,17 +545,23 @@ public class DisplayGameBoard {
 		window.setTitle("Game Mode");
 
 		// As long as one Category is available, the Category window will always display
-		// after the user
-		// answers a question
+		// after the user answers a question
 		if (finished == false) {
 			window.show();
 		}
+		// If all Categories have been answered, the list with the 5 chosen categories will
+		// remove the categories, so it can be reused if played again
 		if(finished== true) {
 			for(int i=0; i< chosenCategories.size(); i++) {
 				chosenCategories.remove(i);
 			}
 		}
 	}
+	/** 
+	 * This method determines if the game is considered to be finished or not
+	 * @return boolean true
+	 * @return boolean false
+	 */
 	public static boolean isFinished() {
 		if (finished==true) {
 			return true;
@@ -556,6 +570,11 @@ public class DisplayGameBoard {
 			return false;
 		}
 	}
+	/** 
+	 * This method is mainly to have a method that the Main class can call to call the
+	 * method displayGameBoard. This method will proceed to display a window with the 
+	 * 5 chosen categories, as is what is shown in the displayGameBoard method above.
+	 */
 	public static void isNotFinished() {
 		displayGameBoard(chosenCategories);
 	}

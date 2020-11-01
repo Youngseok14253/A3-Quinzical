@@ -108,8 +108,7 @@ public class AnswerQuestion {
 		// Creating the timer for the question
 		Timer time= new Timer();
 		time.showTimer();
-		//Label remainTime= new Label();
-		//remainTime.setText(Integer.toString(remainingTime));
+		
 		// Calls the setCount method, where the count becomes 1
 		// This count is used to check the number of user attempts when answering a
 		// Question
@@ -215,8 +214,11 @@ public class AnswerQuestion {
 		window.showAndWait();
 
 	}
-	/* 
-	 * This method creates a Timer for the game module and gives a 60 second time limit to the user for
-	 * them to answer the question. The Timer is stopped once the time reaches to 0.
+	/**
+	 * This method will close the window that is displaying the question. This method
+	 * is called from the Timer class.
 	 */
+	public static void closeWindow() {
+		
+	}
 }
