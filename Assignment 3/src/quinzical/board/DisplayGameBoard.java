@@ -53,6 +53,7 @@ public class DisplayGameBoard {
 		CompareAnswer.setCount();
 		Label Category = new Label("Please select any 5 categories");
 		GridPane.setConstraints(Category, 0, 0);
+		Category.setFont(new Font("Arial", 35));
 
 		// Each button is formatted the same way, so follow along the comments for
 		// Button 1 (Category1)

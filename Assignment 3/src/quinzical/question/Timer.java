@@ -27,7 +27,7 @@ import javafx.util.Duration;
 public class Timer {
 
 	// Private class constant and some variables
-	private static final Integer STARTTIME = 3;
+	private static final Integer STARTTIME = 20;
 	private Timeline timeline;
 	private Label timerLabel = new Label();
 	private Integer timeSeconds = STARTTIME;
@@ -42,7 +42,7 @@ public class Timer {
 	 * @param mode			 the type of mode: game or practice
 	 */
 	public void showTimer(Stage timerWindow, Stage questionWindow, String mode) {
-		if (mode== "game") {
+		if (mode== "Game") {
 			// Setup the Stage and the Scene (the scene graph)
 			Group root = new Group();
 			Scene scene = new Scene(root, 300, 250);
@@ -70,13 +70,16 @@ public class Timer {
 					if (timeSeconds <= 0) {
 						timeline.stop();
 						timerWindow.close();
-						System.out.println(isSubmitPressed);
 						// checks if submit button is pressed, if not the "out of time" window is shown
-						if (isSubmitPressed == 0) {
+						if (isSubmitPressed <= 0) {
 							timeUp(questionWindow);
 						}
+						else {
+							//do nothing, this prevents the time up window to appear from previous questions
+						}
+						System.out.println(isSubmitPressed);
 						// reset count
-						isSubmitPressed = 0;
+						isSubmitPressed--;
 					}
 				}
 			}));

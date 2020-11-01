@@ -172,7 +172,6 @@ public class AnswerQuestion {
 				CompareAnswer.display("Incorrect!");
 				if (mode.equals("Game")) {
 					ConfirmBox.showAnswer(answer);
-					// updateValue(categoryNumber);
 					window.close();
 				}
 			}
