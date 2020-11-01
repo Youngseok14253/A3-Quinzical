@@ -77,7 +77,6 @@ public class Timer {
 						else {
 							//do nothing, this prevents the time up window to appear from previous questions
 						}
-						System.out.println(isSubmitPressed);
 						// reset count
 						isSubmitPressed--;
 					}
