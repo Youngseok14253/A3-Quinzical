@@ -117,7 +117,7 @@ public class AnswerQuestion {
 		// into the compareAnswerToInput
 		// method, and stores the boolean value output
 		submitButton.setOnAction(e -> {
-			Timer.submitBeforeTime();
+			//Timer.submitBeforeTime();
 			boolean ans = CompareAnswer.compareAnswerToInput(answerField, answer);
 			
 			// If the answer is true, and in Game Mode, then it displays "Correct", and

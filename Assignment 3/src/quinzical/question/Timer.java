@@ -29,7 +29,7 @@ public class Timer {
 	private Timeline timeline;
 	private Label timerLabel = new Label();
 	private Integer timeSeconds = STARTTIME;
-	private static Stage window;
+	//private static Stage window;
 
 	/**
 	 * This method opens a window that shows the remaining time for the user
@@ -41,6 +41,7 @@ public class Timer {
 	public void showTimer(Stage questionWindow) {
 
 		// Setup the Stage and the Scene (the scene graph)
+		Stage window= new Stage();
 		Group root = new Group();
 		Scene scene = new Scene(root, 300, 250);
 
@@ -138,7 +139,7 @@ public class Timer {
 		window.show();
 		
 	}
-	public static void submitBeforeTime() {
-		window.close();
-	}
+	//public static void submitBeforeTime() {
+		//window.close();
+	//}
 }
