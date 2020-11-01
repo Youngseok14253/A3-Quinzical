@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import quinzical.question.AnswerQuestion;
@@ -58,9 +59,10 @@ public class DisplayGameBoard {
 
 		// Button for Places created, and placed in the (0,1) Pane
 		Button Category1 = new Button("Places");
+		Category1.setFont(new Font("Arial", 35));
 		GridPane.setConstraints(Category1, 1, 1);
 		// Set a reasonable size
-		Category1.setPrefSize(300, 80);
+		Category1.setPrefSize(420, 120);
 		// Return the name of the Category from the ArrayList and store it in a variable
 		String catName1 = Category1.getText();
 		Button catLabel1= new Button();
@@ -71,7 +73,8 @@ public class DisplayGameBoard {
 		Category1.setOnAction(e -> {
 			gameGrid.getChildren().remove(Category1);
 			GridPane.setConstraints(catLabel1, 1, 1);
-			catLabel1.setPrefSize(300, 80);
+			catLabel1.setPrefSize(420, 120);
+			catLabel1.setFont(new Font("Arial", 35));
 			gameGrid.getChildren().add(catLabel1);
 			incrementCount();
 			chosenCategories.add(catName1);
@@ -84,8 +87,9 @@ public class DisplayGameBoard {
 		});
 
 		Button Category2 = new Button("Symbols");
+		Category2.setFont(new Font("Arial", 35));
 		GridPane.setConstraints(Category2, 1, 2);
-		Category2.setPrefSize(300, 80);
+		Category2.setPrefSize(420, 120);
 		String catName2 = Category2.getText();
 		Button catLabel2= new Button();
 		catLabel2.setText("Symbols selected");
@@ -93,7 +97,8 @@ public class DisplayGameBoard {
 		Category2.setOnAction(e -> {
 			gameGrid.getChildren().remove(Category2);
 			GridPane.setConstraints(catLabel2, 1, 2);
-			catLabel2.setPrefSize(300, 80);
+			catLabel2.setPrefSize(420, 120);
+			catLabel2.setFont(new Font("Arial", 35));
 			gameGrid.getChildren().add(catLabel2);
 			incrementCount();
 			chosenCategories.add(catName2);
@@ -105,8 +110,9 @@ public class DisplayGameBoard {
 		});
 
 		Button Category3 = new Button("Geography");
+		Category3.setFont(new Font("Arial", 35));
 		GridPane.setConstraints(Category3, 1, 3);
-		Category3.setPrefSize(300, 80);
+		Category3.setPrefSize(420, 120);
 		String catName3 = Category3.getText();
 		Button catLabel3= new Button();
 		catLabel3.setText("Geography selected");
@@ -114,7 +120,8 @@ public class DisplayGameBoard {
 		Category3.setOnAction(e -> {
 			gameGrid.getChildren().remove(Category3);
 			GridPane.setConstraints(catLabel3, 1, 3);
-			catLabel3.setPrefSize(300, 80);
+			catLabel3.setPrefSize(420, 120);
+			catLabel3.setFont(new Font("Arial", 35));
 			gameGrid.getChildren().add(catLabel3);
 			incrementCount();
 			chosenCategories.add(catName3);
@@ -126,8 +133,9 @@ public class DisplayGameBoard {
 		});
 
 		Button Category4 = new Button("History");
+		Category4.setFont(new Font("Arial", 35));
 		GridPane.setConstraints(Category4, 1, 4);
-		Category4.setPrefSize(300, 80);
+		Category4.setPrefSize(420, 120);
 		String catName4 = Category4.getText();
 		Button catLabel4= new Button();
 		catLabel4.setText("History selected");
@@ -135,7 +143,8 @@ public class DisplayGameBoard {
 		Category4.setOnAction(e -> {
 			gameGrid.getChildren().remove(Category4);
 			GridPane.setConstraints(catLabel4, 1, 4);
-			catLabel4.setPrefSize(300, 80);
+			catLabel4.setPrefSize(420, 120);
+			catLabel4.setFont(new Font("Arial", 35));
 			gameGrid.getChildren().add(catLabel4);
 			incrementCount();
 			chosenCategories.add(catName4);
@@ -147,8 +156,9 @@ public class DisplayGameBoard {
 		});
 
 		Button Category5 = new Button("Famous People");
+		Category5.setFont(new Font("Arial", 35));
 		GridPane.setConstraints(Category5, 0, 1);
-		Category5.setPrefSize(300, 80);
+		Category5.setPrefSize(420, 120);
 		String catName5 = Category5.getText();
 		Button catLabel5= new Button();
 		catLabel5.setText("Famous People selected");
@@ -156,7 +166,8 @@ public class DisplayGameBoard {
 		Category5.setOnAction(e -> {
 			gameGrid.getChildren().remove(Category5);
 			GridPane.setConstraints(catLabel5, 0, 1);
-			catLabel5.setPrefSize(300, 80);
+			catLabel5.setPrefSize(420, 120);
+			catLabel5.setFont(new Font("Arial", 30));
 			gameGrid.getChildren().add(catLabel5);
 			incrementCount();
 			chosenCategories.add(catName5);
@@ -168,8 +179,9 @@ public class DisplayGameBoard {
 		});
 
 		Button Category6 = new Button("NZ Life");
+		Category6.setFont(new Font("Arial", 35));
 		GridPane.setConstraints(Category6, 0, 2);
-		Category6.setPrefSize(300, 80);
+		Category6.setPrefSize(420, 120);
 		String catName6 = Category6.getText();
 		Button catLabel6= new Button();
 		catLabel6.setText("NZ Life selected");
@@ -177,7 +189,8 @@ public class DisplayGameBoard {
 		Category6.setOnAction(e -> {
 			gameGrid.getChildren().remove(Category6);
 			GridPane.setConstraints(catLabel6, 0, 2);
-			catLabel6.setPrefSize(300, 80);
+			catLabel6.setPrefSize(420, 120);
+			catLabel6.setFont(new Font("Arial", 35));
 			gameGrid.getChildren().add(catLabel6);
 			incrementCount();
 			chosenCategories.add(catName6);
@@ -189,8 +202,9 @@ public class DisplayGameBoard {
 		});
 
 		Button Category7 = new Button("Flora");
+		Category7.setFont(new Font("Arial", 35));
 		GridPane.setConstraints(Category7, 0, 3);
-		Category7.setPrefSize(300, 80);
+		Category7.setPrefSize(420, 120);
 		String catName7 = Category7.getText();
 		Button catLabel7= new Button();
 		catLabel7.setText("Flora selected");
@@ -198,7 +212,8 @@ public class DisplayGameBoard {
 		Category7.setOnAction(e -> {
 			gameGrid.getChildren().remove(Category7);
 			GridPane.setConstraints(catLabel7, 0, 3);
-			catLabel7.setPrefSize(300, 80);
+			catLabel7.setPrefSize(420, 120);
+			catLabel7.setFont(new Font("Arial", 35));
 			gameGrid.getChildren().add(catLabel7);
 			incrementCount();
 			chosenCategories.add(catName7);
@@ -210,8 +225,9 @@ public class DisplayGameBoard {
 		});
 
 		Button Category8 = new Button("Fauna");
+		Category8.setFont(new Font("Arial", 35));
 		GridPane.setConstraints(Category8, 0, 4);
-		Category8.setPrefSize(300, 80);
+		Category8.setPrefSize(420, 120);
 		String catName8 = Category8.getText();
 		Button catLabel8= new Button();
 		catLabel8.setText("Fauna selected");
@@ -219,7 +235,8 @@ public class DisplayGameBoard {
 		Category8.setOnAction(e -> {
 			gameGrid.getChildren().remove(Category8);
 			GridPane.setConstraints(catLabel8, 0, 4);
-			catLabel8.setPrefSize(300, 80);
+			catLabel8.setPrefSize(420, 120);
+			catLabel8.setFont(new Font("Arial", 35));
 			gameGrid.getChildren().add(catLabel8);
 			incrementCount();
 			chosenCategories.add(catName8);
@@ -230,8 +247,9 @@ public class DisplayGameBoard {
 			}
 		});
 		Button Category9 = new Button("Oddities");
+		Category9.setFont(new Font("Arial", 35));
 		GridPane.setConstraints(Category9, 0, 5);
-		Category9.setPrefSize(300, 80);
+		Category9.setPrefSize(420, 120);
 		String catName9 = Category9.getText();
 		Button catLabel9= new Button();
 		catLabel9.setText("Oddities selected");
@@ -239,7 +257,8 @@ public class DisplayGameBoard {
 		Category9.setOnAction(e -> {
 			gameGrid.getChildren().remove(Category9);
 			GridPane.setConstraints(catLabel9, 0, 5);
-			catLabel9.setPrefSize(300, 80);
+			catLabel9.setPrefSize(420, 120);
+			catLabel9.setFont(new Font("Arial", 35));
 			gameGrid.getChildren().add(catLabel9);
 			incrementCount();
 			chosenCategories.add(catName9);
@@ -255,7 +274,7 @@ public class DisplayGameBoard {
 				Category7, Category8, Category9);
 
 		// Create layout and show scene
-		Scene scene = new Scene(gameGrid, 600, 450);
+		Scene scene = new Scene(gameGrid, 1000, 800);
 
 		window.initModality(Modality.APPLICATION_MODAL);
 
@@ -319,6 +338,7 @@ public class DisplayGameBoard {
 		gameGrid.setHgap(10);
 
 		Label Category = new Label("Please select a category");
+		Category.setFont(new Font("Arial", 35));
 		GridPane.setConstraints(Category, 0, 0);
 
 		// Each button is formatted the same way, so follow along the comments for
@@ -327,9 +347,10 @@ public class DisplayGameBoard {
 		// Category 1 is the first element in the categories ArrayList, and placed in
 		// the (0,1) Pane
 		Button Category1 = new Button(categories.get(0));
+		Category1.setFont(new Font("Arial", 35));
 		GridPane.setConstraints(Category1, 0, 1);
 		// Set a reasonable size
-		Category1.setPrefSize(300, 80);
+		Category1.setPrefSize(420,120);
 		// Return the name of the Category from the ArrayList and store it in a variable
 		String catName1 = Category1.getText();
 
@@ -349,8 +370,9 @@ public class DisplayGameBoard {
 		});
 
 		Button Category2 = new Button(categories.get(1));
+		Category2.setFont(new Font("Arial", 35));
 		GridPane.setConstraints(Category2, 0, 2);
-		Category2.setPrefSize(300, 80);
+		Category2.setPrefSize(420,120);
 		String catName2 = Category2.getText();
 
 		Category2.setOnAction(e -> {
@@ -361,8 +383,9 @@ public class DisplayGameBoard {
 		});
 
 		Button Category3 = new Button(categories.get(2));
+		Category3.setFont(new Font("Arial", 35));
 		GridPane.setConstraints(Category3, 0, 3);
-		Category3.setPrefSize(300, 80);
+		Category3.setPrefSize(420,120);
 		String catName3 = Category3.getText();
 
 		Category3.setOnAction(e -> {
@@ -373,8 +396,9 @@ public class DisplayGameBoard {
 		});
 
 		Button Category4 = new Button(categories.get(3));
+		Category4.setFont(new Font("Arial", 35));
 		GridPane.setConstraints(Category4, 0, 4);
-		Category4.setPrefSize(300, 80);
+		Category4.setPrefSize(420,120);
 		String catName4 = Category4.getText();
 
 		Category4.setOnAction(e -> {
@@ -385,8 +409,9 @@ public class DisplayGameBoard {
 		});
 
 		Button Category5 = new Button(categories.get(4));
+		Category5.setFont(new Font("Arial", 35));
 		GridPane.setConstraints(Category5, 0, 5);
-		Category5.setPrefSize(300, 80);
+		Category5.setPrefSize(420,120);
 		String catName5 = Category5.getText();
 
 		Category5.setOnAction(e -> {
@@ -397,13 +422,15 @@ public class DisplayGameBoard {
 		});
 
 		Button CategoryLocked = new Button("Locked");
+		CategoryLocked.setFont(new Font("Arial", 35));
 		GridPane.setConstraints(CategoryLocked, 0, 6);
-		CategoryLocked.setPrefSize(300, 80);
+		CategoryLocked.setPrefSize(420,120);
 
 
 		Button CategoryInternational = new Button("International");
+		CategoryInternational.setFont(new Font("Arial", 35));
 		GridPane.setConstraints(CategoryInternational, 0, 6);
-		CategoryInternational.setPrefSize(300, 80);
+		CategoryInternational.setPrefSize(420,120);
 
 		CategoryInternational.setOnAction(e -> {
 			window.close();
@@ -419,21 +446,27 @@ public class DisplayGameBoard {
 		// The Labels will update each time a Category is pressed.
 		Label catOneMoney = new Label();
 		GridPane.setConstraints(catOneMoney, 1, 1);
+		catOneMoney.setFont(new Font("Arial", 28));
 		catOneMoney.setText("\t\tQuestion Worth $" + ShowWinnings.getOneCount() + "00");
 		Label catTwoMoney = new Label();
+		catTwoMoney.setFont(new Font("Arial", 28));
 		GridPane.setConstraints(catTwoMoney, 1, 2);
 		catTwoMoney.setText("\t\tQuestion Worth $" + ShowWinnings.getTwoCount() + "00");
 		Label catThreeMoney = new Label();
 		GridPane.setConstraints(catThreeMoney, 1, 3);
+		catThreeMoney.setFont(new Font("Arial", 28));
 		catThreeMoney.setText("\t\tQuestion Worth $" + ShowWinnings.getThreeCount() + "00");
 		Label catFourMoney = new Label();
 		GridPane.setConstraints(catFourMoney, 1, 4);
+		catFourMoney.setFont(new Font("Arial", 28));
 		catFourMoney.setText("\t\tQuestion Worth $" + ShowWinnings.getFourCount() + "00");
 		Label catFiveMoney = new Label();
 		GridPane.setConstraints(catFiveMoney, 1, 5);
+		catFiveMoney.setFont(new Font("Arial", 28));
 		catFiveMoney.setText("\t\tQuestion Worth $" + ShowWinnings.getFiveCount() + "00");
 		Label catInternationalMoney = new Label();
 		GridPane.setConstraints(catInternationalMoney, 1, 6);
+		catInternationalMoney.setFont(new Font("Arial", 28));
 		catInternationalMoney.setText("\t\tQuestion Worth $" + ShowWinnings.getInternationalCount() + "00");
 
 		// Add the Labels and Buttons to the Grid
@@ -444,17 +477,23 @@ public class DisplayGameBoard {
 		// questions have been
 		// answered by the user)
 		Button oneFinish = new Button("Unavailable");
-		oneFinish.setPrefSize(300, 80);
+		oneFinish.setPrefSize(420, 120);
+		oneFinish.setFont(new Font("Arial", 35));
 		Button twoFinish = new Button("Unavailable");
-		twoFinish.setPrefSize(300, 80);
+		twoFinish.setPrefSize(420, 120);
+		twoFinish.setFont(new Font("Arial", 35));
 		Button threeFinish = new Button("Unavailable");
-		threeFinish.setPrefSize(300, 80);
+		threeFinish.setPrefSize(420, 120);
+		threeFinish.setFont(new Font("Arial", 35));
 		Button fourFinish = new Button("Unavailable");
-		fourFinish.setPrefSize(300, 80);
+		fourFinish.setPrefSize(420, 120);
+		fourFinish.setFont(new Font("Arial", 35));
 		Button fiveFinish = new Button("Unavailable");
-		fiveFinish.setPrefSize(300, 80);
+		fiveFinish.setPrefSize(420, 120);
+		fiveFinish.setFont(new Font("Arial", 35));
 		Button intFinish = new Button("Unavailable");
-		intFinish.setPrefSize(300, 80);
+		intFinish.setPrefSize(420,120);
+		intFinish.setFont(new Font("Arial", 35));
 
 		// If the limit (five) is reached, then the corresponding button and question
 		// value labels are
@@ -537,7 +576,7 @@ public class DisplayGameBoard {
 		}
 
 		// Create layout and show scene
-		Scene scene = new Scene(gameGrid, 600, 450);
+		Scene scene = new Scene(gameGrid, 1000, 800);
 
 		window.initModality(Modality.APPLICATION_MODAL);
 

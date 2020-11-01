@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -31,14 +32,16 @@ public class Help {
 		Label text = new Label();
 		// This label displays to the user what types of formatting is allowed when
 		// answering the questions.
-		text.setText("Quinzical will ignore spaces between characters and wordsn"
+		text.setText("Quinzical will ignore spaces between characters and words"
 				+ "\nas well as uppercase/lowercase letters."
 				+ "\nFor example, for a question where the answer was teapot,"
 				+ "\nthe words 'tea pot', 'TEAPOT', 'TE a PO t' would be accepted" + "\nbut 'teapor' would not.\n\n"
 				+ "Numbers (excluding years) can also be written in word format."
 				+ "\nFor example, for a question where the answer was 4," + "\nboth '4' and 'four' would be accepted.");
+		text.setFont(new Font("Arial", 25));
 
 		Button closeButton = new Button("I Understand");
+		closeButton.setFont(new Font("Arial", 25));
 		closeButton.setOnAction(e -> window.close());
 
 		// Help module layout as a VBox layout
@@ -46,7 +49,7 @@ public class Help {
 		layout.getChildren().addAll(text, closeButton);
 		layout.setAlignment(Pos.TOP_CENTER);
 
-		Scene scene = new Scene(layout);
+		Scene scene = new Scene(layout,800,400);
 		window.setScene(scene);
 
 		window.showAndWait();

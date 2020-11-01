@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -96,8 +97,10 @@ public class CompareAnswer {
 
 		Label label = new Label();
 		label.setText(message);
+		label.setFont(new Font("Arial", 35));
 
 		Button btnCont = new Button("Continue");
+		btnCont.setFont(new Font("Arial", 35));
 
 		// Pressing confirm will close the window
 		btnCont.setOnAction(new EventHandler<ActionEvent>() {
@@ -113,8 +116,10 @@ public class CompareAnswer {
 
 		layout.getChildren().addAll(label, btnCont);
 		layout.setAlignment(Pos.CENTER);
+		window.setX(780);
+		window.setY(250);
 
-		Scene scene = new Scene(layout);
+		Scene scene = new Scene(layout,450,300);
 		window.setScene(scene);
 		window.showAndWait();
 

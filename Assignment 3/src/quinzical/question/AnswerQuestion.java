@@ -8,6 +8,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.*;
 import javafx.scene.layout.*;
+import javafx.scene.text.Font;
 import javafx.scene.control.*;
 
 /**
@@ -91,7 +92,9 @@ public class AnswerQuestion {
 		// Initialise answering field and submit button
 		TextField answerField = new TextField();
 		answerField.setMinWidth(100);
+		answerField.setFont(new Font("Arial", 20));
 		Button submitButton = new Button("Submit");
+		submitButton.setFont(new Font("Arial", 35));
 
 		// Calls the returnQuestionFormat method, which will return a line from the
 		// corresponding Category
@@ -107,8 +110,11 @@ public class AnswerQuestion {
 
 		// Set text to labels after getting the Question/What/Answer
 		warning.setText("\nSee help Menu for acceptable answer formats");
+		warning.setFont(new Font("Arial", 35));
 		whatIsAre.setText("\n" + whatVal + ":");
+		whatIsAre.setFont(new Font("Arial", 35));
 		label.setText(question + "...");
+		label.setFont(new Font("Arial", 35));
 		
 		// Calls the setCount method, where the count becomes 1
 		// This count is used to check the number of user attempts when answering a
@@ -206,6 +212,7 @@ public class AnswerQuestion {
 
 		// Add PlayBack and Help to the Menu Bar
 		MenuBar menuBar = new MenuBar();
+		menuBar.setMinSize(700,50 );
 		menuBar.getMenus().addAll(playbackMenu, helpMenu);
 
 		// Create the layout and show the scene
@@ -214,12 +221,14 @@ public class AnswerQuestion {
 
 		layout.getChildren().addAll(label, whatIsAre, answerField, submitButton, warning);
 
-		Scene scene = new Scene(layout, 600, 200);
+		Scene scene = new Scene(layout, 1600, 500);
 		window.setScene(scene);
+		window.setX(200);
+		window.setY(100);
 		
 		// Creating the timer for the question
 		Timer time= new Timer();
-		time.showTimer(timerWindow, window);		
+		time.showTimer(timerWindow, window, mode);	
 		
 		window.showAndWait();
 

@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -26,7 +27,7 @@ import javafx.util.Duration;
 public class Timer {
 
 	// Private class constant and some variables
-	private static final Integer STARTTIME = 60;
+	private static final Integer STARTTIME = 3;
 	private Timeline timeline;
 	private Label timerLabel = new Label();
 	private Integer timeSeconds = STARTTIME;
@@ -38,64 +39,69 @@ public class Timer {
 	 * 
 	 * @param timerWindow    the Timer window
 	 * @param questionWindow the Question/Answer window
+	 * @param mode			 the type of mode: game or practice
 	 */
-	public void showTimer(Stage timerWindow, Stage questionWindow) {
+	public void showTimer(Stage timerWindow, Stage questionWindow, String mode) {
+		if (mode== "game") {
+			// Setup the Stage and the Scene (the scene graph)
+			Group root = new Group();
+			Scene scene = new Scene(root, 300, 250);
 
-		// Setup the Stage and the Scene (the scene graph)
-		Group root = new Group();
-		Scene scene = new Scene(root, 300, 250);
+			// Configure the Label
+			timerLabel.setText(timeSeconds.toString());
+			timerLabel.setTextFill(Color.RED);
+			timerLabel.setFont(new Font("Arial", 70));
 
-		// Configure the Label
-		timerLabel.setText(timeSeconds.toString());
-		timerLabel.setTextFill(Color.RED);
-		timerLabel.setStyle("-fx-font-size: 4em;");
-
-		if (timeline != null) {
-			timeline.stop();
-		}
-		timeSeconds = STARTTIME;
-
-		// update timerLabel
-		timerLabel.setText(timeSeconds.toString());
-		timeline = new Timeline();
-		timeline.setCycleCount(Timeline.INDEFINITE);
-		timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
-			// KeyFrame event handler
-			public void handle(ActionEvent event) {
-				timeSeconds--;
-				// update timerLabel
-				timerLabel.setText(timeSeconds.toString());
-				if (timeSeconds <= 0) {
-					timeline.stop();
-					timerWindow.close();
-					System.out.println(isSubmitPressed);
-					// checks if submit button is pressed, if not the "out of time" window is shown
-					if (isSubmitPressed == 0) {
-						timeUp(questionWindow);
-					}
-					// reset count
-					isSubmitPressed = 0;
-				}
+			if (timeline != null) {
+				timeline.stop();
 			}
-		}));
-		timeline.playFromStart();
+			timeSeconds = STARTTIME;
 
-		// Create and configure VBox
-		// gap between components is 20
-		VBox vb = new VBox(20);
-		// center the components within VBox
-		vb.setAlignment(Pos.CENTER);
-		// Make it as wide as the application frame (scene)
-		vb.setPrefWidth(scene.getWidth());
-		// Move the VBox down a bit
-		vb.setLayoutY(30);
-		// Add the button and timerLabel to the VBox
-		vb.getChildren().addAll(timerLabel);
-		// Add the VBox to the root component
-		root.getChildren().add(vb);
+			// update timerLabel
+			timerLabel.setText(timeSeconds.toString());
+			timeline = new Timeline();
+			timeline.setCycleCount(Timeline.INDEFINITE);
+			timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
+				// KeyFrame event handler
+				public void handle(ActionEvent event) {
+					timeSeconds--;
+					// update timerLabel
+					timerLabel.setText(timeSeconds.toString());
+					if (timeSeconds <= 0) {
+						timeline.stop();
+						timerWindow.close();
+						System.out.println(isSubmitPressed);
+						// checks if submit button is pressed, if not the "out of time" window is shown
+						if (isSubmitPressed == 0) {
+							timeUp(questionWindow);
+						}
+						// reset count
+						isSubmitPressed = 0;
+					}
+				}
+			}));
+			timeline.playFromStart();
 
-		timerWindow.setScene(scene);
-		timerWindow.show();
+			// Create and configure VBox
+			// gap between components is 20
+			VBox vb = new VBox(20);
+			// center the components within VBox
+			vb.setAlignment(Pos.CENTER);
+			// Make it as wide as the application frame (scene)
+			vb.setPrefWidth(scene.getWidth());
+			// Move the VBox down a bit
+			vb.setLayoutY(30);
+			// Add the button and timerLabel to the VBox
+			vb.getChildren().addAll(timerLabel);
+			vb.setLayoutX(0);
+			// Add the VBox to the root component
+			root.getChildren().add(vb);
+
+			timerWindow.setScene(scene);
+			timerWindow.setX(850);
+			timerWindow.setY(650);
+			timerWindow.show();
+		}
 	}
 
 	/**
@@ -110,8 +116,10 @@ public class Timer {
 		Stage window = new Stage();
 		Group root = new Group();
 		Scene scene = new Scene(root, 300, 250);
-		Label noTime = new Label("Time is up");
+		Label noTime = new Label("Time is up!");
+		noTime.setFont(new Font("Arial", 35));
 		Button confirm = new Button("Confirm");
+		confirm.setFont(new Font("Arial", 35));
 		// This button closes the window and calls a method to close the
 		// question window as well.
 		confirm.setOnAction(new EventHandler<ActionEvent>() {
@@ -137,7 +145,6 @@ public class Timer {
 		root.getChildren().add(vb);
 		window.initModality(Modality.APPLICATION_MODAL);
 		window.setScene(scene);
-		// window.showAndWait();
 		window.show();
 
 	}

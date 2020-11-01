@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -207,16 +208,21 @@ public class ShowWinnings {
 
 		Label label = new Label();
 		label.setText("Congratulations, you earned:");
+		label.setFont(new Font("Arial", 35));
 		Label winnings = new Label();
 		winnings.setText("$" + totalWinnings);
+		winnings.setFont(new Font("Arial", 35));
 		
 		Label enterName= new Label();
 		enterName.setText("Please enter a nickname:");
+		enterName.setFont(new Font("Arial", 35));
 		TextField nickname= new TextField();
 		nickname.setPromptText("John");
+		nickname.setFont(new Font("Arial", 35));
 
-		// Creating two buttons
+		// Creating a submit button
 		Button submit = new Button("Submit");
+		submit.setFont(new Font("Arial", 35));
 
 		// Back to main menu if this button is pressed
 		submit.setOnAction(new EventHandler<ActionEvent>() {

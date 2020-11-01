@@ -12,7 +12,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import quinzical.board.CreatePracticeBoard;
+import quinzical.board.DisplayPracticeBoard;
 import quinzical.board.DisplayGameBoard;
 import quinzical.score.HighScore;
 import quinzical.score.ShowWinnings;
@@ -62,7 +62,7 @@ public class Main extends Application {
 
 		// Game button
 		Button btnMainToGame = new Button("Game Mode");
-		btnMainToGame.setPrefSize(335, 50);
+		btnMainToGame.setPrefSize(700, 100);
 		GridPane.setConstraints(btnMainToGame, 1, 1);
 
 		// When pressed, a new window displaying the Game board will show. If this button
@@ -82,27 +82,27 @@ public class Main extends Application {
 					}
 				}else {
 					DisplayGameBoard.displayGame();
-					
+
 				}
 			}
 		});
 
 		// Practice button
 		Button btnMainToPractice = new Button("Practice Mode");
-		btnMainToPractice.setPrefSize(335, 50);
+		btnMainToPractice.setPrefSize(700, 100);
 		GridPane.setConstraints(btnMainToPractice, 1, 2);
 
 		// When pressed, a new window displaying the Practice board will show.
 		btnMainToPractice.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				CreatePracticeBoard.displayPracticeBoard();
+				DisplayPracticeBoard.displayPracticeBoard();
 			}
 		});
 
 		// Help button
 		Button btnMainToHelp = new Button("Help");
-		btnMainToHelp.setPrefSize(335, 50);
+		btnMainToHelp.setPrefSize(700, 100);
 		GridPane.setConstraints(btnMainToHelp, 1, 3);
 
 		// When pressed and confirmed, a pdf file with the manual is shown
@@ -154,7 +154,7 @@ public class Main extends Application {
 
 		// High Score button
 		Button btnMainToHighScore = new Button("High Scores");
-		btnMainToHighScore.setPrefSize(335, 50);
+		btnMainToHighScore.setPrefSize(700, 100);
 		GridPane.setConstraints(btnMainToHighScore, 1, 4);
 
 		// When pressed, a new window showing the name and score is shown
@@ -165,23 +165,10 @@ public class Main extends Application {
 			}
 		});
 
-		// Reset button
-		Button btnMainToReset = new Button("Reset");
-		btnMainToReset.setPrefSize(335, 50);
-		GridPane.setConstraints(btnMainToReset, 1, 5);
-
-		// When pressed, the game resets, and international becomes hidden
-		btnMainToReset.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				resetProgram();
-			}
-		});
-
 		// Quit button
 		Button btnMainToExit = new Button("Quit");
-		btnMainToExit.setPrefSize(335, 50);
-		GridPane.setConstraints(btnMainToExit, 1, 6);
+		btnMainToExit.setPrefSize(700, 100);
+		GridPane.setConstraints(btnMainToExit, 1, 5);
 
 		// When pressed, a new window confirming the closure of the program will show.
 		btnMainToExit.setOnAction(new EventHandler<ActionEvent>() {
@@ -209,22 +196,21 @@ public class Main extends Application {
 		mainLayout.setPadding(new Insets(10, 10, 10, 10));
 		mainLayout.setVgap(8);
 		mainLayout.setHgap(10);
-		mainLayout.getChildren().addAll(label1, btnMainToGame, btnMainToPractice, btnMainToHelp, btnMainToHighScore,
-				btnMainToReset, btnMainToExit);
+		mainLayout.getChildren().addAll(label1, btnMainToGame, btnMainToPractice, btnMainToHelp, btnMainToHighScore, btnMainToExit);
 
 		// Setting up font and general interface visuals.
-		label1.setFont(new Font("Cavolini", 30));
-		btnMainToGame.setFont(new Font("Arial", 20));
-		btnMainToPractice.setFont(new Font("Arial", 20));
-		btnMainToExit.setFont(new Font("Arial", 20));
-		btnMainToHelp.setFont(new Font("Arial", 20));
-		btnMainToHighScore.setFont(new Font("Arial", 20));
-		btnMainToReset.setFont(new Font("Arial", 20));
+		label1.setFont(new Font("Cavolini", 63));
+		btnMainToGame.setFont(new Font("Arial", 50));
+		btnMainToPractice.setFont(new Font("Arial", 50));
+		btnMainToExit.setFont(new Font("Arial", 50));
+		btnMainToHelp.setFont(new Font("Arial", 50));
+		btnMainToHighScore.setFont(new Font("Arial", 50));
 		mainLayout.setAlignment(Pos.CENTER);
-		mainScene = new Scene(mainLayout, 500, 400);
+		mainScene = new Scene(mainLayout, 1000, 800);
 
 		program.setScene(mainScene);
 		program.setTitle("Quinzical");
+
 		program.show();
 
 	}
@@ -270,21 +256,6 @@ public class Main extends Application {
 		}
 	}
 
-	/*
-	 * This method creates a confirmation window when the user tries to reset the
-	 * game. When the user confirms, it resets high scores and locks the
-	 * international button.
-	 * 
-	 */
-	private void resetProgram() {
-		Boolean answer = ConfirmBox.display("Reset Scores and lock International", "Are you sure you want to reset?");
-		if (answer) {
-
-			System.out.println("reset");
-
-
-		}
-	}
 
 	/*
 	 * This method creates a window with the high scores of all attempts. Pressing the return button

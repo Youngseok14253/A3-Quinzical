@@ -8,7 +8,7 @@ International: This is the capital of Zimbabwe@what is@Harare
 International: This is the capital of England@what is@London
 International: This is the capital of Canada@what is@Ottawa
 International: This is the capital of Mexico@what is@Mexico City
-International: This is the capital of Australia@what is@Sydney
+International: This is the capital of Australia@what is@Canberra
 International: This is the capital of Egypt@what is@Cairo
 International: This is the capital of Russia@what is@Moscow
 International: This is the capital of Lithuania@what is@Vilnius
