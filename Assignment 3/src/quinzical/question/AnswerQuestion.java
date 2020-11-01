@@ -36,6 +36,9 @@ public class AnswerQuestion {
 	 *
 	 */
 	public static void displayQuestion(String categoryName, String mode, int categoryNumber) {
+		
+		//Stage for the timer
+		Stage timerWindow = new Stage();
 
 		// This menu item adjusts the speed of TTS
 		Menu playbackMenu = new Menu("Playback Speed");
@@ -117,7 +120,10 @@ public class AnswerQuestion {
 		// into the compareAnswerToInput
 		// method, and stores the boolean value output
 		submitButton.setOnAction(e -> {
-			//Timer.submitBeforeTime();
+			
+			//Method closes timer window, and makes sure "out of time" window does not appear
+			Timer.submitBeforeTime(timerWindow);
+			
 			boolean ans = CompareAnswer.compareAnswerToInput(answerField, answer);
 			
 			// If the answer is true, and in Game Mode, then it displays "Correct", and
@@ -213,16 +219,10 @@ public class AnswerQuestion {
 		
 		// Creating the timer for the question
 		Timer time= new Timer();
-		time.showTimer(window);		
+		time.showTimer(timerWindow, window);		
 		
 		window.showAndWait();
 
 	}
-	/**
-	 * This method will close the window that is displaying the question. This method
-	 * is called from the Timer class.
-	 */
-	public static void closeWindow() {
-		
-	}
+
 }

@@ -14,9 +14,10 @@ import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
 /**
  * This Timer class provides the functionality of the Timer function and window.
- * This class includes methods that will time how long the question has been 
+ * This class includes methods that will time how long the question has been
  * displayed for and then close the window appropriately.
  *
  * @author Do Hyun Lee, Youngseok Chae
@@ -25,23 +26,22 @@ import javafx.util.Duration;
 public class Timer {
 
 	// Private class constant and some variables
-	private static final Integer STARTTIME = 5;
+	private static final Integer STARTTIME = 60;
 	private Timeline timeline;
 	private Label timerLabel = new Label();
 	private Integer timeSeconds = STARTTIME;
-	//private static Stage window;
+	private static int isSubmitPressed = 0;
 
 	/**
-	 * This method opens a window that shows the remaining time for the user
-	 * to answer the given question. This window will close once the timer
-	 * reaches 0.
+	 * This method opens a window that shows the remaining time for the user to
+	 * answer the given question. This window will close once the timer reaches 0.
 	 * 
+	 * @param timerWindow    the Timer window
 	 * @param questionWindow the Question/Answer window
 	 */
-	public void showTimer(Stage questionWindow) {
+	public void showTimer(Stage timerWindow, Stage questionWindow) {
 
 		// Setup the Stage and the Scene (the scene graph)
-		Stage window= new Stage();
 		Group root = new Group();
 		Scene scene = new Scene(root, 300, 250);
 
@@ -59,24 +59,26 @@ public class Timer {
 		timerLabel.setText(timeSeconds.toString());
 		timeline = new Timeline();
 		timeline.setCycleCount(Timeline.INDEFINITE);
-		timeline.getKeyFrames().add(
-				new KeyFrame(Duration.seconds(1),
-						new EventHandler<ActionEvent>() {
-					// KeyFrame event handler
-					public void handle(ActionEvent event) {
-						timeSeconds--;
-						// update timerLabel
-						timerLabel.setText(
-								timeSeconds.toString());
-						if (timeSeconds <= 0) {
-							timeline.stop();
-							window.close();
-							timeUp(questionWindow);
-						}
+		timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
+			// KeyFrame event handler
+			public void handle(ActionEvent event) {
+				timeSeconds--;
+				// update timerLabel
+				timerLabel.setText(timeSeconds.toString());
+				if (timeSeconds <= 0) {
+					timeline.stop();
+					timerWindow.close();
+					System.out.println(isSubmitPressed);
+					// checks if submit button is pressed, if not the "out of time" window is shown
+					if (isSubmitPressed == 0) {
+						timeUp(questionWindow);
 					}
-				}));
+					// reset count
+					isSubmitPressed = 0;
+				}
+			}
+		}));
 		timeline.playFromStart();
-
 
 		// Create and configure VBox
 		// gap between components is 20
@@ -92,31 +94,31 @@ public class Timer {
 		// Add the VBox to the root component
 		root.getChildren().add(vb);
 
-		window.setScene(scene);
-		window.show();
+		timerWindow.setScene(scene);
+		timerWindow.show();
 	}
+
 	/**
-	 * This method is called once the timer reaches 0. This method opens 
-	 * a new window that will display that the time is up. Once the user
-	 * confirms that they have seen this message, this will close the 
-	 * question window as well, counting the answer to be incorrect and 
-	 * gaining no winnings.
+	 * This method is called once the timer reaches 0. This method opens a new
+	 * window that will display that the time is up. Once the user confirms that
+	 * they have seen this message, this will close the question window as well,
+	 * counting the answer to be incorrect and gaining no winnings.
 	 * 
 	 * @param questionWindow the Question/Answer window
 	 */
 	public void timeUp(Stage questionWindow) {
-		Stage window= new Stage();
-		Group root= new Group();
+		Stage window = new Stage();
+		Group root = new Group();
 		Scene scene = new Scene(root, 300, 250);
-		Label noTime= new Label("Time is up");
-		Button confirm= new Button("Confirm");
-		// This button closes the window and calls a method to close the 
+		Label noTime = new Label("Time is up");
+		Button confirm = new Button("Confirm");
+		// This button closes the window and calls a method to close the
 		// question window as well.
 		confirm.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 				window.close();
-				//closes the question/answer window
+				// closes the question/answer window
 				questionWindow.close();
 			}
 		});
@@ -130,16 +132,28 @@ public class Timer {
 		// Move the VBox down a bit
 		vb.setLayoutY(30);
 		// Add the button and timerLabel to the VBox
-		vb.getChildren().addAll(noTime,confirm);
+		vb.getChildren().addAll(noTime, confirm);
 		// Add the VBox to the root component
 		root.getChildren().add(vb);
 		window.initModality(Modality.APPLICATION_MODAL);
 		window.setScene(scene);
-		//window.showAndWait();
+		// window.showAndWait();
 		window.show();
-		
+
 	}
-	//public static void submitBeforeTime() {
-		//window.close();
-	//}
+
+	/**
+	 * This method is called when the submit button is pressed by the user after
+	 * typing their answer to the question. It closes the timer window, and
+	 * increments the value of isSubmitPressed by 1 so that the "out of time" window
+	 * is never shown.
+	 * 
+	 * @param timerWindow the Timer window
+	 */
+	public static void submitBeforeTime(Stage timerWindow) {
+		timerWindow.close();
+
+		// since submit is pressed, change value to 1
+		isSubmitPressed++;
+	}
 }
