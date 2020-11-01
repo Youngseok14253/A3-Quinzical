@@ -106,10 +106,6 @@ public class AnswerQuestion {
 		warning.setText("\nSee help Menu for acceptable answer formats");
 		whatIsAre.setText("\n" + whatVal + ":");
 		label.setText(question + "...");
-
-		// Creating the timer for the question
-		Timer time= new Timer();
-		time.showTimer();
 		
 		// Calls the setCount method, where the count becomes 1
 		// This count is used to check the number of user attempts when answering a
@@ -213,6 +209,11 @@ public class AnswerQuestion {
 
 		Scene scene = new Scene(layout, 600, 200);
 		window.setScene(scene);
+		
+		// Creating the timer for the question
+		Timer time= new Timer();
+		time.showTimer(window);		
+		
 		window.showAndWait();
 
 	}

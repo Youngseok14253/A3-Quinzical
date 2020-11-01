@@ -34,8 +34,10 @@ public class Timer {
 	 * This method opens a window that shows the remaining time for the user
 	 * to answer the given question. This window will close once the timer
 	 * reaches 0.
+	 * 
+	 * @param questionWindow the Question/Answer window
 	 */
-	public void showTimer() {
+	public void showTimer(Stage questionWindow) {
 
 		// Setup the Stage and the Scene (the scene graph)
 		Stage window= new Stage();
@@ -68,7 +70,7 @@ public class Timer {
 						if (timeSeconds <= 0) {
 							timeline.stop();
 							window.close();
-							timeUp();
+							timeUp(questionWindow);
 						}
 					}
 				}));
@@ -98,8 +100,10 @@ public class Timer {
 	 * confirms that they have seen this message, this will close the 
 	 * question window as well, counting the answer to be incorrect and 
 	 * gaining no winnings.
+	 * 
+	 * @param questionWindow the Question/Answer window
 	 */
-	public void timeUp() {
+	public void timeUp(Stage questionWindow) {
 		Stage window= new Stage();
 		Group root= new Group();
 		Scene scene = new Scene(root, 300, 250);
@@ -111,7 +115,8 @@ public class Timer {
 			@Override
 			public void handle(ActionEvent event) {
 				window.close();
-				AnswerQuestion.closeWindow();
+				//closes the question/answer window
+				questionWindow.close();
 			}
 		});
 
@@ -129,6 +134,8 @@ public class Timer {
 		root.getChildren().add(vb);
 		window.initModality(Modality.APPLICATION_MODAL);
 		window.setScene(scene);
-		window.showAndWait();
+		//window.showAndWait();
+		window.show();
+		
 	}
 }
