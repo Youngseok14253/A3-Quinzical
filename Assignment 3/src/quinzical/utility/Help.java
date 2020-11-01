@@ -1,4 +1,4 @@
-package quinzical;
+package quinzical.utility;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;

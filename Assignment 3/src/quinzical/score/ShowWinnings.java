@@ -1,4 +1,4 @@
-package quinzical;
+package quinzical.score;
 
 import java.util.ArrayList;
 

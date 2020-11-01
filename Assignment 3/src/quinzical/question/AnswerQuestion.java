@@ -1,7 +1,9 @@
-package quinzical;
+package quinzical.question;
 
 import javafx.stage.*;
-
+import quinzical.score.ShowWinnings;
+import quinzical.utility.ConfirmBox;
+import quinzical.utility.Help;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.*;

@@ -1,4 +1,4 @@
-package quinzical;
+package quinzical.question;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;

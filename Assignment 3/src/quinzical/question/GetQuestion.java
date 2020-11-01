@@ -1,4 +1,4 @@
-package quinzical;
+package quinzical.question;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

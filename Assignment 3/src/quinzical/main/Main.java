@@ -1,4 +1,4 @@
-package quinzical;
+package quinzical.main;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -12,12 +12,14 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import quinzical.board.CreatePracticeBoard;
+import quinzical.board.DisplayGameBoard;
+import quinzical.score.HighScore;
+import quinzical.score.ShowWinnings;
+import quinzical.utility.ConfirmBox;
 
 import java.io.*;
 import java.util.ArrayList;
-
-import board.CreatePracticeBoard;
-import board.DisplayGameBoard;
 
 /**
  * This Main class provides the launch of the Quinzical GUI. It mainly
