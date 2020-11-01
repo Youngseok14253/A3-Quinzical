@@ -18,7 +18,6 @@ import java.util.ArrayList;
 
 import board.CreatePracticeBoard;
 import board.DisplayGameBoard;
-import board.MockGameBoard;
 
 /**
  * This Main class provides the launch of the Quinzical GUI. It mainly
@@ -32,6 +31,7 @@ public class Main extends Application {
 
 	Scene mainScene, gameScene, practiceScene;
 	public Stage program;
+	private static int count;
 
 	/*
 	 * This is the first GUI the user is greeted with - the main menu of Quinzical.
@@ -42,7 +42,7 @@ public class Main extends Application {
 	 */
 	@Override
 	public void start(Stage primaryStage) {
-
+		setCount();
 		program = primaryStage;
 
 		Label label1 = new Label("Welcome to Quinzical!");
@@ -57,7 +57,7 @@ public class Main extends Application {
 		ShowWinnings.setFiveCount();
 		ShowWinnings.setInternationalCount();
 
-		final ArrayList<String> Categories = MockGameBoard.CreateGameBoardArray();
+		//final ArrayList<String> Categories = MockGameBoard.CreateGameBoardArray();
 
 		// Game button
 		Button btnMainToGame = new Button("Game Mode");
@@ -68,7 +68,17 @@ public class Main extends Application {
 		btnMainToGame.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				DisplayGameBoard.displayGame(Categories);
+				incrementCount();
+				if (DisplayGameBoard.isFinished()==false) {
+					if (getCount()>1) {
+						DisplayGameBoard.isNotFinished();
+					}else {
+						DisplayGameBoard.displayGame();
+					}
+				}else {
+					DisplayGameBoard.displayGame();
+					
+				}
 			}
 		});
 
@@ -94,14 +104,14 @@ public class Main extends Application {
 		btnMainToHelp.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				
+
 				boolean openHelp = ConfirmBox.display("Open Manual?", "By pressing Yes, it will redirect you to the Quinzical Manual"
 						+ "\n\n\t\t\t\t\tConfirm?");
 
 				//when the user confirms they want to open the pdf, they are redirected to a page where 
 				if (openHelp) {
 					try {
-						
+
 						//bash command copied from the URL below:
 						//https://askubuntu.com/questions/43264/how-to-open-a-pdf-file-from-terminal
 
@@ -131,7 +141,7 @@ public class Main extends Application {
 						e.printStackTrace();
 					}					
 				}
-				
+
 
 			}
 
@@ -175,7 +185,7 @@ public class Main extends Application {
 				closeProgram();
 			}
 		});
- 
+
 		// Closing when pressing the red X at top right corner
 		// Asks the user to confirm, rather than exit immediately
 		program.setOnCloseRequest(new EventHandler<WindowEvent>() {
@@ -264,21 +274,21 @@ public class Main extends Application {
 	private void resetProgram() {
 		Boolean answer = ConfirmBox.display("Reset Scores and lock International", "Are you sure you want to reset?");
 		if (answer) {
-			
+
 			System.out.println("reset");
 
 
 		}
 	}
-	
+
 	/*
 	 * This method creates a window with the high scores of all attempts. Pressing the return button
 	 * takes the user back to the Main Menu.
 	 */
 	private void showScores() {
-		
+
 		ArrayList<String> scores = HighScore.returnScores();
-		
+
 		HighScore.displayScores(scores, "User", 9100);
 	}
 
@@ -314,5 +324,15 @@ public class Main extends Application {
 
 		launch(args);
 
+	}
+	public static void setCount() {
+		count=0;
+	}
+	public int getCount() {
+		return count;
+	}
+
+	public void incrementCount() {
+		count++;
 	}
 }

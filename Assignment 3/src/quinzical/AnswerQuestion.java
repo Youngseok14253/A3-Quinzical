@@ -2,9 +2,6 @@ package quinzical;
 
 import javafx.stage.*;
 
-import java.util.TimerTask;
-import java.util.Timer;
-
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.*;
@@ -23,7 +20,6 @@ import javafx.scene.control.*;
  * 
  */
 public class AnswerQuestion {
-	private static int time=60;
 	/*
 	 * This method creates a new window, where it displays a question (either
 	 * text/audio) from the Question Bank corresponding to the selected category and
@@ -76,7 +72,7 @@ public class AnswerQuestion {
 		// New Stage, set limits
 		Stage window = new Stage();
 
-		window.initModality(Modality.APPLICATION_MODAL);
+		//window.initModality(Modality.APPLICATION_MODAL);
 		window.setTitle(categoryName);
 		window.setMinWidth(600);
 		window.setMinHeight(200);
@@ -110,9 +106,10 @@ public class AnswerQuestion {
 		label.setText(question + "...");
 
 		// Creating the timer for the question
-		int remainingTime= Timer();
-		Label remainTime= new Label();
-		remainTime.setText(Integer.toString(remainingTime));
+		Timer time= new Timer();
+		time.showTimer();
+		//Label remainTime= new Label();
+		//remainTime.setText(Integer.toString(remainingTime));
 		// Calls the setCount method, where the count becomes 1
 		// This count is used to check the number of user attempts when answering a
 		// Question
@@ -211,7 +208,7 @@ public class AnswerQuestion {
 		VBox layout = new VBox(menuBar);
 		layout.setAlignment(Pos.TOP_CENTER);
 
-		layout.getChildren().addAll(label, whatIsAre, answerField, submitButton, warning, remainTime);
+		layout.getChildren().addAll(label, whatIsAre, answerField, submitButton, warning);
 
 		Scene scene = new Scene(layout, 600, 200);
 		window.setScene(scene);
@@ -222,24 +219,4 @@ public class AnswerQuestion {
 	 * This method creates a Timer for the game module and gives a 60 second time limit to the user for
 	 * them to answer the question. The Timer is stopped once the time reaches to 0.
 	 */
-	private static int Timer() {
-		
-		Timer gameTimer= new Timer();
-		gameTimer.scheduleAtFixedRate(new TimerTask() {
-			@Override
-			public void run() {
-				if (time<= 0) {
-					gameTimer.cancel();
-				}
-				else {
-					
-					//System.out.println(time);
-					//timerLabel.setText(Integer.toString(time));
-					
-					time--;
-				}
-			}
-		}, 0, 1000);
-		return time;
-	}
 }

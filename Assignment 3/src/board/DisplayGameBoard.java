@@ -1,7 +1,5 @@
 package board;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -27,6 +25,8 @@ import quinzical.ShowWinnings;
  */
 public class DisplayGameBoard {
 	private static int count;
+	private static boolean finished;
+	private static ArrayList<String> chosenCategories= new ArrayList<String>();
 	/*
 	 * This method displays a new window with all categories in the Question Bank.
 	 * Once 5 categories are selected by the user, the method displayGameBoard is called
@@ -35,7 +35,9 @@ public class DisplayGameBoard {
 	 * 
 	 * 
 	 */
-	public static void displayGame(ArrayList<String> categories) {
+	public static void displayGame() {
+		// Resetting the count back to 1, so that 5 categories may be chosen again
+		setCount();
 		// New Stage
 		Stage window = new Stage();
 
@@ -44,8 +46,8 @@ public class DisplayGameBoard {
 		gameGrid.setPadding(new Insets(10, 10, 10, 10));
 		gameGrid.setVgap(8);
 		gameGrid.setHgap(10);
-		
-		ArrayList<String> chosenCategories= new ArrayList<String>();
+
+		//ArrayList<String> chosenCategories= new ArrayList<String>();
 
 		CompareAnswer.setCount();
 		Label Category = new Label("Please select any 5 categories");
@@ -250,7 +252,7 @@ public class DisplayGameBoard {
 		// Adds the buttons and Labels to the Grid
 		gameGrid.getChildren().addAll(Category, Category1, Category2, Category3, Category4, Category5, Category6,
 				Category7, Category8, Category9);
-	
+
 		// Create layout and show scene
 		Scene scene = new Scene(gameGrid, 600, 450);
 
@@ -259,7 +261,7 @@ public class DisplayGameBoard {
 		window.setScene(scene);
 		window.setTitle("Game Mode");
 		window.show();
-		
+
 	}
 	public static boolean isCategoriesSelected() {
 		if (getCount()==5) {
@@ -298,8 +300,7 @@ public class DisplayGameBoard {
 
 
 		// This boolean checks whether all of the categories have been answered
-		boolean finished = false;
-
+		finished=false;
 		// New Stage
 		Stage window = new Stage();
 
@@ -518,9 +519,9 @@ public class DisplayGameBoard {
 		if (ShowWinnings.isOneLimit() == true && ShowWinnings.isTwoLimit() == true
 				&& ShowWinnings.isThreeLimit() == true && ShowWinnings.isFourLimit() == true
 				&& ShowWinnings.isFiveLimit() == true && ShowWinnings.isInternationalLimit() == true) {
-		   String[] nameAndScore = ShowWinnings.rewardScreen();
+			String[] nameAndScore = ShowWinnings.rewardScreen();
 
-		   HighScore.updateScoreBoard(nameAndScore);
+			HighScore.updateScoreBoard(nameAndScore);
 
 			window.close();
 			// The boolean value is changed to true
@@ -541,6 +542,22 @@ public class DisplayGameBoard {
 		if (finished == false) {
 			window.show();
 		}
+		if(finished== true) {
+			for(int i=0; i< chosenCategories.size(); i++) {
+				chosenCategories.remove(i);
+			}
+		}
+	}
+	public static boolean isFinished() {
+		if (finished==true) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	public static void isNotFinished() {
+		displayGameBoard(chosenCategories);
 	}
 
 }

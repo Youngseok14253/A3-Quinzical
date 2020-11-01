@@ -150,8 +150,6 @@ public class HighScore {
 
 		String name = nameAndScore[0];
 		String winnings = nameAndScore[1];
-		
-		System.out.println(winnings);
 
 		// The try and catch method calls the CreateCategories bash function
 		try {
