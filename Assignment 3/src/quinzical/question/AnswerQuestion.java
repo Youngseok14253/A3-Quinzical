@@ -117,8 +117,9 @@ public class AnswerQuestion {
 		// into the compareAnswerToInput
 		// method, and stores the boolean value output
 		submitButton.setOnAction(e -> {
+			Timer.submitBeforeTime();
 			boolean ans = CompareAnswer.compareAnswerToInput(answerField, answer);
-
+			
 			// If the answer is true, and in Game Mode, then it displays "Correct", and
 			// increments
 			// the count of the selected category (from 1 to 5) by 1
